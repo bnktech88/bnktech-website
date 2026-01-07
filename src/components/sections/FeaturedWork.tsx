@@ -1,0 +1,145 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
+import Link from 'next/link'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { projects } from '@/content/projects'
+import { createScrollTrigger } from '@/lib/motion'
+
+gsap.registerPlugin(ScrollTrigger)
+
+export default function FeaturedWork() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const cardsRef = useRef<HTMLDivElement[]>([])
+
+  useEffect(() => {
+    const section = sectionRef.current
+    const cards = cardsRef.current
+
+    if (!section || cards.length === 0) return
+
+    // Check for reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    
+    if (prefersReducedMotion) {
+      gsap.set(cards, { opacity: 1, y: 0 })
+      return
+    }
+
+    // Initial state
+    gsap.set(cards, { opacity: 0, y: 60 })
+
+    // Animate cards on scroll
+    cards.forEach((card, index) => {
+      createScrollTrigger(card, () => {
+        gsap.to(card, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: index * 0.15,
+          ease: 'power2.out'
+        })
+      })
+    })
+
+  }, [])
+
+  const addToRefs = (el: HTMLDivElement) => {
+    if (el && !cardsRef.current.includes(el)) {
+      cardsRef.current.push(el)
+    }
+  }
+
+  const featuredProjects = projects.slice(0, 3)
+
+  return (
+    <section ref={sectionRef} className="py-24 bg-grey-100">
+      <div className="container">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+            Featured Work
+          </h2>
+          <p className="text-xl text-grey-700 max-w-3xl mx-auto">
+            Explore our recent website projects and see how we've helped businesses 
+            transform their digital presence with high-performance web solutions.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {featuredProjects.map((project, index) => (
+            <div
+              key={project.slug}
+              ref={addToRefs}
+              className="group cursor-pointer"
+              data-cursor="view"
+            >
+              <Link href={`/work/${project.slug}`}>
+                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
+                  {/* Project Image Placeholder */}
+                  <div className="aspect-video bg-gradient-to-br from-grey-200 to-grey-300 flex items-center justify-center">
+                    <div className="text-grey-600 text-center">
+                      <div className="w-12 h-12 mx-auto mb-3 bg-grey-400 rounded-lg flex items-center justify-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
+                          <path d="M9 9h6v6H9z" fill="currentColor"/>
+                        </svg>
+                      </div>
+                      <p className="text-sm font-medium">{project.category}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-sm font-medium text-grey-600 bg-grey-100 px-3 py-1 rounded-full">
+                        {project.category}
+                      </span>
+                      <span className="text-sm text-grey-500">{project.year}</span>
+                    </div>
+                    
+                    <h3 className="text-xl font-display font-semibold mb-3 group-hover:text-grey-800 transition-colors">
+                      {project.title}
+                    </h3>
+                    
+                    <p className="text-grey-700 mb-4 line-clamp-3">
+                      {project.summary}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.slice(0, 3).map((tech) => (
+                        <span 
+                          key={tech}
+                          className="text-xs font-medium text-grey-600 bg-grey-100 px-2 py-1 rounded"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <span className="text-xs font-medium text-grey-600">
+                          +{project.technologies.length - 3} more
+                        </span>
+                      )}
+                    </div>
+                    
+                    <div className="flex items-center text-sm font-medium text-black group-hover:text-grey-700 transition-colors">
+                      View Project
+                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link href="/work" className="btn btn-primary magnetic">
+            View All Projects
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}

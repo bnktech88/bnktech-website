@@ -175,8 +175,10 @@ export const services: Service[] = [
     },
     status: 'coming-soon',
     gallery: [
-      { src: '/assets/app-dev-maintenance-1.jpeg', alt: 'App development showcase 1' },
-      { src: '/assets/app-dev-maintenance-2.jpeg', alt: 'App development showcase 2' }
+      { src: '/assets/app-dev-maintenance-1.jpeg', alt: 'App development showcase – mobile UI' },
+      { src: '/assets/app-dev-maintenance-2.jpeg', alt: 'Cross-platform application dashboard' },
+      { src: '/assets/app-dev-maintenance-3.jpeg', alt: 'Backend system integration interface' },
+      { src: '/assets/app-dev-maintenance-4.jpeg', alt: 'Ongoing app maintenance & optimization' }
     ]
   }
 ]

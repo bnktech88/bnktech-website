@@ -16,10 +16,10 @@ export const siteConfig = {
     { name: 'Contact', href: '/contact' },
   ],
   seo: {
-    title: 'BNK Tech (PTY) LTD - Premium Technology Solutions',
+    title: 'BNK Tech (PTY) LTD | Premium Technology Solutions',
     description: 'BNK Tech delivers high-performance websites, digital infrastructure, IT services, and security solutions for businesses ready to scale.',
     keywords: 'web development, digital infrastructure, IT services, technology solutions, South Africa',
-    ogImage: '/assets/bnktech.net_logo.png',
+    ogImage: '/og.png',
     twitterHandle: '@bnktech',
   },
   social: {

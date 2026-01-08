@@ -124,7 +124,7 @@ export default function ContactForm() {
                 onChange={handleInputChange}
                 required
                 className="w-full px-4 py-3 border border-grey-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors"
-                placeholder="John Smith"
+                placeholder="Bezwe Nkosi"
               />
             </div>
 
@@ -140,7 +140,7 @@ export default function ContactForm() {
                 onChange={handleInputChange}
                 required
                 className="w-full px-4 py-3 border border-grey-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors"
-                placeholder="john@company.com"
+                placeholder="bezwe@company.com"
               />
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function ContactForm() {
                 value={formData.phone}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-grey-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors"
-                placeholder="+27 12 345 6789"
+                placeholder="+27 63 068 7409"
               />
             </div>
 

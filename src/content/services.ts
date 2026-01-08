@@ -11,6 +11,7 @@ export interface Service {
     maintenanceModel?: string
   }
   status?: 'active' | 'coming-soon'
+  gallery?: { src: string; alt: string }[]
 }
 
 export const services: Service[] = [
@@ -40,7 +41,13 @@ export const services: Service[] = [
       maintenance: 'R1,500',
       maintenanceModel: 'Monthly / Retainer'
     },
-    status: 'active'
+    status: 'active',
+    gallery: [
+      { src: '/assets/website-builds-1.jpeg', alt: 'Website build showcase 1' },
+      { src: '/assets/website-builds-2.jpeg', alt: 'Website build showcase 2' },
+      { src: '/assets/website-builds-3.jpeg', alt: 'Website build showcase 3' },
+      { src: '/assets/website-builds-4.jpeg', alt: 'Website build showcase 4' }
+    ]
   },
   {
     id: 'app-development',

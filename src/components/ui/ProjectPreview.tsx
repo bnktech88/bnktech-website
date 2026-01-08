@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 interface ProjectPreviewProps {
@@ -100,12 +101,14 @@ export default function ProjectPreview({
       }}
     >
       {/* Image or Placeholder */}
-      <div className="aspect-video bg-gradient-to-br from-grey-200 to-grey-300 flex items-center justify-center">
+      <div className="relative aspect-video bg-gradient-to-br from-grey-200 to-grey-300 flex items-center justify-center">
         {image ? (
-          <img 
+          <Image 
             src={image} 
             alt={title}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 320px"
           />
         ) : (
           <div className="text-grey-600 text-center">

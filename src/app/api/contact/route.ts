@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import nodemailer from 'nodemailer'
 
 // Rate limiting store (in production, use Redis or a database)
 const rateLimitStore = new Map<string, { count: number; timestamp: number }>()
@@ -39,6 +40,54 @@ function checkRateLimit(ip: string): boolean {
   
   record.count++
   return true
+}
+
+async function sendEmail(formData: ContactFormData & { timestamp: string; ip: string }): Promise<boolean> {
+  try {
+    // Only send emails in preview mode or if SMTP is configured
+    if (!process.env.CONTACT_TO || !process.env.SMTP_HOST) {
+      console.log('Email not configured, logging submission instead:', formData)
+      return true
+    }
+
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || '587'),
+      secure: process.env.SMTP_PORT === '465',
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    })
+
+    const emailContent = `
+New Contact Form Submission
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+Company: ${formData.company || 'Not provided'}
+Service: ${formData.service}
+Timestamp: ${formData.timestamp}
+IP Address: ${formData.ip}
+
+Message:
+${formData.message}
+    `
+
+    await transporter.sendMail({
+      from: process.env.SMTP_USER,
+      to: process.env.CONTACT_TO,
+      subject: `New Contact Form Submission - ${formData.service}`,
+      text: emailContent,
+      html: emailContent.replace(/\n/g, '<br>'),
+    })
+
+    return true
+  } catch (error) {
+    console.error('Failed to send email:', error)
+    return false
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -93,17 +142,22 @@ export async function POST(request: NextRequest) {
       ip: ip
     }
 
-    // Log the contact form submission (in production, save to database)
+    // Log the contact form submission
     console.log('Contact Form Submission:', JSON.stringify(sanitizedData, null, 2))
 
-    // In production, you would:
-    // 1. Save to database
-    // 2. Send email notification
-    // 3. Add to CRM system
-    // 4. Send auto-reply to customer
+    // Send email notification
+    const emailSent = await sendEmail(sanitizedData)
+    
+    if (!emailSent) {
+      console.error('Failed to send email notification')
+      // Continue with success response since the form data is valid
+      // In production, you might want to queue the email for retry
+    }
 
-    // Simulate processing time
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    // In production, you would also:
+    // 1. Save to database
+    // 2. Add to CRM system
+    // 3. Send auto-reply to customer
 
     return NextResponse.json(
       { 

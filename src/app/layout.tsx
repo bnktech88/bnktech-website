@@ -9,6 +9,7 @@ import SmoothScroll from '@/components/SmoothScroll'
 import CustomCursor from '@/components/cursor/CustomCursor'
 import PageTransition from '@/components/transitions/PageTransition'
 import HoverPreviewProvider from '@/components/ui/HoverPreviewProvider'
+import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -22,7 +23,10 @@ const archivo = Archivo({
   display: 'swap',
 })
 
-export const metadata: Metadata = generateSEO()
+export const metadata: Metadata = {
+  ...generateSEO(),
+  metadataBase: new URL(`https://${siteConfig.company.domain}`),
+}
 
 export default function RootLayout({
   children,
@@ -47,6 +51,7 @@ export default function RootLayout({
             <Footer />
           </HoverPreviewProvider>
         </SmoothScroll>
+        <Analytics />
       </body>
     </html>
   )

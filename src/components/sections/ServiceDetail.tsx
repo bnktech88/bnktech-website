@@ -6,6 +6,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Service } from '@/content/services'
 import { createScrollTrigger } from '@/lib/motion'
+import ServiceMediaCarousel from '@/components/ui/ServiceMediaCarousel'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -136,21 +137,32 @@ export default function ServiceDetail({ service, index }: ServiceDetailProps) {
 
       {/* Visual Element */}
       <div className="flex-1 max-w-md">
-        <div className="aspect-square bg-gradient-to-br from-grey-100 to-grey-200 rounded-2xl flex items-center justify-center p-8">
-          <div className="text-center">
-            <div className="w-24 h-24 bg-black rounded-2xl flex items-center justify-center mb-6 mx-auto">
-              <span className="text-white font-display font-bold text-2xl">
-                {String(index + 1).padStart(2, '0')}
-              </span>
+        {service.gallery && service.gallery.length > 0 ? (
+          <ServiceMediaCarousel 
+            images={service.gallery}
+            autoPlay={true}
+            interval={4000}
+            showControls={true}
+            showDots={true}
+            className="w-full"
+          />
+        ) : (
+          <div className="aspect-square bg-gradient-to-br from-grey-100 to-grey-200 rounded-2xl flex items-center justify-center p-8">
+            <div className="text-center">
+              <div className="w-24 h-24 bg-black rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <span className="text-white font-display font-bold text-2xl">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
+              <h3 className="text-xl font-display font-semibold text-grey-800 mb-2">
+                {service.title}
+              </h3>
+              <p className="text-grey-600 text-sm">
+                {service.pricing.model}
+              </p>
             </div>
-            <h3 className="text-xl font-display font-semibold text-grey-800 mb-2">
-              {service.title}
-            </h3>
-            <p className="text-grey-600 text-sm">
-              {service.pricing.model}
-            </p>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

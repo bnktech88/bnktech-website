@@ -116,6 +116,12 @@ export default function ServiceDetail({ service, index }: ServiceDetailProps) {
                 <p className="text-sm text-grey-600 mb-1">Starting from</p>
                 <p className="text-3xl font-display font-bold">{service.pricing.starting}</p>
                 <p className="text-sm text-grey-600">{service.pricing.model}</p>
+                {service.pricing.maintenance && (
+                  <div className="mt-3 pt-3 border-t border-grey-200">
+                    <p className="text-lg font-display font-semibold text-grey-800">Monthly Maintenance from {service.pricing.maintenance}</p>
+                    <p className="text-sm text-grey-600">{service.pricing.maintenanceModel}</p>
+                  </div>
+                )}
               </div>
               <Link 
                 href="/contact"

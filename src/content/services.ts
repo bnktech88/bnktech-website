@@ -7,6 +7,8 @@ export interface Service {
   pricing: {
     starting: string
     model: string
+    maintenance?: string
+    maintenanceModel?: string
   }
   status?: 'active' | 'coming-soon'
 }
@@ -33,10 +35,38 @@ export const services: Service[] = [
       'Launch & Optimization'
     ],
     pricing: {
-      starting: 'R3,000',
-      model: 'Project-based'
+      starting: 'R5,000',
+      model: 'Project-based',
+      maintenance: 'R1,500',
+      maintenanceModel: 'Monthly / Retainer'
     },
     status: 'active'
+  },
+  {
+    id: 'app-development',
+    title: 'App Development & Maintenance',
+    description: 'Mobile and web applications designed for performance, scale, and reliability — launching soon.',
+    features: [
+      'Native iOS & Android apps',
+      'Progressive Web Applications',
+      'Cross-platform development',
+      'App Store deployment',
+      'Performance optimization',
+      'User experience design',
+      'Backend integration',
+      'Ongoing maintenance'
+    ],
+    process: [
+      'App Strategy & Planning',
+      'Design & Prototyping',
+      'Development & Testing',
+      'Deployment & Support'
+    ],
+    pricing: {
+      starting: 'Coming Soon',
+      model: 'Available in future'
+    },
+    status: 'coming-soon'
   },
   {
     id: 'digital-infrastructure',
@@ -135,32 +165,6 @@ export const services: Service[] = [
       'Custom Retainer Agreement',
       'Resource Allocation',
       'Ongoing Collaboration'
-    ],
-    pricing: {
-      starting: 'Coming Soon',
-      model: 'Available in future'
-    },
-    status: 'coming-soon'
-  },
-  {
-    id: 'app-development',
-    title: 'App Development & Maintenance',
-    description: 'Mobile and web applications designed for performance, scale, and reliability — launching soon.',
-    features: [
-      'Native iOS & Android apps',
-      'Progressive Web Applications',
-      'Cross-platform development',
-      'App Store deployment',
-      'Performance optimization',
-      'User experience design',
-      'Backend integration',
-      'Ongoing maintenance'
-    ],
-    process: [
-      'App Strategy & Planning',
-      'Design & Prototyping',
-      'Development & Testing',
-      'Deployment & Support'
     ],
     pricing: {
       starting: 'Coming Soon',

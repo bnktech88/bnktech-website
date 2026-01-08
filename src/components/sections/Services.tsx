@@ -96,6 +96,13 @@ export default function Services() {
                   <div>
                     <p className="text-sm text-grey-600">Starting from</p>
                     <p className="text-xl font-display font-bold">{service.pricing.starting}</p>
+                    <p className="text-xs text-grey-600">{service.pricing.model}</p>
+                    {service.pricing.maintenance && (
+                      <div className="mt-1">
+                        <p className="text-sm font-semibold text-grey-800">Monthly Maintenance from {service.pricing.maintenance}</p>
+                        <p className="text-xs text-grey-600">{service.pricing.maintenanceModel}</p>
+                      </div>
+                    )}
                   </div>
                 )}
                 <Link 

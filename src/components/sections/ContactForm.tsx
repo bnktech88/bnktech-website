@@ -190,7 +190,8 @@ export default function ContactForm() {
               className="w-full px-4 py-3 border border-grey-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors"
             >
               <option value="">Select a service</option>
-              <option value="website-build">Website Build</option>
+              <option value="website-builds">Website Builds</option>
+              <option value="app-development">App Development & Maintenance</option>
               <option value="digital-infrastructure">Digital Infrastructure</option>
               <option value="it-services">IT Services</option>
               <option value="security-maintenance">Security & Maintenance</option>

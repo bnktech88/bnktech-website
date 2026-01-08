@@ -6,7 +6,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Service } from '@/content/services'
 import { createScrollTrigger } from '@/lib/motion'
-import ServiceMediaCarousel from '@/components/ui/ServiceMediaCarousel'
+import ServiceGallery from '@/components/gallery/ServiceGallery'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -131,13 +131,10 @@ export default function ServiceDetail({ service, index }: ServiceDetailProps) {
 
       {/* Visual Element */}
       <div className="flex-1 max-w-md">
-        {service.gallery && service.gallery.length > 0 ? (
-          <ServiceMediaCarousel 
-            images={service.gallery}
-            autoPlay={true}
-            interval={4000}
-            showControls={true}
-            showDots={true}
+        {service.gallery && service.gallery.length > 0 && service.galleryConfig ? (
+          <ServiceGallery 
+            media={service.gallery}
+            config={service.galleryConfig}
             className="w-full"
           />
         ) : (

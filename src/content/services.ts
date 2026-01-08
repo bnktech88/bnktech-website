@@ -9,6 +9,7 @@ export interface Service {
     model: string
   }
   status?: 'active' | 'coming-soon'
+  gallery?: { src: string; alt: string }[]
 }
 
 export const services: Service[] = [
@@ -36,7 +37,13 @@ export const services: Service[] = [
       starting: 'R3,000',
       model: 'Project-based'
     },
-    status: 'active'
+    status: 'active',
+    gallery: [
+      { src: '/assets/website-builds-1.jpeg', alt: 'Website build showcase 1' },
+      { src: '/assets/website-builds-2.jpeg', alt: 'Website build showcase 2' },
+      { src: '/assets/website-builds-3.jpeg', alt: 'Website build showcase 3' },
+      { src: '/assets/website-builds-4.jpeg', alt: 'Website build showcase 4' }
+    ]
   },
   {
     id: 'digital-infrastructure',
@@ -166,6 +173,12 @@ export const services: Service[] = [
       starting: 'Coming Soon',
       model: 'Available in future'
     },
-    status: 'coming-soon'
+    status: 'coming-soon',
+    gallery: [
+      { src: '/assets/app-dev-maintenance-1.jpeg', alt: 'App development showcase – mobile UI' },
+      { src: '/assets/app-dev-maintenance-2.jpeg', alt: 'Cross-platform application dashboard' },
+      { src: '/assets/app-dev-maintenance-3.jpeg', alt: 'Backend system integration interface' },
+      { src: '/assets/app-dev-maintenance-4.jpeg', alt: 'Ongoing app maintenance & optimization' }
+    ]
   }
 ]

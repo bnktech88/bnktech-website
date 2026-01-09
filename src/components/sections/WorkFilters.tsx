@@ -25,7 +25,7 @@ export default function WorkFilters({
   }
 
   return (
-    <section className="py-12 bg-neutral-50 border-b border-neutral-200">
+    <section className="py-12 section-bronze border-b border-navy">
       <div className="container">
         <div className="flex flex-wrap justify-center gap-4">
           {filters.map((filter) => (
@@ -35,8 +35,8 @@ export default function WorkFilters({
               className={cn(
                 'px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 magnetic',
                 selectedFilter === filter
-                  ? 'bg-primary-900 text-neutral-50 shadow-lg shadow-primary-900/20'
-                  : 'bg-neutral-100 text-primary-600 hover:bg-accent-50 hover:text-accent-700 border border-neutral-200'
+                  ? 'bg-navy text-gold'
+                  : 'bg-cream text-navy hover:bg-navy hover:text-gold border border-navy'
               )}
             >
               {filter}

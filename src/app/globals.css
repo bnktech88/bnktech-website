@@ -102,31 +102,33 @@ body {
 @layer components {
   /* === STRICT BRAND PALETTE COMPONENT SYSTEM === */
   
-  /* Button System - Navy buttons with gold text in body */
+  /* STRICT BODY BUTTON SYSTEM - Navy background #0B2A3D + Gold text #D6B071 */
   .btn {
     @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium transition-all duration-200 rounded-lg focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
     focus-ring-color: var(--focus-ring);
   }
 
   .btn-primary {
-    background-color: var(--body-button);     /* Navy */
-    color: var(--body-button-text);          /* Gold text */
+    background-color: #0B2A3D;               /* Deep Navy background */
+    color: #D6B071;                          /* Rich Gold text */
+    border: 2px solid #0B2A3D;               /* Navy border */
   }
   
   .btn-primary:hover {
-    background-color: var(--brand-bronze);   /* Bronze hover */
-    color: var(--brand-navy);                /* Navy text on bronze */
+    background-color: #0B2A3D;               /* Navy background (no change) */
+    color: #D6B071;                          /* Gold text (no change) */
+    opacity: 0.9;                            /* Subtle hover effect */
   }
 
   .btn-outline {
-    border: 2px solid var(--body-button);    /* Navy border */
-    color: var(--body-button);               /* Navy text */
+    border: 2px solid #0B2A3D;               /* Navy border */
+    color: #0B2A3D;                          /* Navy text */
     background-color: transparent;
   }
   
   .btn-outline:hover {
-    background-color: var(--body-button);    /* Navy background */
-    color: var(--body-button-text);          /* Gold text */
+    background-color: #0B2A3D;               /* Navy background */
+    color: #D6B071;                          /* Gold text inside */
   }
   
   /* Header/Footer Button System - Bronze buttons with navy text */

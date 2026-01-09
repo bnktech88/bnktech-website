@@ -98,22 +98,22 @@ export default function Values() {
         </div>
 
         {/* Additional Stats */}
-        <div className="mt-16 pt-12 border-t border">
+        <div className="mt-16 pt-12 border-t border-navy">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-3xl font-display font-bold text-accent mb-2">100%</div>
-              <div className="text-muted">Client Satisfaction Rate</div>
-              <p className="text-sm text-subtle mt-2">Every project delivered to specifications</p>
+              <div className="text-3xl font-display font-bold text-navy mb-2">100%</div>
+              <div className="text-navy">Client Satisfaction Rate</div>
+              <p className="text-sm text-navy mt-2">Every project delivered to specifications</p>
             </div>
             <div>
-              <div className="text-3xl font-display font-bold text-accent mb-2">&lt; 4h</div>
-              <div className="text-muted">Average Response Time</div>
-              <p className="text-sm text-subtle mt-2">Quick communication, always</p>
+              <div className="text-3xl font-display font-bold text-navy mb-2">&lt; 4h</div>
+              <div className="text-navy">Average Response Time</div>
+              <p className="text-sm text-navy mt-2">Quick communication, always</p>
             </div>
             <div>
-              <div className="text-3xl font-display font-bold text-accent mb-2">0</div>
-              <div className="text-muted">Security Breaches</div>
-              <p className="text-sm text-subtle mt-2">Rock-solid security practices</p>
+              <div className="text-3xl font-display font-bold text-navy mb-2">0</div>
+              <div className="text-navy">Security Breaches</div>
+              <p className="text-sm text-navy mt-2">Rock-solid security practices</p>
             </div>
           </div>
         </div>

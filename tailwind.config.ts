@@ -9,59 +9,60 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
-        // BNK Tech Brand Colors (Business Card Palette)
-        primary: {
-          50: '#f8fafc',   // Very light navy tint
-          100: '#f1f5f9',  // Light navy tint  
-          200: '#e2e8f0',  // Subtle navy
-          300: '#cbd5e1',  // Muted navy
-          400: '#94a3b8',  // Mid navy
-          500: '#64748b',  // Standard navy
-          600: '#475569',  // Deep navy
-          700: '#334155',  // Darker navy
-          800: '#1e293b',  // Very dark navy  
-          900: '#0f172a',  // Deepest navy (primary brand)
-          950: '#020617',  // Ultra deep navy
+        // Legacy support
+        background: 'rgb(var(--color-bg) / <alpha-value>)',
+        foreground: 'rgb(var(--color-text) / <alpha-value>)',
+        
+        // === BNK SEMANTIC THEME (CSS Variables) ===
+        // Semantic colors that map to CSS variables
+        'brand': {
+          DEFAULT: 'rgb(var(--color-brand) / <alpha-value>)',
+          hover: 'rgb(var(--color-brand-hover) / <alpha-value>)',
         },
-        accent: {
-          50: '#fefce8',   // Very light gold tint
-          100: '#fef9c3',  // Light gold tint
-          200: '#fef08a',  // Subtle gold
-          300: '#fde047',  // Bright gold
-          400: '#facc15',  // Standard gold
-          500: '#eab308',  // Rich gold
-          600: '#ca8a04',  // Deep gold
-          700: '#a16207',  // Luxury gold (primary accent)
-          800: '#854d0e',  // Dark gold
-          900: '#713f12',  // Deepest gold
-          950: '#422006',  // Ultra deep gold
+        'accent': {
+          DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',
+          hover: 'rgb(var(--color-accent-hover) / <alpha-value>)',
+          soft: 'rgb(var(--color-accent-soft) / <alpha-value>)',
         },
-        neutral: {
-          50: '#fafaf9',   // Off-white
-          100: '#f5f5f4',  // Soft white
-          200: '#e7e5e4',  // Light sand
-          300: '#d6d3d1',  // Sand
-          400: '#a8a29e',  // Mid sand
-          500: '#78716c',  // Standard sand
-          600: '#57534e',  // Deep sand
-          700: '#44403c',  // Dark charcoal
-          800: '#292524',  // Charcoal
-          900: '#1c1917',  // Deep charcoal
-          950: '#0c0a09',  // Deepest charcoal
+        'surface': {
+          DEFAULT: 'rgb(var(--color-surface) / <alpha-value>)',
+          '2': 'rgb(var(--color-surface-2) / <alpha-value>)',
         },
-        grey: {
-          50: '#fafafa',
-          100: '#f5f5f5',
-          200: '#e5e5e5',
-          300: '#d4d4d4',
-          400: '#a3a3a3',
-          500: '#737373',
-          600: '#525252',
-          700: '#404040',
-          800: '#262626',
-          900: '#171717',
+        'text': {
+          DEFAULT: 'rgb(var(--color-text) / <alpha-value>)',
+          muted: 'rgb(var(--color-text-muted) / <alpha-value>)',
+          subtle: 'rgb(var(--color-text-subtle) / <alpha-value>)',
+        },
+        'border': {
+          DEFAULT: 'rgb(var(--color-border) / <alpha-value>)',
+        },
+        'ring': {
+          DEFAULT: 'rgb(var(--color-ring) / <alpha-value>)',
+        },
+        
+        // === BNK BRAND TOKENS (CSS Variables) ===
+        // Direct access to brand colors when needed
+        'bnk-navy': {
+          950: 'rgb(var(--bnk-navy-950) / <alpha-value>)',
+          900: 'rgb(var(--bnk-navy-900) / <alpha-value>)',
+          800: 'rgb(var(--bnk-navy-800) / <alpha-value>)',
+          700: 'rgb(var(--bnk-navy-700) / <alpha-value>)',
+          600: 'rgb(var(--bnk-navy-600) / <alpha-value>)',
+        },
+        'bnk-gold': {
+          700: 'rgb(var(--bnk-gold-700) / <alpha-value>)',
+          600: 'rgb(var(--bnk-gold-600) / <alpha-value>)',
+          500: 'rgb(var(--bnk-gold-500) / <alpha-value>)',
+          400: 'rgb(var(--bnk-gold-400) / <alpha-value>)',
+          300: 'rgb(var(--bnk-gold-300) / <alpha-value>)',
+        },
+        'bnk-neutral': {
+          50: 'rgb(var(--bnk-neutral-50) / <alpha-value>)',
+          100: 'rgb(var(--bnk-neutral-100) / <alpha-value>)',
+          200: 'rgb(var(--bnk-neutral-200) / <alpha-value>)',
+          300: 'rgb(var(--bnk-neutral-300) / <alpha-value>)',
+          800: 'rgb(var(--bnk-neutral-800) / <alpha-value>)',
+          900: 'rgb(var(--bnk-neutral-900) / <alpha-value>)',
         },
       },
       fontFamily: {

@@ -79,16 +79,16 @@ export default function About() {
   }
 
   return (
-    <section ref={sectionRef} className="py-24 bg-grey-100">
+    <section ref={sectionRef} className="py-24 bg-surface">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div ref={contentRef}>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-brand">
               Building the Future of Technology
             </h2>
             
-            <div className="space-y-6 text-lg text-grey-700 leading-relaxed">
+            <div className="space-y-6 text-lg text-muted leading-relaxed">
               <p>
                 BNK Tech is more than a technology company—we're architects of digital transformation. 
                 Founded on the belief that exceptional technology should drive exceptional results, 
@@ -120,12 +120,12 @@ export default function About() {
               <div
                 key={value.title}
                 ref={addToRefs}
-                className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="bg-bnk-neutral-50 p-8 rounded-lg border shadow-sm hover:shadow-md hover:shadow-brand/10 transition-all duration-300"
               >
-                <h3 className="text-2xl font-display font-semibold mb-4">
+                <h3 className="text-2xl font-display font-semibold mb-4 text-brand">
                   {value.title}
                 </h3>
-                <p className="text-grey-700 leading-relaxed">
+                <p className="text-muted leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -134,23 +134,23 @@ export default function About() {
         </div>
 
         {/* Stats */}
-        <div className="mt-24 pt-16 border-t border-grey-200">
+        <div className="mt-24 pt-16 border-t border">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-display font-bold text-black mb-2">50+</div>
-              <div className="text-grey-600">Projects Delivered</div>
+              <div className="text-4xl font-display font-bold text-accent mb-2">50+</div>
+              <div className="text-muted">Projects Delivered</div>
             </div>
             <div>
-              <div className="text-4xl font-display font-bold text-black mb-2">99.9%</div>
-              <div className="text-grey-600">Uptime Guarantee</div>
+              <div className="text-4xl font-display font-bold text-accent mb-2">99.9%</div>
+              <div className="text-muted">Uptime Guarantee</div>
             </div>
             <div>
-              <div className="text-4xl font-display font-bold text-black mb-2">24/7</div>
-              <div className="text-grey-600">Expert Support</div>
+              <div className="text-4xl font-display font-bold text-accent mb-2">24/7</div>
+              <div className="text-muted">Expert Support</div>
             </div>
             <div>
-              <div className="text-4xl font-display font-bold text-black mb-2">100%</div>
-              <div className="text-grey-600">Client Satisfaction</div>
+              <div className="text-4xl font-display font-bold text-accent mb-2">100%</div>
+              <div className="text-muted">Client Satisfaction</div>
             </div>
           </div>
         </div>

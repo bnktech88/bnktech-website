@@ -78,12 +78,12 @@ export default function MinimalFadeGallery({
 
   if (!media || media.length === 0) {
     return (
-      <div className={`aspect-square bg-gradient-to-br from-grey-100 to-grey-200 rounded-2xl flex items-center justify-center ${className}`}>
+      <div className={`aspect-square bg-gradient-to-br from-surface to-surface-2 rounded-2xl flex items-center justify-center ${className}`}>
         <div className="text-center p-8">
-          <div className="w-16 h-16 bg-grey-300 rounded-xl flex items-center justify-center mb-4 mx-auto">
-            <span className="text-grey-600 text-sm font-medium">Gallery</span>
+          <div className="w-16 h-16 bg-border rounded-xl flex items-center justify-center mb-4 mx-auto">
+            <span className="text-muted text-sm font-medium">Gallery</span>
           </div>
-          <p className="text-grey-600 text-sm">Media coming soon</p>
+          <p className="text-muted text-sm">Media coming soon</p>
         </div>
       </div>
     )
@@ -92,7 +92,7 @@ export default function MinimalFadeGallery({
   return (
     <div 
       ref={containerRef}
-      className={`relative aspect-square bg-grey-100 rounded-2xl overflow-hidden group ${className}`}
+      className={`relative aspect-square bg-surface rounded-2xl overflow-hidden group ${className}`}
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="region"
@@ -154,7 +154,7 @@ export default function MinimalFadeGallery({
             className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
             aria-label="Previous slide"
           >
-            <svg className="w-4 h-4 text-grey-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
@@ -164,7 +164,7 @@ export default function MinimalFadeGallery({
             className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
             aria-label="Next slide"
           >
-            <svg className="w-4 h-4 text-grey-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>

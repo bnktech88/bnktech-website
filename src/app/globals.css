@@ -6,8 +6,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --background: #fafaf9;
-  --foreground: #1c1917;
+  /* === BNK TECH BRAND TOKENS (Business Card System) === */
+  /* Navy Blues - Primary Brand */
+  --bnk-navy-950: 8 8 12;        /* rgb(8,8,12) - Deepest navy */
+  --bnk-navy-900: 15 23 42;      /* rgb(15,23,42) - Primary navy */
+  --bnk-navy-800: 30 41 59;      /* rgb(30,41,59) - Dark navy */
+  --bnk-navy-700: 51 65 85;      /* rgb(51,65,85) - Medium navy */
+  --bnk-navy-600: 71 85 105;     /* rgb(71,85,105) - Standard navy text */
+  
+  /* Gold/Champagne - Accent Brand */
+  --bnk-gold-700: 161 98 7;      /* rgb(161,98,7) - Primary accent */
+  --bnk-gold-600: 202 138 4;     /* rgb(202,138,4) - Deep gold */
+  --bnk-gold-500: 234 179 8;     /* rgb(234,179,8) - Medium gold */
+  --bnk-gold-400: 250 204 21;    /* rgb(250,204,21) - Standard gold */
+  --bnk-gold-300: 253 224 71;    /* rgb(253,224,71) - Light gold */
+  
+  /* Neutrals - Sand/Charcoal */
+  --bnk-neutral-50: 250 250 249;  /* rgb(250,250,249) - Off-white */
+  --bnk-neutral-100: 245 245 244; /* rgb(245,245,244) - Light sand */
+  --bnk-neutral-200: 231 229 228; /* rgb(231,229,228) - Sand */
+  --bnk-neutral-300: 214 211 209; /* rgb(214,211,209) - Border */
+  --bnk-neutral-800: 41 37 36;    /* rgb(41,37,36) - Dark charcoal */
+  --bnk-neutral-900: 28 25 23;    /* rgb(28,25,23) - Text charcoal */
+  
+  /* === SEMANTIC TOKENS (Single Source of Truth) === */
+  --color-bg: var(--bnk-neutral-50);           /* Primary background */
+  --color-surface: var(--bnk-neutral-100);     /* Cards, sections */
+  --color-surface-2: var(--bnk-neutral-200);   /* Elevated surfaces */
+  
+  --color-text: var(--bnk-neutral-900);        /* Primary text */
+  --color-text-muted: var(--bnk-navy-600);     /* Secondary text */
+  --color-text-subtle: var(--bnk-navy-500);    /* Tertiary text */
+  
+  --color-accent: var(--bnk-gold-600);         /* Primary accent */
+  --color-accent-hover: var(--bnk-gold-700);   /* Accent hover */
+  --color-accent-soft: var(--bnk-gold-300);    /* Soft accent */
+  
+  --color-brand: var(--bnk-navy-900);          /* Brand primary */
+  --color-brand-hover: var(--bnk-navy-800);    /* Brand hover */
+  
+  --color-border: var(--bnk-neutral-300);      /* Default borders */
+  --color-ring: var(--bnk-gold-500);           /* Focus rings */
+  
+  /* Legacy - maintain for now */
+  --background: rgb(var(--color-bg));
+  --foreground: rgb(var(--color-text));
   --font-inter: 'Inter', system-ui, sans-serif;
   --font-display: 'Archivo', system-ui, sans-serif;
 }
@@ -74,15 +117,15 @@ body {
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-600/30 disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ring/30 disabled:opacity-50 disabled:pointer-events-none;
   }
 
   .btn-primary {
-    @apply bg-primary-900 text-neutral-50 hover:bg-primary-800 hover:shadow-lg hover:shadow-primary-900/20;
+    @apply bg-brand text-bnk-neutral-50 hover:bg-brand-hover hover:shadow-lg hover:shadow-brand/20;
   }
 
   .btn-outline {
-    @apply border-2 border-accent-600 text-accent-700 bg-transparent hover:bg-accent-600 hover:text-primary-950;
+    @apply border-2 border-accent text-accent-hover bg-transparent hover:bg-accent hover:text-bnk-navy-950;
   }
 
   .section-padding {

@@ -67,10 +67,6 @@ export default function ServiceGallery({
   // Auto-play functionality
   useEffect(() => {
     if (!config.autoPlay || !isVisible || media.length <= 1 || prefersReducedMotion) {
-      if (autoPlayInterval) {
-        clearInterval(autoPlayInterval)
-        setAutoPlayInterval(null)
-      }
       return
     }
 
@@ -86,11 +82,10 @@ export default function ServiceGallery({
     setAutoPlayInterval(interval)
 
     return () => {
-      if (interval) {
-        clearInterval(interval)
-      }
+      clearInterval(interval)
+      setAutoPlayInterval(null)
     }
-  }, [config.autoPlay, config.intervalMs, config.style, isVisible, media.length, prefersReducedMotion, isMobile, autoPlayInterval])
+  }, [config.autoPlay, config.intervalMs, config.style, isVisible, media.length, prefersReducedMotion, isMobile])
 
   // Cleanup auto-play on unmount
   useEffect(() => {
@@ -143,12 +138,12 @@ export default function ServiceGallery({
     }
     
     return (
-      <div className={`aspect-square bg-gradient-to-br from-grey-100 to-grey-200 rounded-2xl flex items-center justify-center ${className}`}>
+      <div className={`aspect-square bg-gradient-to-br from-surface to-surface-2 rounded-2xl flex items-center justify-center ${className}`}>
         <div className="text-center p-8">
-          <div className="w-16 h-16 bg-grey-300 rounded-xl flex items-center justify-center mb-4 mx-auto">
-            <span className="text-grey-600 text-sm font-medium">Gallery</span>
+          <div className="w-16 h-16 bg-border rounded-xl flex items-center justify-center mb-4 mx-auto">
+            <span className="text-muted text-sm font-medium">Gallery</span>
           </div>
-          <p className="text-grey-600 text-sm">Media coming soon</p>
+          <p className="text-muted text-sm">Media coming soon</p>
         </div>
       </div>
     )

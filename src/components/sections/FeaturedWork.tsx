@@ -54,13 +54,13 @@ export default function FeaturedWork() {
   const featuredProjects = projects.slice(0, 3)
 
   return (
-    <section ref={sectionRef} className="py-24 bg-grey-100">
+    <section ref={sectionRef} className="py-24 bg-surface">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-brand">
             Featured Work
           </h2>
-          <p className="text-xl text-grey-700 max-w-3xl mx-auto">
+          <p className="text-xl text-muted max-w-3xl mx-auto">
             Explore our recent website projects and see how we've helped businesses 
             transform their digital presence with high-performance web solutions.
           </p>
@@ -75,11 +75,11 @@ export default function FeaturedWork() {
               data-cursor="view"
             >
               <Link href={`/work/${project.slug}`}>
-                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
+                <div className="bg-bnk-neutral-50 rounded-lg overflow-hidden border hover:shadow-xl hover:shadow-brand/10 transition-all duration-500 group-hover:-translate-y-2">
                   {/* Project Image Placeholder */}
-                  <div className="aspect-video bg-gradient-to-br from-grey-200 to-grey-300 flex items-center justify-center">
-                    <div className="text-grey-600 text-center">
-                      <div className="w-12 h-12 mx-auto mb-3 bg-grey-400 rounded-lg flex items-center justify-center">
+                  <div className="aspect-video bg-gradient-to-br from-surface to-surface-2 flex items-center justify-center">
+                    <div className="text-muted text-center">
+                      <div className="w-12 h-12 mx-auto mb-3 bg-border rounded-lg flex items-center justify-center">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                           <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
                           <path d="M9 9h6v6H9z" fill="currentColor"/>
@@ -91,17 +91,17 @@ export default function FeaturedWork() {
                   
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-sm font-medium text-grey-600 bg-grey-100 px-3 py-1 rounded-full">
+                      <span className="text-sm font-medium text-muted bg-surface px-3 py-1 rounded-full border">
                         {project.category}
                       </span>
-                      <span className="text-sm text-grey-500">{project.year}</span>
+                      <span className="text-sm text-subtle">{project.year}</span>
                     </div>
                     
-                    <h3 className="text-xl font-display font-semibold mb-3 group-hover:text-grey-800 transition-colors">
+                    <h3 className="text-xl font-display font-semibold mb-3 text-brand group-hover:text-accent-hover transition-colors">
                       {project.title}
                     </h3>
                     
-                    <p className="text-grey-700 mb-4 line-clamp-3">
+                    <p className="text-muted mb-4 line-clamp-3">
                       {project.summary}
                     </p>
                     
@@ -109,19 +109,19 @@ export default function FeaturedWork() {
                       {project.technologies.slice(0, 3).map((tech) => (
                         <span 
                           key={tech}
-                          className="text-xs font-medium text-grey-600 bg-grey-100 px-2 py-1 rounded"
+                          className="text-xs font-medium text-subtle bg-surface px-2 py-1 rounded border"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 3 && (
-                        <span className="text-xs font-medium text-grey-600">
+                        <span className="text-xs font-medium text-subtle">
                           +{project.technologies.length - 3} more
                         </span>
                       )}
                     </div>
                     
-                    <div className="flex items-center text-sm font-medium text-black group-hover:text-grey-700 transition-colors">
+                    <div className="flex items-center text-sm font-medium text-brand group-hover:text-accent-hover transition-colors">
                       View Project
                       <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

@@ -69,7 +69,7 @@ export default function Hero() {
     <section 
       id="hero"
       ref={containerRef}
-      className="min-h-screen flex items-center justify-center bg-grey-100 pt-20"
+      className="min-h-screen flex items-center justify-center bg-neutral-50 pt-20"
     >
       <div className="container text-center">
         {/* Large Hero Logo - Bold & Dominant */}
@@ -87,32 +87,32 @@ export default function Hero() {
 
         <h1 
           ref={headingRef}
-          className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold mb-8 text-balance leading-tight"
+          className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold mb-8 text-balance leading-tight text-primary-900"
         >
           Premium <br />
-          <span className="text-gradient">Technology</span> <br />
+          <span className="bg-gradient-to-r from-accent-600 to-accent-700 bg-clip-text text-transparent">Technology</span> <br />
           Solutions
         </h1>
         
         <p 
           ref={subheadingRef}
-          className="text-xl md:text-2xl text-grey-700 mb-12 max-w-3xl mx-auto text-balance leading-relaxed"
+          className="text-xl md:text-2xl text-primary-600 mb-12 max-w-3xl mx-auto text-balance leading-relaxed"
         >
           We deliver high-performance websites, digital infrastructure, 
           and comprehensive IT services for businesses ready to scale.
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center">
-          <MagneticButton className="btn btn-primary text-lg px-12 py-6">
+          <MagneticButton className="bg-primary-900 hover:bg-primary-800 text-neutral-50 text-lg px-12 py-6 rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-primary-900/20">
             <Link href="/work">View Our Work</Link>
           </MagneticButton>
-          <MagneticButton className="btn btn-outline text-lg px-12 py-6">
+          <MagneticButton className="border-2 border-accent-600 text-accent-700 hover:bg-accent-600 hover:text-primary-950 text-lg px-12 py-6 rounded-lg font-medium transition-all duration-200">
             <Link href="/contact">Start Your Project</Link>
           </MagneticButton>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-grey-600">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-primary-400">
           <div className="animate-bounce">
             <svg 
               width="24" 

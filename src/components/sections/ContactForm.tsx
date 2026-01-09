@@ -101,11 +101,11 @@ export default function ContactForm() {
 
   return (
     <div ref={formRef}>
-      <div className="bg-grey-50 p-8 rounded-lg">
-        <h2 className="text-3xl font-display font-bold mb-6">
+      <div className="bg-neutral-100 p-8 rounded-lg border border-neutral-200">
+        <h2 className="text-3xl font-display font-bold mb-6 text-primary-900">
           Get Your Free Consultation
         </h2>
-        <p className="text-grey-700 mb-8">
+        <p className="text-primary-600 mb-8">
           Tell us about your project and we'll get back to you within 4 hours with 
           a custom solution and transparent pricing.
         </p>
@@ -113,7 +113,7 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-grey-700 mb-2">
+              <label htmlFor="name" className="block text-sm font-medium text-primary-700 mb-2">
                 Full Name *
               </label>
               <input
@@ -123,13 +123,13 @@ export default function ContactForm() {
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-grey-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors"
+                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
                 placeholder="Bezwe Nkosi"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-grey-700 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-primary-700 mb-2">
                 Email Address *
               </label>
               <input
@@ -139,7 +139,7 @@ export default function ContactForm() {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-grey-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors"
+                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
                 placeholder="bezwe@company.com"
               />
             </div>
@@ -147,7 +147,7 @@ export default function ContactForm() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-grey-700 mb-2">
+              <label htmlFor="phone" className="block text-sm font-medium text-primary-700 mb-2">
                 Phone Number
               </label>
               <input
@@ -156,13 +156,13 @@ export default function ContactForm() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-grey-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors"
+                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
                 placeholder="+27 63 068 7409"
               />
             </div>
 
             <div>
-              <label htmlFor="company" className="block text-sm font-medium text-grey-700 mb-2">
+              <label htmlFor="company" className="block text-sm font-medium text-primary-700 mb-2">
                 Company Name
               </label>
               <input
@@ -171,14 +171,14 @@ export default function ContactForm() {
                 name="company"
                 value={formData.company}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-grey-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors"
+                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
                 placeholder="Your Company Ltd"
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="service" className="block text-sm font-medium text-grey-700 mb-2">
+            <label htmlFor="service" className="block text-sm font-medium text-primary-700 mb-2">
               Service Needed *
             </label>
             <select
@@ -201,7 +201,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-grey-700 mb-2">
+            <label htmlFor="message" className="block text-sm font-medium text-primary-700 mb-2">
               Project Details *
             </label>
             <textarea
@@ -211,7 +211,7 @@ export default function ContactForm() {
               onChange={handleInputChange}
               required
               rows={5}
-              className="w-full px-4 py-3 border border-grey-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors resize-vertical"
+              className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors resize-vertical bg-neutral-50"
               placeholder="Tell us about your project, timeline, budget range, and any specific requirements..."
             />
           </div>
@@ -239,7 +239,7 @@ export default function ContactForm() {
           )}
         </form>
 
-        <div className="mt-8 pt-6 border-t border-grey-200 text-sm text-grey-600">
+        <div className="mt-8 pt-6 border-t border-neutral-300 text-sm text-primary-500">
           <p>By submitting this form, you agree to our privacy policy and consent to being contacted regarding your project.</p>
         </div>
       </div>

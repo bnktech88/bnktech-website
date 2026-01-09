@@ -109,7 +109,7 @@ export default function HomeIntro({ onComplete }: HomeIntroProps) {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
+      className="fixed inset-0 z-[9999] bg-primary-950 flex items-center justify-center"
       style={{ opacity: 0 }}
     >
       <div

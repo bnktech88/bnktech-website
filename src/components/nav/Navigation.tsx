@@ -57,7 +57,7 @@ export default function Navigation() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-grey-200'
+          ? 'bg-neutral-50/95 backdrop-blur-md border-b border-neutral-200'
           : 'bg-transparent'
       )}
     >
@@ -82,10 +82,10 @@ export default function Navigation() {
               key={item.href}
               href={item.href}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-grey-700',
+                'text-sm font-medium transition-colors hover:text-primary-700',
                 pathname === item.href
-                  ? 'text-black border-b border-black'
-                  : 'text-grey-600'
+                  ? 'text-primary-900 border-b-2 border-accent-600'
+                  : 'text-primary-600'
               )}
             >
               {item.name}
@@ -95,7 +95,7 @@ export default function Navigation() {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Link href="/contact" className="btn btn-primary">
+          <Link href="/contact" className="bg-primary-900 hover:bg-primary-800 text-neutral-50 px-6 py-2.5 rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-primary-900/20">
             Get Started
           </Link>
         </div>
@@ -103,7 +103,7 @@ export default function Navigation() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2 text-grey-600 hover:text-black transition-colors focus:outline-none focus:ring-2 focus:ring-black/20 rounded"
+          className="md:hidden p-2 text-primary-600 hover:text-primary-900 transition-colors focus:outline-none focus:ring-2 focus:ring-accent-600/30 rounded"
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
@@ -136,7 +136,7 @@ export default function Navigation() {
         <div 
           ref={menuRef}
           id="mobile-menu"
-          className="md:hidden bg-white border-t border-grey-200 shadow-lg"
+          className="md:hidden bg-neutral-50 border-t border-neutral-200 shadow-lg"
         >
           <div className="container py-6 space-y-4">
             {siteConfig.navigation.map((item) => (
@@ -146,18 +146,18 @@ export default function Navigation() {
                 className={cn(
                   'block py-3 text-base font-medium transition-colors rounded-lg px-3',
                   pathname === item.href
-                    ? 'text-black bg-grey-100'
-                    : 'text-grey-600 hover:text-black hover:bg-grey-50'
+                    ? 'text-primary-900 bg-accent-50 border-l-4 border-accent-600'
+                    : 'text-primary-600 hover:text-primary-900 hover:bg-neutral-100'
                 )}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 border-t border-grey-200">
+            <div className="pt-4 border-t border-neutral-200">
               <Link
                 href="/contact"
-                className="btn btn-primary w-full justify-center"
+                className="bg-primary-900 hover:bg-primary-800 text-neutral-50 px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-primary-900/20 w-full flex justify-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Get Started

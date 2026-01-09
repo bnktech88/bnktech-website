@@ -11,14 +11,14 @@ export const metadata = generateSEO({
 export default function ServicesPage() {
   return (
     <div className="pt-20">
-      {/* Hero Section */}
-      <section className="py-24 bg-neutral-100">
+      {/* Hero Section - Section 1 = Bronze */}
+      <section className="section-bronze py-24">
         <div className="container">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-primary-900">
+            <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-navy">
               Our Services
             </h1>
-            <p className="text-xl md:text-2xl text-primary-600 max-w-4xl mx-auto text-balance">
+            <p className="text-xl md:text-2xl text-navy max-w-4xl mx-auto text-balance">
               Comprehensive technology solutions designed to accelerate your business growth 
               and digital transformation journey.
             </p>
@@ -26,8 +26,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-24 bg-neutral-50">
+      {/* Services - Section 2 = Gold */}
+      <section className="section-gold py-24">
         <div className="container">
           <div className="space-y-24">
             {services.map((service, index) => (
@@ -41,20 +41,20 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-primary-950 text-neutral-100">
+      {/* CTA Section - Section 3 = Bronze */}
+      <section className="section-bronze py-24">
         <div className="container text-center">
-          <h2 className="text-4xl font-display font-bold mb-6 text-accent-400">
+          <h2 className="text-4xl font-display font-bold mb-6 text-navy">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-neutral-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-navy mb-8 max-w-2xl mx-auto">
             Let's discuss which services align with your business goals and create a custom solution.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" className="bg-accent-600 hover:bg-accent-700 text-primary-950 px-8 py-4 rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-accent-600/20">
+            <a href="/contact" className="btn-primary px-8 py-4 rounded-lg font-medium transition-all duration-200">
               Get Free Consultation
             </a>
-            <a href="tel:+27630687409" className="border-2 border-accent-600 text-accent-400 hover:bg-accent-600 hover:text-primary-950 px-8 py-4 rounded-lg font-medium transition-all duration-200">
+            <a href="tel:+27630687409" className="btn-outline px-8 py-4 rounded-lg font-medium transition-all duration-200">
               Call Now: +27 63 068 7409
             </a>
           </div>

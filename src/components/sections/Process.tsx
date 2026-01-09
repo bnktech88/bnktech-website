@@ -99,7 +99,7 @@ export default function Process() {
   return (
     <section
       ref={sectionRef}
-      className="section-gold py-24"
+      className="bg-bnk-gold py-24"
     >
       <div className="container">
         <div className="text-center mb-16">
@@ -124,7 +124,7 @@ export default function Process() {
               {/* Content */}
               <div className="flex-1">
                 <div className="flex items-center mb-6">
-                  <span className="text-5xl font-display font-bold text-brand-bronze mr-4">
+                  <span className="text-5xl font-display font-bold text-bnk-bronze mr-4">
                     {processStep.step}
                   </span>
                   <h3 className="text-3xl font-display font-semibold text-navy">
@@ -139,7 +139,7 @@ export default function Process() {
                 <div className="grid grid-cols-2 gap-4">
                   {processStep.details.map((detail, idx) => (
                     <div key={idx} className="flex items-center">
-                      <div className="w-2 h-2 bg-brand-bronze rounded-full mr-3" />
+                      <div className="w-2 h-2 bg-bnk-bronze rounded-full mr-3" />
                       <span className="text-navy">{detail}</span>
                     </div>
                   ))}
@@ -148,9 +148,9 @@ export default function Process() {
 
               {/* Visual Element */}
               <div className="flex-1 max-w-md">
-                <div className="aspect-square bg-brand-cream rounded-2xl flex items-center justify-center border border-brand-bronze shadow-lg">
-                  <div className="w-24 h-24 bg-brand-bronze rounded-2xl flex items-center justify-center transform rotate-12 shadow-lg">
-                    <span className="text-brand-cream font-display font-bold text-2xl transform -rotate-12">
+                <div className="aspect-square bg-cream rounded-2xl flex items-center justify-center border border-bnk-bronze shadow-lg">
+                  <div className="w-24 h-24 bg-bnk-bronze rounded-2xl flex items-center justify-center transform rotate-12 shadow-lg">
+                    <span className="text-cream font-display font-bold text-2xl transform -rotate-12">
                       {processStep.step}
                     </span>
                   </div>

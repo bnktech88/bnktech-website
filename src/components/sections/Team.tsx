@@ -42,7 +42,7 @@ export default function Team() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-24" style={{ backgroundColor: '#D6B071' }}>
+    <section ref={sectionRef} className="py-24 bg-bnk-gold">
       <div className="container">
         <div ref={contentRef} className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-navy">

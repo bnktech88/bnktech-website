@@ -52,7 +52,7 @@ export default function WorkGrid() {
   }
 
   return (
-    <section className="section-gold py-24">
+    <section className="bg-bnk-gold py-24">
       <div className="container">
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (

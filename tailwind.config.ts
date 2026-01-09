@@ -9,35 +9,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // === STRICT BNK BRAND PALETTE - ONLY THESE 6 COLORS ALLOWED ===
-        
-        // Primary Brand Tokens (Main Usage)
-        brand: {
-          DEFAULT: '#0B2A3D',  // Deep Navy Blue (primary brand color)
-          navy: '#0B2A3D',     // Deep Navy Blue
-          gold: '#D6B071',     // Rich Gold / Sand Gold
-          bronze: '#B8965E',   // Dark Gold / Bronze Shadow
-          silver: '#8E9499',   // Metallic Silver / Logo Gray
-          ink: '#1A1A1A',      // Charcoal / Near Black
-          cream: '#F1E2C3'     // Off-White / Soft Highlight
+        // === FINAL BNK BRAND PALETTE - SINGLE SOURCE OF TRUTH ===
+        bnk: {
+          navy: '#0B2A3D',      // Deep Navy Blue - Primary
+          gold: '#D6B071',      // Rich Gold / Sand Gold  
+          bronze: '#B8965E',    // Dark Gold / Bronze Shadow
+          offwhite: '#F1E2C3',  // Off-white highlight (optional)
+          charcoal: '#1A1A1A',  // Charcoal text fallback (rare)
+          silver: '#8E9499'     // Logo gray (logo only)
         },
         
-        // Section Background Rotation System
-        'section-bronze': '#B8965E',  // Odd sections
-        'section-gold': '#D6B071',    // Even sections
+        // Convenience aliases for common patterns
+        navy: '#0B2A3D',
+        gold: '#D6B071', 
+        bronze: '#B8965E',
+        cream: '#F1E2C3',
         
-        // Header/Footer System
-        'header-bg': '#0B2A3D',       // Navy background
-        'header-text': '#D6B071',     // Gold text
-        'header-button': '#B8965E',   // Bronze buttons
-        'header-button-text': '#0B2A3D', // Navy text in bronze buttons
-        
-        // Body System  
-        'body-text': '#0B2A3D',       // Navy text (default)
-        'body-button': '#0B2A3D',     // Navy buttons
-        'body-button-text': '#D6B071', // Gold text in navy buttons
-        
-        // Legacy aliases (will be removed in cleanup)
+        // Legacy support (to be cleaned up)
         background: '#F1E2C3',
         foreground: '#0B2A3D'
       },

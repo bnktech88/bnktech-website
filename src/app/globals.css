@@ -109,26 +109,19 @@ body {
   }
 
   .btn-primary {
-    background-color: #0B2A3D;               /* Deep Navy background */
-    color: #D6B071;                          /* Rich Gold text */
-    border: 2px solid #0B2A3D;               /* Navy border */
+    @apply bg-bnk-navy text-bnk-gold border-2 border-bnk-navy;
   }
   
   .btn-primary:hover {
-    background-color: #0B2A3D;               /* Navy background (no change) */
-    color: #D6B071;                          /* Gold text (no change) */
-    opacity: 0.9;                            /* Subtle hover effect */
+    @apply bg-bnk-navy text-bnk-gold opacity-90;
   }
 
   .btn-outline {
-    border: 2px solid #0B2A3D;               /* Navy border */
-    color: #0B2A3D;                          /* Navy text */
-    background-color: transparent;
+    @apply border-2 border-bnk-navy text-bnk-navy bg-transparent;
   }
   
   .btn-outline:hover {
-    background-color: #0B2A3D;               /* Navy background */
-    color: #D6B071;                          /* Gold text inside */
+    @apply bg-bnk-navy text-bnk-gold;
   }
   
   /* Header/Footer Button System - Bronze buttons with navy text */

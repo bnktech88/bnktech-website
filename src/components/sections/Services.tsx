@@ -54,7 +54,7 @@ export default function Services() {
   return (
     <section
       ref={sectionRef}
-      className="section-gold py-24"
+      className="bg-bnk-gold py-24"
     >
       <div className="container">
         <div className="text-center mb-16">
@@ -72,9 +72,9 @@ export default function Services() {
             <div
               key={service.id}
               ref={addToRefs}
-              className="bg-cream p-8 rounded-lg border-2 border-brand-bronze hover:shadow-lg transition-all duration-300 group"
+              className="bg-cream p-8 rounded-lg border-2 border-bnk-bronze hover:shadow-lg transition-all duration-300 group"
             >
-              <h3 className="text-2xl font-display font-semibold mb-4 text-navy group-hover:text-brand-bronze transition-colors">
+              <h3 className="text-2xl font-display font-semibold mb-4 text-navy group-hover:text-bnk-bronze transition-colors">
                 {service.title}
               </h3>
               <p className="text-navy mb-6">
@@ -83,7 +83,7 @@ export default function Services() {
               <div className="space-y-2 mb-8">
                 {service.features.slice(0, 4).map((feature, idx) => (
                   <div key={idx} className="flex items-center text-sm text-navy">
-                    <div className="w-2 h-2 bg-brand-bronze rounded-full mr-3 flex-shrink-0" />
+                    <div className="w-2 h-2 bg-bnk-bronze rounded-full mr-3 flex-shrink-0" />
                     {feature}
                   </div>
                 ))}
@@ -91,14 +91,14 @@ export default function Services() {
               <div className="flex items-center justify-between">
                 {service.status === 'coming-soon' ? (
                   <div className="flex items-center">
-                    <div className="inline-flex items-center px-3 py-1 bg-brand-silver border border-brand-bronze rounded-full">
+                    <div className="inline-flex items-center px-3 py-1 bg-bnk-silver border border-bnk-bronze rounded-full">
                       <span className="text-xs font-medium text-navy">Coming Soon</span>
                     </div>
                   </div>
                 ) : (
                   <div>
                     <p className="text-sm text-navy">Starting from</p>
-                    <p className="text-xl font-display font-bold text-brand-bronze">{service.pricing.starting}</p>
+                    <p className="text-xl font-display font-bold text-bnk-bronze">{service.pricing.starting}</p>
                     <p className="text-xs text-navy">{service.pricing.model}</p>
                     {service.pricing.maintenance && (
                       <div className="mt-1">
@@ -110,7 +110,7 @@ export default function Services() {
                 )}
                 <Link 
                   href={`/services#${service.id}`}
-                  className="text-sm font-medium text-navy hover:text-brand-bronze transition-colors"
+                  className="text-sm font-medium text-navy hover:text-bnk-bronze transition-colors"
                 >
                   Learn More →
                 </Link>

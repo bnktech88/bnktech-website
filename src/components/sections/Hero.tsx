@@ -68,7 +68,7 @@ export default function Hero() {
     <section
       id="hero" 
       ref={containerRef}
-      className="section-bronze min-h-screen flex items-center justify-center pt-20"
+      className="bg-bnk-bronze min-h-screen flex items-center justify-center pt-20"
     >
       <div className="container text-center relative z-10">
         {/* Business Card Inspired Logo - Premium but not overwhelming */}
@@ -89,7 +89,7 @@ export default function Hero() {
           className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-8 text-balance leading-tight text-navy"
         >
           Premium <br />
-          <span className="text-gradient">Technology</span> <br />
+          <span className="text-navy">Technology</span> <br />
           Solutions
         </h1>
         
@@ -108,28 +108,6 @@ export default function Hero() {
           <Link href="/contact" className="btn-outline px-12 py-6 rounded-lg text-lg font-medium transition-all duration-200">
             Start Your Project
           </Link>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-navy">
-          <div className="animate-bounce">
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              className="mx-auto"
-            >
-              <path 
-                d="M7 10L12 15L17 10" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-          <p className="text-sm mt-2 text-navy">Scroll to explore</p>
         </div>
       </div>
     </section>

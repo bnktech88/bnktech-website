@@ -54,7 +54,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-navy"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-bnk-navy"
     >
       <div className="container flex items-center justify-between py-4">
         {/* Logo */}
@@ -77,9 +77,9 @@ export default function Navigation() {
               key={item.href}
               href={item.href}
               className={cn(
-                'text-sm font-medium transition-colors text-brand-gold hover:text-brand-bronze',
+                'text-sm font-medium transition-colors text-bnk-gold hover:text-bnk-bronze',
                 pathname === item.href
-                  ? 'border-b-2 border-brand-bronze'
+                  ? 'border-b-2 border-bnk-bronze'
                   : ''
               )}
             >
@@ -90,7 +90,7 @@ export default function Navigation() {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Link href="/contact" className="bg-brand-bronze hover:bg-brand-gold text-navy px-6 py-2.5 rounded-lg font-medium transition-all duration-200">
+          <Link href="/contact" className="bg-bnk-bronze hover:bg-bnk-gold text-bnk-navy px-6 py-2.5 rounded-lg font-medium transition-all duration-200">
             Get Started
           </Link>
         </div>
@@ -98,7 +98,7 @@ export default function Navigation() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2 text-brand-gold hover:text-brand-bronze transition-colors focus:outline-none focus:ring-2 focus:ring-brand-bronze/30 rounded"
+          className="md:hidden p-2 text-bnk-gold hover:text-bnk-bronze transition-colors focus:outline-none focus:ring-2 focus:ring-bnk-bronze/30 rounded"
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
@@ -131,7 +131,7 @@ export default function Navigation() {
         <div 
           ref={menuRef}
           id="mobile-menu"
-          className="md:hidden bg-navy shadow-lg"
+          className="md:hidden bg-bnk-navy shadow-lg"
         >
           <div className="container py-6 space-y-4">
             {siteConfig.navigation.map((item) => (
@@ -139,10 +139,10 @@ export default function Navigation() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'block py-3 text-base font-medium transition-colors rounded-lg px-3 text-brand-gold',
+                  'block py-3 text-base font-medium transition-colors rounded-lg px-3 text-bnk-gold',
                   pathname === item.href
-                    ? 'border-l-4 border-brand-bronze'
-                    : 'hover:text-brand-bronze'
+                    ? 'border-l-4 border-bnk-bronze'
+                    : 'hover:text-bnk-bronze'
                 )}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -152,7 +152,7 @@ export default function Navigation() {
             <div className="pt-4">
               <Link
                 href="/contact"
-                className="bg-brand-bronze hover:bg-brand-gold text-navy px-6 py-3 rounded-lg font-medium transition-all duration-200 w-full flex justify-center"
+                className="bg-bnk-bronze hover:bg-bnk-gold text-bnk-navy px-6 py-3 rounded-lg font-medium transition-all duration-200 w-full flex justify-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Get Started

@@ -165,8 +165,8 @@ export default function StackCardsGallery({
             style={{
               transformStyle: 'preserve-3d',
               boxShadow: index === currentIndex 
-                ? '0 20px 40px rgba(0,0,0,0.15), 0 10px 20px rgba(0,0,0,0.1)' 
-                : '0 8px 16px rgba(0,0,0,0.1)'
+                ? '0 20px 40px rgba(11,42,61,0.15), 0 10px 20px rgba(11,42,61,0.1)' 
+                : '0 8px 16px rgba(11,42,61,0.1)'
             }}
             onClick={() => !isTransitioning && onMediaClick(index)}
           >

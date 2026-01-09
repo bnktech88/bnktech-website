@@ -56,7 +56,7 @@ export default function FeaturedWork() {
   return (
     <section
       ref={sectionRef}
-      className="section-bronze py-24"
+      className="bg-bnk-bronze py-24"
     >
       <div className="container">
         <div className="text-center mb-16">
@@ -74,13 +74,13 @@ export default function FeaturedWork() {
             <div
               key={project.slug}
               ref={addToRefs}
-              className="bg-cream p-6 rounded-lg border-2 border-brand-gold hover:shadow-lg transition-all duration-300 group cursor-pointer"
+              className="bg-cream p-6 rounded-lg border-2 border-bnk-gold hover:shadow-lg transition-all duration-300 group cursor-pointer"
             >
               <Link href={`/work/${project.slug}`}>
                 {/* Project Image Placeholder */}
-                <div className="aspect-video bg-brand-cream flex items-center justify-center mb-6 rounded-lg overflow-hidden">
+                <div className="aspect-video bg-cream flex items-center justify-center mb-6 rounded-lg overflow-hidden">
                   <div className="text-navy text-center">
-                    <div className="w-12 h-12 mx-auto mb-3 bg-brand-gold rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-bnk-gold rounded-lg flex items-center justify-center">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
                         <path d="M9 9h6v6H9z" fill="currentColor"/>
@@ -91,13 +91,13 @@ export default function FeaturedWork() {
                 </div>
                 
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm font-medium text-navy bg-brand-silver px-3 py-1 rounded-full border border-brand-gold">
+                  <span className="text-sm font-medium text-navy bg-bnk-silver px-3 py-1 rounded-full border border-bnk-gold">
                     {project.category}
                   </span>
                   <span className="text-sm text-navy">{project.year}</span>
                 </div>
                 
-                <h3 className="text-xl font-display font-semibold mb-3 text-navy group-hover:text-brand-gold transition-colors">
+                <h3 className="text-xl font-display font-semibold mb-3 text-navy group-hover:text-bnk-gold transition-colors">
                   {project.title}
                 </h3>
                 
@@ -109,7 +109,7 @@ export default function FeaturedWork() {
                   {project.technologies.slice(0, 3).map((tech) => (
                     <span 
                       key={tech}
-                      className="text-xs font-medium text-navy bg-brand-cream px-2 py-1 rounded border border-brand-bronze"
+                      className="text-xs font-medium text-navy bg-cream px-2 py-1 rounded border border-bnk-bronze"
                     >
                       {tech}
                     </span>
@@ -121,7 +121,7 @@ export default function FeaturedWork() {
                   )}
                 </div>
                 
-                <div className="flex items-center text-sm font-medium text-navy group-hover:text-brand-bronze transition-colors">
+                <div className="flex items-center text-sm font-medium text-navy group-hover:text-bnk-bronze transition-colors">
                   View Project
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

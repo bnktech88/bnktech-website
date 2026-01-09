@@ -12,7 +12,7 @@ export default function WorkPage() {
   return (
     <div className="pt-20">
       {/* Hero Section - Section 1 = Bronze */}
-      <section className="section-bronze py-24">
+      <section className="bg-bnk-bronze py-24">
         <div className="container">
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-navy">

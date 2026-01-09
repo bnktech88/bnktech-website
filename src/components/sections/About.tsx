@@ -79,7 +79,7 @@ export default function About() {
   }
 
   return (
-    <section ref={sectionRef} className="section-gold py-24">
+    <section ref={sectionRef} className="bg-bnk-gold py-24">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
@@ -120,7 +120,7 @@ export default function About() {
               <div
                 key={value.title}
                 ref={addToRefs}
-                className="bg-cream p-8 rounded-lg border-2 border-brand-bronze shadow-sm hover:shadow-md transition-all duration-300"
+                className="bg-cream p-8 rounded-lg border-2 border-bnk-bronze shadow-sm hover:shadow-md transition-all duration-300"
               >
                 <h3 className="text-2xl font-display font-semibold mb-4 text-navy">
                   {value.title}
@@ -134,22 +134,22 @@ export default function About() {
         </div>
 
         {/* Stats */}
-        <div className="mt-24 pt-16 border-t border-brand-bronze">
+        <div className="mt-24 pt-16 border-t border-bnk-bronze">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-display font-bold text-brand-bronze mb-2">50+</div>
+              <div className="text-4xl font-display font-bold text-bnk-bronze mb-2">50+</div>
               <div className="text-navy">Projects Delivered</div>
             </div>
             <div>
-              <div className="text-4xl font-display font-bold text-brand-bronze mb-2">99.9%</div>
+              <div className="text-4xl font-display font-bold text-bnk-bronze mb-2">99.9%</div>
               <div className="text-navy">Uptime Guarantee</div>
             </div>
             <div>
-              <div className="text-4xl font-display font-bold text-brand-bronze mb-2">24/7</div>
+              <div className="text-4xl font-display font-bold text-bnk-bronze mb-2">24/7</div>
               <div className="text-navy">Expert Support</div>
             </div>
             <div>
-              <div className="text-4xl font-display font-bold text-brand-bronze mb-2">100%</div>
+              <div className="text-4xl font-display font-bold text-bnk-bronze mb-2">100%</div>
               <div className="text-navy">Client Satisfaction</div>
             </div>
           </div>

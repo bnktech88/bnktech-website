@@ -53,7 +53,7 @@ export default function SplitRevealGallery({
         // Split reveal animation
         tl.set([leftPanel, rightPanel], { 
             zIndex: 20,
-            backgroundColor: 'rgb(15, 23, 42)' // brand primary navy
+            backgroundColor: 'rgb(11, 42, 61)' // BNK navy
           })
           .set(leftPanel, { x: '-100%' })
           .set(rightPanel, { x: '100%' })

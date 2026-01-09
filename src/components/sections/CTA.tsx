@@ -46,7 +46,7 @@ export default function CTA() {
   return (
     <section
       ref={sectionRef}
-      className="section-bronze py-24"
+      className="bg-bnk-bronze py-24"
     >
       <div className="container">
         <div ref={contentRef} className="text-center max-w-4xl mx-auto">
@@ -82,7 +82,7 @@ export default function CTA() {
               <h3 className="font-display font-semibold mb-2 text-navy">Call or WhatsApp</h3>
               <a 
                 href={`tel:${siteConfig.company.phone}`}
-                className="text-navy hover:text-brand-gold transition-colors"
+                className="text-navy hover:text-bnk-gold transition-colors"
               >
                 {siteConfig.company.phone}
               </a>
@@ -91,7 +91,7 @@ export default function CTA() {
               <h3 className="font-display font-semibold mb-2 text-navy">Email</h3>
               <a 
                 href={`mailto:${siteConfig.company.email}`}
-                className="text-navy hover:text-brand-gold transition-colors"
+                className="text-navy hover:text-bnk-gold transition-colors"
               >
                 {siteConfig.company.email}
               </a>
@@ -103,7 +103,7 @@ export default function CTA() {
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-16 pt-12 border-t border-brand-gold">
+          <div className="mt-16 pt-12 border-t border-bnk-gold">
             <div className="flex flex-wrap justify-center items-center gap-8 text-navy">
               <div className="flex items-center">
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">

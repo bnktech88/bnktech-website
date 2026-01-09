@@ -42,7 +42,7 @@ export default function Mission() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-24" style={{ backgroundColor: '#D6B071' }}>
+    <section ref={sectionRef} className="py-24 bg-bnk-gold">
       <div className="container">
         <div ref={contentRef} className="max-w-4xl mx-auto">
           <div className="text-center mb-16">

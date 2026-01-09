@@ -37,7 +37,7 @@ export default function AboutHero() {
   }, [])
 
   return (
-    <section ref={containerRef} className="py-24" style={{ backgroundColor: '#B8965E' }}>
+    <section ref={containerRef} className="py-24 bg-bnk-bronze">
       <div className="container">
         <div ref={contentRef} className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 text-balance text-navy">

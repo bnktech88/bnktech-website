@@ -12,7 +12,7 @@ export default function ServicesPage() {
   return (
     <div className="pt-20">
       {/* Hero Section - Section 1 = Bronze */}
-      <section className="section-bronze py-24">
+      <section className="bg-bnk-bronze py-24">
         <div className="container">
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-navy">
@@ -27,7 +27,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services - Section 2 = Gold */}
-      <section className="section-gold py-24">
+      <section className="bg-bnk-gold py-24">
         <div className="container">
           <div className="space-y-24">
             {services.map((service, index) => (
@@ -42,7 +42,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section - Section 3 = Bronze */}
-      <section className="section-bronze py-24">
+      <section className="bg-bnk-bronze py-24">
         <div className="container text-center">
           <h2 className="text-4xl font-display font-bold mb-6 text-navy">
             Ready to Get Started?

@@ -25,7 +25,7 @@ export default function WorkFilters({
   }
 
   return (
-    <section className="py-12 section-bronze border-b border-navy">
+    <section className="py-12 bg-bnk-bronze border-b border-bnk-navy">
       <div className="container">
         <div className="flex flex-wrap justify-center gap-4">
           {filters.map((filter) => (

@@ -68,7 +68,7 @@ export default function Values() {
   }
 
   return (
-    <section ref={sectionRef} className="py-24" style={{ backgroundColor: '#B8965E' }}>
+    <section ref={sectionRef} className="py-24 bg-bnk-bronze">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-navy">

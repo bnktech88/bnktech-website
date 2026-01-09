@@ -122,7 +122,7 @@ export const services: Service[] = [
       starting: 'Coming Soon',
       model: 'Available in future'
     },
-    status: 'coming-soon'
+    status: 'coming-soon',
     gallery: [
       { type: 'image', src: '/assets/app-dev-maintenance-1.jpeg', alt: 'App development showcase – mobile UI', priority: true },
       { type: 'image', src: '/assets/app-dev-maintenance-2.jpeg', alt: 'Cross-platform application dashboard' },
@@ -142,6 +142,7 @@ export const services: Service[] = [
         start: 'top 70%',
         end: 'bottom 30%'
       }
+    }
   },
   {
     id: 'digital-infrastructure',

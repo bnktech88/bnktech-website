@@ -5,6 +5,8 @@ import FeaturedWork from '@/components/sections/FeaturedWork'
 import Process from '@/components/sections/Process'
 import About from '@/components/sections/About'
 import CTA from '@/components/sections/CTA'
+import HomeIntro from '@/components/intro/HomeIntro'
+import ScrollContainer from '@/components/ui/ScrollContainer'
 
 export const metadata = generateSEO({
   title: 'Premium Technology Solutions',
@@ -14,12 +16,15 @@ export const metadata = generateSEO({
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <Services />
-      <FeaturedWork />
-      <Process />
-      <About />
-      <CTA />
+      <HomeIntro />
+      <ScrollContainer>
+        <Hero />
+        <Services />
+        <FeaturedWork />
+        <Process />
+        <About />
+        <CTA />
+      </ScrollContainer>
     </>
   )
 }

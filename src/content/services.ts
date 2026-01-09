@@ -41,6 +41,8 @@ export interface Service {
   pricing: {
     starting: string
     model: string
+    maintenance?: string
+    maintenanceModel?: string
   }
   status?: 'active' | 'coming-soon'
   gallery?: MediaItem[]
@@ -69,8 +71,10 @@ export const services: Service[] = [
       'Launch & Optimization'
     ],
     pricing: {
-      starting: 'R3,000',
-      model: 'Project-based'
+      starting: 'R5,000',
+      model: 'Project-based',
+      maintenance: 'R1,500',
+      maintenanceModel: 'Monthly / Retainer'
     },
     status: 'active',
     gallery: [
@@ -93,6 +97,51 @@ export const services: Service[] = [
         end: 'bottom 20%'
       }
     }
+  },
+  {
+    id: 'app-development',
+    title: 'App Development & Maintenance',
+    description: 'Mobile and web applications designed for performance, scale, and reliability — launching soon.',
+    features: [
+      'Native iOS & Android apps',
+      'Progressive Web Applications',
+      'Cross-platform development',
+      'App Store deployment',
+      'Performance optimization',
+      'User experience design',
+      'Backend integration',
+      'Ongoing maintenance'
+    ],
+    process: [
+      'App Strategy & Planning',
+      'Design & Prototyping',
+      'Development & Testing',
+      'Deployment & Support'
+    ],
+    pricing: {
+      starting: 'Coming Soon',
+      model: 'Available in future'
+    },
+    status: 'coming-soon'
+    gallery: [
+      { type: 'image', src: '/assets/app-dev-maintenance-1.jpeg', alt: 'App development showcase – mobile UI', priority: true },
+      { type: 'image', src: '/assets/app-dev-maintenance-2.jpeg', alt: 'Cross-platform application dashboard' },
+      { type: 'image', src: '/assets/app-dev-maintenance-3.jpeg', alt: 'Backend system integration interface' },
+      { type: 'image', src: '/assets/app-dev-maintenance-4.jpeg', alt: 'Ongoing app maintenance & optimization' }
+    ],
+    galleryConfig: {
+      style: 'stackCards',
+      transition: '3dFlip',
+      autoPlay: true,
+      intervalMs: 3500,
+      lightboxEnabled: true,
+      lightboxStyle: 'pureBlack',
+      scrollTrigger: {
+        enabled: true,
+        mode: 'snap',
+        start: 'top 70%',
+        end: 'bottom 30%'
+      }
   },
   {
     id: 'digital-infrastructure',
@@ -197,51 +246,6 @@ export const services: Service[] = [
       model: 'Available in future'
     },
     status: 'coming-soon'
-  },
-  {
-    id: 'app-development',
-    title: 'App Development & Maintenance',
-    description: 'Mobile and web applications designed for performance, scale, and reliability — launching soon.',
-    features: [
-      'Native iOS & Android apps',
-      'Progressive Web Applications',
-      'Cross-platform development',
-      'App Store deployment',
-      'Performance optimization',
-      'User experience design',
-      'Backend integration',
-      'Ongoing maintenance'
-    ],
-    process: [
-      'App Strategy & Planning',
-      'Design & Prototyping',
-      'Development & Testing',
-      'Deployment & Support'
-    ],
-    pricing: {
-      starting: 'Coming Soon',
-      model: 'Available in future'
-    },
-    status: 'coming-soon',
-    gallery: [
-      { type: 'image', src: '/assets/app-dev-maintenance-1.jpeg', alt: 'App development showcase – mobile UI', priority: true },
-      { type: 'image', src: '/assets/app-dev-maintenance-2.jpeg', alt: 'Cross-platform application dashboard' },
-      { type: 'image', src: '/assets/app-dev-maintenance-3.jpeg', alt: 'Backend system integration interface' },
-      { type: 'image', src: '/assets/app-dev-maintenance-4.jpeg', alt: 'Ongoing app maintenance & optimization' }
-    ],
-    galleryConfig: {
-      style: 'stackCards',
-      transition: '3dFlip',
-      autoPlay: true,
-      intervalMs: 3500,
-      lightboxEnabled: true,
-      lightboxStyle: 'pureBlack',
-      scrollTrigger: {
-        enabled: true,
-        mode: 'snap',
-        start: 'top 70%',
-        end: 'bottom 30%'
-      }
-    }
+
   }
 ]

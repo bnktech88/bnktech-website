@@ -101,19 +101,23 @@ export default function ServiceGallery({
     if (index >= 0 && index < media.length) {
       setCurrentIndex(index)
       
-      // Reset auto-play timer
-      if (autoPlayInterval) {
-        clearInterval(autoPlayInterval)
+      // Reset auto-play timer - use ref to avoid dependency issues
+      setAutoPlayInterval(current => {
+        if (current) {
+          clearInterval(current)
+        }
         
         if (config.autoPlay && isVisible && !prefersReducedMotion) {
           const newInterval = setInterval(() => {
             setCurrentIndex((prev) => (prev === media.length - 1 ? 0 : prev + 1))
           }, config.intervalMs)
-          setAutoPlayInterval(newInterval)
+          return newInterval
         }
-      }
+        
+        return null
+      })
     }
-  }, [media.length, autoPlayInterval, config.autoPlay, config.intervalMs, isVisible, prefersReducedMotion])
+  }, [media.length, config.autoPlay, config.intervalMs, isVisible, prefersReducedMotion])
 
   // Lightbox handlers
   const handleMediaClick = useCallback((index: number) => {

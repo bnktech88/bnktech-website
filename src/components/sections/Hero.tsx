@@ -6,8 +6,6 @@ import Image from 'next/image'
 import { gsap } from 'gsap'
 import { animateText } from '@/lib/motion'
 import { siteConfig } from '@/content/site'
-import BnkSection from '@/components/layout/BnkSection'
-import BnkButton from '@/components/ui/BnkButton'
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null)
@@ -67,15 +65,10 @@ export default function Hero() {
   }, [])
 
   return (
-    <BnkSection
-      id="hero"
+    <section
+      id="hero" 
       ref={containerRef}
-      variant="navy"
-      diagonal="right"
-      depth="raised"
-      topAccent={true}
-      padding="none"
-      className="min-h-screen flex items-center justify-center pt-20"
+      className="section-bronze min-h-screen flex items-center justify-center pt-20"
     >
       <div className="container text-center relative z-10">
         {/* Business Card Inspired Logo - Premium but not overwhelming */}
@@ -93,40 +86,32 @@ export default function Hero() {
 
         <h1 
           ref={headingRef}
-          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-8 text-balance leading-tight text-bnk-cream"
+          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-8 text-balance leading-tight text-navy"
         >
           Premium <br />
-          <span className="bg-gradient-to-r from-bnk-gold via-bnk-gold-light to-bnk-bronze bg-clip-text text-transparent">Technology</span> <br />
+          <span className="text-gradient">Technology</span> <br />
           Solutions
         </h1>
         
         <p 
           ref={subheadingRef}
-          className="text-lg md:text-xl lg:text-2xl text-bnk-silver-light mb-12 max-w-3xl mx-auto text-balance leading-relaxed"
+          className="text-lg md:text-xl lg:text-2xl text-navy mb-12 max-w-3xl mx-auto text-balance leading-relaxed"
         >
           We deliver high-performance websites, digital infrastructure, 
           and comprehensive IT services for businesses ready to scale.
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row gap-6 justify-center">
-          <BnkButton 
-            variant="primary" 
-            size="xl" 
-            magnetic={true}
-          >
-            <Link href="/work">View Our Work</Link>
-          </BnkButton>
-          <BnkButton 
-            variant="outline" 
-            size="xl" 
-            magnetic={true}
-          >
-            <Link href="/contact">Start Your Project</Link>
-          </BnkButton>
+          <Link href="/work" className="btn-primary px-12 py-6 rounded-lg text-lg font-medium transition-all duration-200">
+            View Our Work
+          </Link>
+          <Link href="/contact" className="btn-outline px-12 py-6 rounded-lg text-lg font-medium transition-all duration-200">
+            Start Your Project
+          </Link>
         </div>
 
-        {/* Scroll Indicator - Business card inspired */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-bnk-gold">
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-navy">
           <div className="animate-bounce">
             <svg 
               width="24" 
@@ -144,9 +129,9 @@ export default function Hero() {
               />
             </svg>
           </div>
-          <p className="text-sm mt-2 text-bnk-silver-light">Scroll to explore</p>
+          <p className="text-sm mt-2 text-navy">Scroll to explore</p>
         </div>
       </div>
-    </BnkSection>
+    </section>
   )
 }

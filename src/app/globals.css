@@ -6,50 +6,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  /* === BNK TECH BUSINESS CARD LUXURY PALETTE === */
-  /* Exact Business Card Colors (RGB Values) */
-  --bnk-navy: 11 42 61;           /* #0B2A3D - Deep Navy Blue (primary) */
-  --bnk-navy-light: 23 64 92;     /* Lighter navy variant */
-  --bnk-navy-dark: 7 28 40;       /* Darker navy for depth */
+  /* === STRICT BNK BRAND PALETTE - ONLY THESE 6 COLORS ALLOWED === */
   
-  --bnk-gold: 214 176 113;        /* #D6B071 - Rich Gold/Sand Gold (primary accent) */
-  --bnk-gold-light: 230 200 140;  /* Lighter gold for highlights */
+  /* Core Brand Colors - Exact Hex Values Only */
+  --brand-navy: #0B2A3D;      /* Deep Navy Blue */
+  --brand-gold: #D6B071;      /* Rich Gold / Sand Gold */
+  --brand-bronze: #B8965E;    /* Dark Gold / Bronze Shadow */
+  --brand-silver: #8E9499;    /* Metallic Silver / Logo Gray */
+  --brand-ink: #1A1A1A;       /* Charcoal / Near Black */
+  --brand-cream: #F1E2C3;     /* Off-White / Soft Highlight */
   
-  --bnk-bronze: 184 150 94;       /* #B8965E - Dark Gold/Bronze Shadow (depth) */
-  --bnk-bronze-light: 200 166 110; /* Lighter bronze */
+  /* Section Background Rotation */
+  --section-bronze: #B8965E;  /* Odd sections (1, 3, 5...) */
+  --section-gold: #D6B071;    /* Even sections (2, 4, 6...) */
   
-  --bnk-silver: 142 148 153;      /* #8E9499 - Metallic Silver/Logo Gray (muted) */
-  --bnk-silver-light: 170 176 181; /* Lighter silver */
+  /* Header/Footer System */
+  --header-bg: #0B2A3D;           /* Navy background */
+  --header-text: #D6B071;         /* Gold text */
+  --header-button: #B8965E;       /* Bronze buttons */
+  --header-button-text: #0B2A3D;  /* Navy text in bronze buttons */
   
-  --bnk-ink: 26 26 26;            /* #1A1A1A - Charcoal/Near Black (text) */
-  --bnk-ink-light: 64 64 64;      /* Lighter ink for secondary text */
+  /* Body System */
+  --body-text: #0B2A3D;           /* Navy text (default) */
+  --body-button: #0B2A3D;         /* Navy buttons */
+  --body-button-text: #D6B071;    /* Gold text in navy buttons */
   
-  --bnk-cream: 241 226 195;       /* #F1E2C3 - Off-White/Soft Highlight */
-  --bnk-cream-light: 248 238 215; /* Lighter cream for backgrounds */
-  --bnk-white: 255 255 255;       /* Pure white when needed */
-
-  /* === SEMANTIC TOKENS (Business Card System) === */
-  --color-bg: var(--bnk-cream-light);      /* Primary background */
-  --color-surface: var(--bnk-cream);       /* Cards, sections */
-  --color-surface-2: var(--bnk-silver-light); /* Elevated surfaces */
-
-  --color-text: var(--bnk-ink);            /* Primary text */
-  --color-text-muted: var(--bnk-silver);   /* Secondary text */
-  --color-text-subtle: var(--bnk-silver-light); /* Tertiary text */
-
-  --color-accent: var(--bnk-gold);         /* Primary accent */
-  --color-accent-hover: var(--bnk-bronze); /* Accent hover */
-  --color-accent-soft: var(--bnk-gold-light); /* Soft accent */
-
-  --color-brand: var(--bnk-navy);          /* Brand primary */
-  --color-brand-hover: var(--bnk-navy-dark); /* Brand hover */
-
-  --color-border: var(--bnk-bronze-light); /* Default borders */
-  --color-ring: var(--bnk-gold);           /* Focus rings */
-
-  /* Legacy - maintain for compatibility */
-  --background: rgb(var(--color-bg));
-  --foreground: rgb(var(--color-text));
+  /* Focus/Interaction */
+  --focus-ring: #B8965E;          /* Bronze focus rings */
+  
+  /* Typography */
   --font-inter: 'Inter', system-ui, sans-serif;
   --font-display: 'Archivo', system-ui, sans-serif;
 }
@@ -66,8 +51,8 @@ html {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--body-text);        /* Navy text by default */
+  background: var(--brand-cream); /* Cream background */
   font-family: var(--font-inter);
   font-feature-settings: 'rlig' 1, 'calt' 1;
   -webkit-font-smoothing: antialiased;
@@ -115,18 +100,58 @@ body {
 }
 
 @layer components {
+  /* === STRICT BRAND PALETTE COMPONENT SYSTEM === */
+  
+  /* Button System - Navy buttons with gold text in body */
   .btn {
-    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ring/30 disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium transition-all duration-200 rounded-lg focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
+    focus-ring-color: var(--focus-ring);
   }
 
   .btn-primary {
-    @apply bg-brand text-bnk-cream hover:bg-brand-hover hover:shadow-lg hover:shadow-brand/20;
+    background-color: var(--body-button);     /* Navy */
+    color: var(--body-button-text);          /* Gold text */
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--brand-bronze);   /* Bronze hover */
+    color: var(--brand-navy);                /* Navy text on bronze */
   }
 
   .btn-outline {
-    @apply border-2 border-accent text-accent-hover bg-transparent hover:bg-accent hover:text-bnk-navy;
+    border: 2px solid var(--body-button);    /* Navy border */
+    color: var(--body-button);               /* Navy text */
+    background-color: transparent;
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--body-button);    /* Navy background */
+    color: var(--body-button-text);          /* Gold text */
+  }
+  
+  /* Header/Footer Button System - Bronze buttons with navy text */
+  .btn-header {
+    background-color: var(--header-button);      /* Bronze */
+    color: var(--header-button-text);            /* Navy text */
+  }
+  
+  .btn-header:hover {
+    background-color: var(--brand-gold);         /* Gold hover */
+    color: var(--brand-navy);                    /* Navy text */
   }
 
+  /* Section Background Rotation */
+  .section-bronze {
+    background-color: var(--section-bronze);     /* Bronze sections */
+    color: var(--body-text);                     /* Navy text */
+  }
+  
+  .section-gold {
+    background-color: var(--section-gold);       /* Gold sections */
+    color: var(--body-text);                     /* Navy text */
+  }
+
+  /* Layout System */
   .section-padding {
     @apply px-4 sm:px-6 lg:px-8;
   }
@@ -139,6 +164,24 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
+  /* Header/Footer System */
+  .header-bg {
+    background-color: var(--header-bg);          /* Navy */
+  }
+  
+  .header-text {
+    color: var(--header-text);                   /* Gold */
+  }
+  
+  .footer-bg {
+    background-color: var(--header-bg);          /* Navy */
+  }
+  
+  .footer-text {
+    color: var(--header-text);                   /* Gold */
+  }
+
+  /* Magnetic Effect */
   .magnetic {
     transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   }
@@ -146,7 +189,7 @@ body {
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, #a16207 0%, #ca8a04 100%);
+    background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-bronze) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -155,6 +198,21 @@ body {
   .animate-magnetic {
     transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   }
+  
+  /* Brand Color Utilities */
+  .text-navy { color: var(--brand-navy); }
+  .text-gold { color: var(--brand-gold); }
+  .text-bronze { color: var(--brand-bronze); }
+  .text-silver { color: var(--brand-silver); }
+  .text-ink { color: var(--brand-ink); }
+  .text-cream { color: var(--brand-cream); }
+  
+  .bg-navy { background-color: var(--brand-navy); }
+  .bg-gold { background-color: var(--brand-gold); }
+  .bg-bronze { background-color: var(--brand-bronze); }
+  .bg-silver { background-color: var(--brand-silver); }
+  .bg-ink { background-color: var(--brand-ink); }
+  .bg-cream { background-color: var(--brand-cream); }
 }
 
 @media (prefers-reduced-motion: reduce) {

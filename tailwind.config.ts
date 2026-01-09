@@ -9,80 +9,37 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Legacy support
-        background: 'rgb(var(--color-bg) / <alpha-value>)',
-        foreground: 'rgb(var(--color-text) / <alpha-value>)',
+        // === STRICT BNK BRAND PALETTE - ONLY THESE 6 COLORS ALLOWED ===
         
-        // === BNK BUSINESS CARD LUXURY SYSTEM ===
-        
-        // Semantic Brand Tokens (Primary Usage)
+        // Primary Brand Tokens (Main Usage)
         brand: {
-          DEFAULT: 'rgb(var(--color-brand) / <alpha-value>)',    // Navy primary
-          hover: 'rgb(var(--color-brand-hover) / <alpha-value>)', // Navy dark
-          navy: 'rgb(var(--bnk-navy) / <alpha-value>)',          // Direct navy access
-          gold: 'rgb(var(--bnk-gold) / <alpha-value>)',          // Direct gold access
-          bronze: 'rgb(var(--bnk-bronze) / <alpha-value>)',      // Direct bronze access
-          silver: 'rgb(var(--bnk-silver) / <alpha-value>)',      // Direct silver access
-          ink: 'rgb(var(--bnk-ink) / <alpha-value>)',            // Direct ink access
-          cream: 'rgb(var(--bnk-cream) / <alpha-value>)'         // Direct cream access
+          DEFAULT: '#0B2A3D',  // Deep Navy Blue (primary brand color)
+          navy: '#0B2A3D',     // Deep Navy Blue
+          gold: '#D6B071',     // Rich Gold / Sand Gold
+          bronze: '#B8965E',   // Dark Gold / Bronze Shadow
+          silver: '#8E9499',   // Metallic Silver / Logo Gray
+          ink: '#1A1A1A',      // Charcoal / Near Black
+          cream: '#F1E2C3'     // Off-White / Soft Highlight
         },
         
-        // Semantic Surface System
-        'base-cream': 'rgb(var(--bnk-cream-light) / <alpha-value>)', // Primary light background
-        'base-navy': 'rgb(var(--bnk-navy) / <alpha-value>)',         // Primary dark background
+        // Section Background Rotation System
+        'section-bronze': '#B8965E',  // Odd sections
+        'section-gold': '#D6B071',    // Even sections
         
-        // Accent System
-        accent: {
-          DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',     // Gold primary
-          hover: 'rgb(var(--color-accent-hover) / <alpha-value>)', // Bronze hover
-          soft: 'rgb(var(--color-accent-soft) / <alpha-value>)',   // Light gold
-          gold: 'rgb(var(--bnk-gold) / <alpha-value>)',            // Direct gold
-          bronze: 'rgb(var(--bnk-bronze) / <alpha-value>)'         // Direct bronze
-        },
+        // Header/Footer System
+        'header-bg': '#0B2A3D',       // Navy background
+        'header-text': '#D6B071',     // Gold text
+        'header-button': '#B8965E',   // Bronze buttons
+        'header-button-text': '#0B2A3D', // Navy text in bronze buttons
         
-        // Surface & Card System  
-        surface: {
-          DEFAULT: 'rgb(var(--color-surface) / <alpha-value>)',    // Cream cards
-          '2': 'rgb(var(--color-surface-2) / <alpha-value>)',      // Elevated surfaces
-          cream: 'rgb(var(--bnk-cream) / <alpha-value>)',
-          'cream-light': 'rgb(var(--bnk-cream-light) / <alpha-value>)'
-        },
+        // Body System  
+        'body-text': '#0B2A3D',       // Navy text (default)
+        'body-button': '#0B2A3D',     // Navy buttons
+        'body-button-text': '#D6B071', // Gold text in navy buttons
         
-        // Text System
-        text: {
-          DEFAULT: 'rgb(var(--color-text) / <alpha-value>)',       // Ink primary
-          muted: 'rgb(var(--color-text-muted) / <alpha-value>)',   // Silver muted
-          subtle: 'rgb(var(--color-text-subtle) / <alpha-value>)', // Silver light
-          ink: 'rgb(var(--bnk-ink) / <alpha-value>)',              // Direct ink
-          'on-navy': 'rgb(var(--bnk-cream) / <alpha-value>)',      // Text on navy backgrounds
-          'on-cream': 'rgb(var(--bnk-ink) / <alpha-value>)'        // Text on cream backgrounds
-        },
-        
-        // Border & Focus System
-        border: {
-          DEFAULT: 'rgb(var(--color-border) / <alpha-value>)',     // Bronze light borders
-          bronze: 'rgb(var(--bnk-bronze-light) / <alpha-value>)',
-          gold: 'rgb(var(--bnk-gold) / <alpha-value>)'
-        },
-        ring: {
-          DEFAULT: 'rgb(var(--color-ring) / <alpha-value>)'        // Gold focus rings
-        },
-        
-        // Direct Business Card Color Access (Advanced Usage)
-        'bnk-navy': 'rgb(var(--bnk-navy) / <alpha-value>)',
-        'bnk-navy-light': 'rgb(var(--bnk-navy-light) / <alpha-value>)',
-        'bnk-navy-dark': 'rgb(var(--bnk-navy-dark) / <alpha-value>)',
-        'bnk-gold': 'rgb(var(--bnk-gold) / <alpha-value>)',
-        'bnk-gold-light': 'rgb(var(--bnk-gold-light) / <alpha-value>)',
-        'bnk-bronze': 'rgb(var(--bnk-bronze) / <alpha-value>)',
-        'bnk-bronze-light': 'rgb(var(--bnk-bronze-light) / <alpha-value>)',
-        'bnk-silver': 'rgb(var(--bnk-silver) / <alpha-value>)',
-        'bnk-silver-light': 'rgb(var(--bnk-silver-light) / <alpha-value>)',
-        'bnk-ink': 'rgb(var(--bnk-ink) / <alpha-value>)',
-        'bnk-ink-light': 'rgb(var(--bnk-ink-light) / <alpha-value>)',
-        'bnk-cream': 'rgb(var(--bnk-cream) / <alpha-value>)',
-        'bnk-cream-light': 'rgb(var(--bnk-cream-light) / <alpha-value>)',
-        'bnk-white': 'rgb(var(--bnk-white) / <alpha-value>)'
+        // Legacy aliases (will be removed in cleanup)
+        background: '#F1E2C3',
+        foreground: '#0B2A3D'
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],

@@ -6,9 +6,6 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { projects } from '@/content/projects'
 import { createScrollTrigger } from '@/lib/motion'
-import BnkSection from '@/components/layout/BnkSection'
-import BnkCard from '@/components/ui/BnkCard'
-import BnkButton from '@/components/ui/BnkButton'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -57,20 +54,16 @@ export default function FeaturedWork() {
   const featuredProjects = projects.slice(0, 3)
 
   return (
-    <BnkSection
+    <section
       ref={sectionRef}
-      variant="white"
-      diagonal="right"
-      depth="flat"
-      topAccent={true}
-      padding="loose"
+      className="section-bronze py-24"
     >
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-bnk-navy">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-navy">
             Featured Work
           </h2>
-          <p className="text-xl text-bnk-silver max-w-3xl mx-auto">
+          <p className="text-xl text-navy max-w-3xl mx-auto">
             Explore our recent website projects and see how we've helped businesses 
             transform their digital presence with high-performance web solutions.
           </p>
@@ -78,20 +71,16 @@ export default function FeaturedWork() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project, index) => (
-            <BnkCard
+            <div
               key={project.slug}
               ref={addToRefs}
-              variant="floating"
-              headerAccent={true}
-              padding="normal"
-              className="group cursor-pointer"
-              onClick={() => window.location.href = `/work/${project.slug}`}
+              className="bg-cream p-6 rounded-lg border-2 border-brand-gold hover:shadow-lg transition-all duration-300 group cursor-pointer"
             >
               <Link href={`/work/${project.slug}`}>
                 {/* Project Image Placeholder */}
-                <div className="aspect-video bg-gradient-to-br from-bnk-cream to-bnk-cream-light flex items-center justify-center mb-6 rounded-lg overflow-hidden">
-                  <div className="text-bnk-silver text-center">
-                    <div className="w-12 h-12 mx-auto mb-3 bg-bnk-bronze-light/30 rounded-lg flex items-center justify-center">
+                <div className="aspect-video bg-brand-cream flex items-center justify-center mb-6 rounded-lg overflow-hidden">
+                  <div className="text-navy text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-brand-gold rounded-lg flex items-center justify-center">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
                         <path d="M9 9h6v6H9z" fill="currentColor"/>
@@ -102,17 +91,17 @@ export default function FeaturedWork() {
                 </div>
                 
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm font-medium text-bnk-bronze bg-bnk-gold-light/20 px-3 py-1 rounded-full border border-bnk-bronze-light">
+                  <span className="text-sm font-medium text-navy bg-brand-silver px-3 py-1 rounded-full border border-brand-gold">
                     {project.category}
                   </span>
-                  <span className="text-sm text-bnk-silver-light">{project.year}</span>
+                  <span className="text-sm text-navy">{project.year}</span>
                 </div>
                 
-                <h3 className="text-xl font-display font-semibold mb-3 text-bnk-navy group-hover:text-bnk-gold transition-colors">
+                <h3 className="text-xl font-display font-semibold mb-3 text-navy group-hover:text-brand-gold transition-colors">
                   {project.title}
                 </h3>
                 
-                <p className="text-bnk-silver mb-4 line-clamp-3">
+                <p className="text-navy mb-4 line-clamp-3">
                   {project.summary}
                 </p>
                 
@@ -120,35 +109,35 @@ export default function FeaturedWork() {
                   {project.technologies.slice(0, 3).map((tech) => (
                     <span 
                       key={tech}
-                      className="text-xs font-medium text-bnk-ink-light bg-bnk-cream-light px-2 py-1 rounded border border-bnk-bronze-light"
+                      className="text-xs font-medium text-navy bg-brand-cream px-2 py-1 rounded border border-brand-bronze"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 3 && (
-                    <span className="text-xs font-medium text-bnk-silver-light">
+                    <span className="text-xs font-medium text-navy">
                       +{project.technologies.length - 3} more
                     </span>
                   )}
                 </div>
                 
-                <div className="flex items-center text-sm font-medium text-bnk-navy group-hover:text-bnk-bronze transition-colors">
+                <div className="flex items-center text-sm font-medium text-navy group-hover:text-brand-bronze transition-colors">
                   View Project
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </div>
               </Link>
-            </BnkCard>
+            </div>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <BnkButton variant="primary" size="lg" magnetic={true}>
-            <Link href="/work">View All Projects</Link>
-          </BnkButton>
+          <Link href="/work" className="btn-primary px-8 py-4 rounded-lg font-medium transition-all duration-200">
+            View All Projects
+          </Link>
         </div>
       </div>
-    </BnkSection>
+    </section>
   )
 }

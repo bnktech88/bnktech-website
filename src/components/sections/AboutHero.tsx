@@ -37,14 +37,14 @@ export default function AboutHero() {
   }, [])
 
   return (
-    <section ref={containerRef} className="py-24 bg-grey-100">
+    <section ref={containerRef} className="py-24 bg-neutral-100">
       <div className="container">
         <div ref={contentRef} className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 text-balance">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 text-balance text-primary-900">
             Building the Future of Technology
           </h1>
           
-          <p className="text-xl md:text-2xl text-grey-700 mb-12 text-balance leading-relaxed">
+          <p className="text-xl md:text-2xl text-primary-600 mb-12 text-balance leading-relaxed">
             BNK Tech is more than a technology company—we're architects of digital transformation, 
             partnering with businesses to turn ambitious visions into reality.
           </p>

@@ -12,13 +12,13 @@ export default function WorkPage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-24 bg-grey-100">
+      <section className="py-24 bg-neutral-100">
         <div className="container">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">
+            <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-primary-900">
               Our Work
             </h1>
-            <p className="text-xl md:text-2xl text-grey-700 max-w-4xl mx-auto text-balance">
+            <p className="text-xl md:text-2xl text-primary-600 max-w-4xl mx-auto text-balance">
               Discover how we've helped businesses transform their digital presence 
               and scale their operations with cutting-edge technology solutions.
             </p>

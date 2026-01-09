@@ -60,22 +60,22 @@ export default function ServiceDetail({ service, index }: ServiceDetailProps) {
     >
       {/* Content */}
       <div ref={contentRef} className="flex-1">
-        <h2 className="text-4xl font-display font-bold mb-6">
+        <h2 className="text-4xl font-display font-bold mb-6 text-primary-900">
           {service.title}
         </h2>
         
-        <p className="text-lg text-grey-700 mb-8 leading-relaxed">
+        <p className="text-lg text-primary-600 mb-8 leading-relaxed">
           {service.description}
         </p>
 
         {/* Features */}
         <div className="mb-8">
-          <h3 className="text-xl font-display font-semibold mb-4">What's Included:</h3>
+          <h3 className="text-xl font-display font-semibold mb-4 text-primary-800">What's Included:</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {service.features.map((feature, idx) => (
               <div key={idx} className="flex items-start">
-                <div className="w-2 h-2 bg-black rounded-full mt-3 mr-3 flex-shrink-0" />
-                <span className="text-grey-700">{feature}</span>
+                <div className="w-2 h-2 bg-accent-600 rounded-full mt-3 mr-3 flex-shrink-0" />
+                <span className="text-primary-600">{feature}</span>
               </div>
             ))}
           </div>
@@ -83,12 +83,12 @@ export default function ServiceDetail({ service, index }: ServiceDetailProps) {
 
         {/* Process */}
         <div className="mb-8">
-          <h3 className="text-xl font-display font-semibold mb-4">Our Process:</h3>
+          <h3 className="text-xl font-display font-semibold mb-4 text-primary-800">Our Process:</h3>
           <div className="flex flex-wrap gap-3">
             {service.process.map((step, idx) => (
               <div 
                 key={idx}
-                className="bg-grey-100 px-4 py-2 rounded-lg text-sm font-medium text-grey-800"
+                className="bg-accent-50 px-4 py-2 rounded-lg text-sm font-medium text-accent-800 border border-accent-200"
               >
                 {idx + 1}. {step}
               </div>
@@ -97,13 +97,13 @@ export default function ServiceDetail({ service, index }: ServiceDetailProps) {
         </div>
 
         {/* Pricing */}
-        <div className="bg-grey-50 p-6 rounded-lg mb-8">
+        <div className="bg-neutral-100 p-6 rounded-lg mb-8 border border-neutral-200">
           {service.status === 'coming-soon' ? (
             <div className="text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-grey-200 rounded-full mb-4">
-                <span className="text-sm font-medium text-grey-700">Coming Soon</span>
+              <div className="inline-flex items-center px-4 py-2 bg-accent-100 rounded-full mb-4 border border-accent-300">
+                <span className="text-sm font-medium text-accent-800">Coming Soon</span>
               </div>
-              <p className="text-grey-600 mb-4">{service.pricing.model}</p>
+              <p className="text-primary-600 mb-4">{service.pricing.model}</p>
               <Link 
                 href="/contact"
                 className="btn btn-outline magnetic"
@@ -114,13 +114,13 @@ export default function ServiceDetail({ service, index }: ServiceDetailProps) {
           ) : (
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-grey-600 mb-1">Starting from</p>
-                <p className="text-3xl font-display font-bold">{service.pricing.starting}</p>
-                <p className="text-sm text-grey-600">{service.pricing.model}</p>
+                <p className="text-sm text-primary-500 mb-1">Starting from</p>
+                <p className="text-3xl font-display font-bold text-accent-700">{service.pricing.starting}</p>
+                <p className="text-sm text-primary-500">{service.pricing.model}</p>
                 {service.pricing.maintenance && (
-                  <div className="mt-3 pt-3 border-t border-grey-200">
-                    <p className="text-lg font-display font-semibold text-grey-800">Monthly Maintenance from {service.pricing.maintenance}</p>
-                    <p className="text-sm text-grey-600">{service.pricing.maintenanceModel}</p>
+                  <div className="mt-3 pt-3 border-t border-neutral-300">
+                    <p className="text-lg font-display font-semibold text-primary-800">Monthly Maintenance from {service.pricing.maintenance}</p>
+                    <p className="text-sm text-primary-500">{service.pricing.maintenanceModel}</p>
                   </div>
                 )}
               </div>
@@ -144,17 +144,17 @@ export default function ServiceDetail({ service, index }: ServiceDetailProps) {
             className="w-full"
           />
         ) : (
-          <div className="aspect-square bg-gradient-to-br from-grey-100 to-grey-200 rounded-2xl flex items-center justify-center p-8">
+          <div className="aspect-square bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-2xl flex items-center justify-center p-8 border border-neutral-300">
             <div className="text-center">
-              <div className="w-24 h-24 bg-black rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                <span className="text-white font-display font-bold text-2xl">
+              <div className="w-24 h-24 bg-primary-900 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <span className="text-accent-400 font-display font-bold text-2xl">
                   {String(index + 1).padStart(2, '0')}
                 </span>
               </div>
-              <h3 className="text-xl font-display font-semibold text-grey-800 mb-2">
+              <h3 className="text-xl font-display font-semibold text-primary-800 mb-2">
                 {service.title}
               </h3>
-              <p className="text-grey-600 text-sm">
+              <p className="text-primary-600 text-sm">
                 {service.pricing.model}
               </p>
             </div>

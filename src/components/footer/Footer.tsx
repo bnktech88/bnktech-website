@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-primary-950 text-neutral-100">
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -18,30 +18,30 @@ export default function Footer() {
                 alt="BNK Tech (PTY) LTD logo"
                 width={80}
                 height={80}
-                className="w-12 h-12 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 filter invert"
+                className="w-12 h-12 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-20 lg:h-20"
                 sizes="(max-width: 640px) 48px, (max-width: 768px) 64px, (max-width: 1024px) 72px, 80px"
               />
             </Link>
-            <p className="text-grey-300 text-large mb-6 max-w-md">
+            <p className="text-neutral-300 text-lg mb-6 max-w-md">
               Premium technology solutions for businesses ready to scale. 
               We deliver high-performance websites, digital infrastructure, 
               and comprehensive IT services.
             </p>
             <div className="space-y-2 text-sm">
-              <p className="text-grey-300">
+              <p className="text-neutral-300">
                 Call or WhatsApp: {' '}
                 <a 
                   href={`tel:${siteConfig.company.phone}`}
-                  className="text-white hover:text-grey-300 transition-colors"
+                  className="text-accent-400 hover:text-accent-300 transition-colors font-medium"
                 >
                   {formatPhoneNumber(siteConfig.company.phone)}
                 </a>
               </p>
-              <p className="text-grey-300">
+              <p className="text-neutral-300">
                 Email: {' '}
                 <a 
                   href={`mailto:${siteConfig.company.email}`}
-                  className="text-white hover:text-grey-300 transition-colors"
+                  className="text-accent-400 hover:text-accent-300 transition-colors font-medium"
                 >
                   {siteConfig.company.email}
                 </a>
@@ -51,12 +51,12 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-display font-semibold mb-4">Services</h3>
-            <ul className="space-y-2 text-sm text-grey-300">
+            <h3 className="font-display font-semibold mb-4 text-accent-400">Services</h3>
+            <ul className="space-y-2 text-sm text-neutral-300">
               <li>
                 <Link 
                   href="/services#website-builds" 
-                  className="hover:text-white transition-colors"
+                  className="hover:text-accent-400 transition-colors"
                 >
                   Website Builds
                 </Link>
@@ -64,7 +64,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/services#digital-infrastructure" 
-                  className="hover:text-white transition-colors"
+                  className="hover:text-accent-400 transition-colors"
                 >
                   Digital Infrastructure
                 </Link>
@@ -72,7 +72,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/services#it-services" 
-                  className="hover:text-white transition-colors"
+                  className="hover:text-accent-400 transition-colors"
                 >
                   IT Services
                 </Link>
@@ -80,7 +80,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/services#security-maintenance" 
-                  className="hover:text-white transition-colors"
+                  className="hover:text-accent-400 transition-colors"
                 >
                   Security & Maintenance
                 </Link>
@@ -88,7 +88,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/services#retainers-scaling" 
-                  className="hover:text-white transition-colors"
+                  className="hover:text-accent-400 transition-colors"
                 >
                   Retainers & Scaling
                 </Link>
@@ -98,12 +98,12 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-display font-semibold mb-4">Company</h3>
-            <ul className="space-y-2 text-sm text-grey-300">
+            <h3 className="font-display font-semibold mb-4 text-accent-400">Company</h3>
+            <ul className="space-y-2 text-sm text-neutral-300">
               <li>
                 <Link 
                   href="/about" 
-                  className="hover:text-white transition-colors"
+                  className="hover:text-accent-400 transition-colors"
                 >
                   About Us
                 </Link>
@@ -111,7 +111,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/work" 
-                  className="hover:text-white transition-colors"
+                  className="hover:text-accent-400 transition-colors"
                 >
                   Our Work
                 </Link>
@@ -119,7 +119,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/contact" 
-                  className="hover:text-white transition-colors"
+                  className="hover:text-accent-400 transition-colors"
                 >
                   Contact
                 </Link>
@@ -127,7 +127,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/privacy" 
-                  className="hover:text-white transition-colors"
+                  className="hover:text-accent-400 transition-colors"
                 >
                   Privacy Policy
                 </Link>
@@ -137,8 +137,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-grey-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="text-sm text-grey-400">
+        <div className="border-t border-primary-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="text-sm text-neutral-400">
             © {currentYear} {siteConfig.company.name}. All rights reserved.
           </div>
           
@@ -151,11 +151,11 @@ export default function Footer() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-outline text-white border-white hover:bg-white hover:text-black"
+              className="border-2 border-accent-600 text-accent-400 hover:bg-accent-600 hover:text-primary-950 px-4 py-2 rounded-lg font-medium transition-all duration-200"
             >
               WhatsApp Us
             </a>
-            <Link href="/contact" className="btn btn-primary">
+            <Link href="/contact" className="bg-accent-600 hover:bg-accent-700 text-primary-950 px-6 py-2.5 rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-accent-600/20">
               Get Quote
             </Link>
           </div>

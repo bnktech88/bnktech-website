@@ -1,0 +1,90 @@
+name: Promote Main to Backup
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  promote-backup:
+    name: Update Backup Branch After Successful Build
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      actions: read
+      
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Run Linting
+        run: npm run lint
+        
+      - name: Run Build
+        run: npm run build
+        
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          
+      - name: Update Backup Branch
+        run: |
+          # Fetch latest main
+          git checkout main
+          git pull origin main
+          
+          # Force update backup to match main exactly
+          git checkout -B backup
+          git push origin backup --force-with-lease
+          
+      - name: Verify Backup Update
+        run: |
+          # Verify backup and main have same commit hash
+          MAIN_HASH=$(git rev-parse main)
+          BACKUP_HASH=$(git rev-parse backup)
+          
+          if [ "$MAIN_HASH" = "$BACKUP_HASH" ]; then
+            echo "✅ Backup branch successfully updated to match main"
+            echo "Commit: $MAIN_HASH"
+          else
+            echo "❌ Backup update failed - hashes don't match"
+            echo "Main: $MAIN_HASH"
+            echo "Backup: $BACKUP_HASH"
+            exit 1
+          fi
+          
+      - name: Create Success Summary
+        if: success()
+        run: |
+          echo "### ✅ Backup Branch Updated Successfully" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Main Branch Commit**: \`$(git rev-parse main)\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Backup Branch Commit**: \`$(git rev-parse backup)\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Status**: Backup now points to latest successful main deployment" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The \`backup\` branch is ready for instant rollback if needed." >> $GITHUB_STEP_SUMMARY
+          
+      - name: Create Failure Summary
+        if: failure()
+        run: |
+          echo "### ❌ Backup Branch Update Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Issue**: Build checks failed or backup update unsuccessful" >> $GITHUB_STEP_SUMMARY
+          echo "**Action Required**: Check build logs and manually update backup if needed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "⚠️ **Production Safety**: \`backup\` branch may not reflect latest \`main\`" >> $GITHUB_STEP_SUMMARY

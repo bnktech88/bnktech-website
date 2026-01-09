@@ -13,57 +13,76 @@ const config: Config = {
         background: 'rgb(var(--color-bg) / <alpha-value>)',
         foreground: 'rgb(var(--color-text) / <alpha-value>)',
         
-        // === BNK SEMANTIC THEME (CSS Variables) ===
-        // Semantic colors that map to CSS variables
-        'brand': {
-          DEFAULT: 'rgb(var(--color-brand) / <alpha-value>)',
-          hover: 'rgb(var(--color-brand-hover) / <alpha-value>)',
-        },
-        'accent': {
-          DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',
-          hover: 'rgb(var(--color-accent-hover) / <alpha-value>)',
-          soft: 'rgb(var(--color-accent-soft) / <alpha-value>)',
-        },
-        'surface': {
-          DEFAULT: 'rgb(var(--color-surface) / <alpha-value>)',
-          '2': 'rgb(var(--color-surface-2) / <alpha-value>)',
-        },
-        'text': {
-          DEFAULT: 'rgb(var(--color-text) / <alpha-value>)',
-          muted: 'rgb(var(--color-text-muted) / <alpha-value>)',
-          subtle: 'rgb(var(--color-text-subtle) / <alpha-value>)',
-        },
-        'border': {
-          DEFAULT: 'rgb(var(--color-border) / <alpha-value>)',
-        },
-        'ring': {
-          DEFAULT: 'rgb(var(--color-ring) / <alpha-value>)',
+        // === BNK BUSINESS CARD LUXURY SYSTEM ===
+        
+        // Semantic Brand Tokens (Primary Usage)
+        brand: {
+          DEFAULT: 'rgb(var(--color-brand) / <alpha-value>)',    // Navy primary
+          hover: 'rgb(var(--color-brand-hover) / <alpha-value>)', // Navy dark
+          navy: 'rgb(var(--bnk-navy) / <alpha-value>)',          // Direct navy access
+          gold: 'rgb(var(--bnk-gold) / <alpha-value>)',          // Direct gold access
+          bronze: 'rgb(var(--bnk-bronze) / <alpha-value>)',      // Direct bronze access
+          silver: 'rgb(var(--bnk-silver) / <alpha-value>)',      // Direct silver access
+          ink: 'rgb(var(--bnk-ink) / <alpha-value>)',            // Direct ink access
+          cream: 'rgb(var(--bnk-cream) / <alpha-value>)'         // Direct cream access
         },
         
-        // === BNK BRAND TOKENS (CSS Variables) ===
-        // Direct access to brand colors when needed
-        'bnk-navy': {
-          950: 'rgb(var(--bnk-navy-950) / <alpha-value>)',
-          900: 'rgb(var(--bnk-navy-900) / <alpha-value>)',
-          800: 'rgb(var(--bnk-navy-800) / <alpha-value>)',
-          700: 'rgb(var(--bnk-navy-700) / <alpha-value>)',
-          600: 'rgb(var(--bnk-navy-600) / <alpha-value>)',
+        // Semantic Surface System
+        'base-cream': 'rgb(var(--bnk-cream-light) / <alpha-value>)', // Primary light background
+        'base-navy': 'rgb(var(--bnk-navy) / <alpha-value>)',         // Primary dark background
+        
+        // Accent System
+        accent: {
+          DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',     // Gold primary
+          hover: 'rgb(var(--color-accent-hover) / <alpha-value>)', // Bronze hover
+          soft: 'rgb(var(--color-accent-soft) / <alpha-value>)',   // Light gold
+          gold: 'rgb(var(--bnk-gold) / <alpha-value>)',            // Direct gold
+          bronze: 'rgb(var(--bnk-bronze) / <alpha-value>)'         // Direct bronze
         },
-        'bnk-gold': {
-          700: 'rgb(var(--bnk-gold-700) / <alpha-value>)',
-          600: 'rgb(var(--bnk-gold-600) / <alpha-value>)',
-          500: 'rgb(var(--bnk-gold-500) / <alpha-value>)',
-          400: 'rgb(var(--bnk-gold-400) / <alpha-value>)',
-          300: 'rgb(var(--bnk-gold-300) / <alpha-value>)',
+        
+        // Surface & Card System  
+        surface: {
+          DEFAULT: 'rgb(var(--color-surface) / <alpha-value>)',    // Cream cards
+          '2': 'rgb(var(--color-surface-2) / <alpha-value>)',      // Elevated surfaces
+          cream: 'rgb(var(--bnk-cream) / <alpha-value>)',
+          'cream-light': 'rgb(var(--bnk-cream-light) / <alpha-value>)'
         },
-        'bnk-neutral': {
-          50: 'rgb(var(--bnk-neutral-50) / <alpha-value>)',
-          100: 'rgb(var(--bnk-neutral-100) / <alpha-value>)',
-          200: 'rgb(var(--bnk-neutral-200) / <alpha-value>)',
-          300: 'rgb(var(--bnk-neutral-300) / <alpha-value>)',
-          800: 'rgb(var(--bnk-neutral-800) / <alpha-value>)',
-          900: 'rgb(var(--bnk-neutral-900) / <alpha-value>)',
+        
+        // Text System
+        text: {
+          DEFAULT: 'rgb(var(--color-text) / <alpha-value>)',       // Ink primary
+          muted: 'rgb(var(--color-text-muted) / <alpha-value>)',   // Silver muted
+          subtle: 'rgb(var(--color-text-subtle) / <alpha-value>)', // Silver light
+          ink: 'rgb(var(--bnk-ink) / <alpha-value>)',              // Direct ink
+          'on-navy': 'rgb(var(--bnk-cream) / <alpha-value>)',      // Text on navy backgrounds
+          'on-cream': 'rgb(var(--bnk-ink) / <alpha-value>)'        // Text on cream backgrounds
         },
+        
+        // Border & Focus System
+        border: {
+          DEFAULT: 'rgb(var(--color-border) / <alpha-value>)',     // Bronze light borders
+          bronze: 'rgb(var(--bnk-bronze-light) / <alpha-value>)',
+          gold: 'rgb(var(--bnk-gold) / <alpha-value>)'
+        },
+        ring: {
+          DEFAULT: 'rgb(var(--color-ring) / <alpha-value>)'        // Gold focus rings
+        },
+        
+        // Direct Business Card Color Access (Advanced Usage)
+        'bnk-navy': 'rgb(var(--bnk-navy) / <alpha-value>)',
+        'bnk-navy-light': 'rgb(var(--bnk-navy-light) / <alpha-value>)',
+        'bnk-navy-dark': 'rgb(var(--bnk-navy-dark) / <alpha-value>)',
+        'bnk-gold': 'rgb(var(--bnk-gold) / <alpha-value>)',
+        'bnk-gold-light': 'rgb(var(--bnk-gold-light) / <alpha-value>)',
+        'bnk-bronze': 'rgb(var(--bnk-bronze) / <alpha-value>)',
+        'bnk-bronze-light': 'rgb(var(--bnk-bronze-light) / <alpha-value>)',
+        'bnk-silver': 'rgb(var(--bnk-silver) / <alpha-value>)',
+        'bnk-silver-light': 'rgb(var(--bnk-silver-light) / <alpha-value>)',
+        'bnk-ink': 'rgb(var(--bnk-ink) / <alpha-value>)',
+        'bnk-ink-light': 'rgb(var(--bnk-ink-light) / <alpha-value>)',
+        'bnk-cream': 'rgb(var(--bnk-cream) / <alpha-value>)',
+        'bnk-cream-light': 'rgb(var(--bnk-cream-light) / <alpha-value>)',
+        'bnk-white': 'rgb(var(--bnk-white) / <alpha-value>)'
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],

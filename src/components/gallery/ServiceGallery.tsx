@@ -202,14 +202,14 @@ export default function ServiceGallery({
         
         {/* Preview mode indicator */}
         {isPreviewMode && config.style !== 'minimalFade' && (
-          <div className="absolute top-2 left-2 px-2 py-1 bg-blue-600/80 text-white text-xs font-medium rounded backdrop-blur-sm">
+          <div className="absolute top-2 left-2 px-2 py-1 bg-brand/80 text-bnk-cream text-xs font-medium rounded backdrop-blur-sm">
             {config.style.toUpperCase()}
           </div>
         )}
         
         {/* Performance indicator for mobile */}
         {isMobile && ['stackCards', 'cinematicZoom', 'parallaxSlide'].includes(config.style) && (
-          <div className="absolute top-2 right-2 px-2 py-1 bg-yellow-600/80 text-white text-xs font-medium rounded backdrop-blur-sm">
+          <div className="absolute top-2 right-2 px-2 py-1 bg-accent/80 text-bnk-navy text-xs font-medium rounded backdrop-blur-sm">
             OPTIMIZED
           </div>
         )}

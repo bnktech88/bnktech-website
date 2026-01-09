@@ -7,6 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { siteConfig } from '@/content/site'
 import { createWhatsAppUrl } from '@/lib/utils'
 import { createScrollTrigger } from '@/lib/motion'
+import BnkSection from '@/components/layout/BnkSection'
+import BnkButton from '@/components/ui/BnkButton'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -44,61 +46,75 @@ export default function CTA() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-24 bg-brand text-bnk-neutral-50">
+    <BnkSection
+      ref={sectionRef}
+      variant="navy"
+      diagonal="both"
+      depth="floating"
+      topAccent={true}
+      bottomAccent={true}
+      padding="loose"
+    >
       <div className="container">
         <div ref={contentRef} className="text-center max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 text-balance text-bnk-neutral-50">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 text-balance text-bnk-cream">
             Ready to Transform Your Business?
           </h2>
           
-          <p className="text-xl md:text-2xl text-accent-soft mb-12 text-balance leading-relaxed">
+          <p className="text-xl md:text-2xl text-bnk-gold-light mb-12 text-balance leading-relaxed">
             Join the businesses that trust BNK Tech to deliver exceptional technology solutions. 
             Let's discuss how we can accelerate your digital transformation.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-            <Link 
-              href="/contact" 
-              className="btn btn-primary bg-bnk-neutral-50 text-brand hover:bg-accent hover:text-bnk-navy-950 text-lg px-12 py-6 magnetic"
+            <BnkButton 
+              variant="primary" 
+              size="xl" 
+              magnetic={true}
             >
-              Start Your Project
-            </Link>
-            <a
-              href={createWhatsAppUrl(
-                siteConfig.company.whatsapp,
-                `Hi BNK Tech, I'm interested in discussing a project. Can we schedule a consultation?`
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline border-accent-soft text-accent-soft hover:bg-accent-soft hover:text-bnk-navy-950 text-lg px-12 py-6 magnetic"
+              <Link href="/contact">Start Your Project</Link>
+            </BnkButton>
+            <BnkButton 
+              variant="outline" 
+              size="xl" 
+              magnetic={true}
             >
-              WhatsApp Us
-            </a>
+              <a
+                href={createWhatsAppUrl(
+                  siteConfig.company.whatsapp,
+                  `Hi BNK Tech, I'm interested in discussing a project. Can we schedule a consultation?`
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp Us
+              </a>
+            </BnkButton>
           </div>
 
-          {/* Quick Contact Info */}
+          {/* Quick Contact Info - Business Card Inspired */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <h3 className="font-display font-semibold mb-2 text-bnk-neutral-50">Call or WhatsApp</h3>
+              <h3 className="font-display font-semibold mb-2 text-bnk-cream">Call or WhatsApp</h3>
               <a 
                 href={`tel:${siteConfig.company.phone}`}
-                className="text-accent-soft hover:text-bnk-neutral-50 transition-colors"
+                className="text-bnk-gold-light hover:text-bnk-cream transition-colors"
               >
                 {siteConfig.company.phone}
               </a>
             </div>
             <div>
-              <h3 className="font-display font-semibold mb-2 text-bnk-neutral-50">Email</h3>
+              <h3 className="font-display font-semibold mb-2 text-bnk-cream">Email</h3>
               <a 
                 href={`mailto:${siteConfig.company.email}`}
-                className="text-accent-soft hover:text-bnk-neutral-50 transition-colors"
+                className="text-bnk-gold-light hover:text-bnk-cream transition-colors"
               >
                 {siteConfig.company.email}
               </a>
             </div>
             <div>
-              <h3 className="font-display font-semibold mb-2 text-bnk-neutral-50">Response Time</h3>
-              <p className="text-accent-soft">Within 4 hours</p>
+              <h3 className="font-display font-semibold mb-2 text-bnk-cream">Response Time</h3>
+              <p className="text-bnk-gold-light">Within 24 hours</p>
             </div>
           </div>
 
@@ -127,6 +143,6 @@ export default function CTA() {
           </div>
         </div>
       </div>
-    </section>
+    </BnkSection>
   )
 }

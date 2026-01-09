@@ -6,49 +6,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  /* === BNK TECH BRAND TOKENS (Business Card System) === */
-  /* Navy Blues - Primary Brand */
-  --bnk-navy-950: 8 8 12;        /* rgb(8,8,12) - Deepest navy */
-  --bnk-navy-900: 15 23 42;      /* rgb(15,23,42) - Primary navy */
-  --bnk-navy-800: 30 41 59;      /* rgb(30,41,59) - Dark navy */
-  --bnk-navy-700: 51 65 85;      /* rgb(51,65,85) - Medium navy */
-  --bnk-navy-600: 71 85 105;     /* rgb(71,85,105) - Standard navy text */
+  /* === BNK TECH BUSINESS CARD LUXURY PALETTE === */
+  /* Exact Business Card Colors (RGB Values) */
+  --bnk-navy: 11 42 61;           /* #0B2A3D - Deep Navy Blue (primary) */
+  --bnk-navy-light: 23 64 92;     /* Lighter navy variant */
+  --bnk-navy-dark: 7 28 40;       /* Darker navy for depth */
   
-  /* Gold/Champagne - Accent Brand */
-  --bnk-gold-700: 161 98 7;      /* rgb(161,98,7) - Primary accent */
-  --bnk-gold-600: 202 138 4;     /* rgb(202,138,4) - Deep gold */
-  --bnk-gold-500: 234 179 8;     /* rgb(234,179,8) - Medium gold */
-  --bnk-gold-400: 250 204 21;    /* rgb(250,204,21) - Standard gold */
-  --bnk-gold-300: 253 224 71;    /* rgb(253,224,71) - Light gold */
+  --bnk-gold: 214 176 113;        /* #D6B071 - Rich Gold/Sand Gold (primary accent) */
+  --bnk-gold-light: 230 200 140;  /* Lighter gold for highlights */
   
-  /* Neutrals - Sand/Charcoal */
-  --bnk-neutral-50: 250 250 249;  /* rgb(250,250,249) - Off-white */
-  --bnk-neutral-100: 245 245 244; /* rgb(245,245,244) - Light sand */
-  --bnk-neutral-200: 231 229 228; /* rgb(231,229,228) - Sand */
-  --bnk-neutral-300: 214 211 209; /* rgb(214,211,209) - Border */
-  --bnk-neutral-800: 41 37 36;    /* rgb(41,37,36) - Dark charcoal */
-  --bnk-neutral-900: 28 25 23;    /* rgb(28,25,23) - Text charcoal */
+  --bnk-bronze: 184 150 94;       /* #B8965E - Dark Gold/Bronze Shadow (depth) */
+  --bnk-bronze-light: 200 166 110; /* Lighter bronze */
   
-  /* === SEMANTIC TOKENS (Single Source of Truth) === */
-  --color-bg: var(--bnk-neutral-50);           /* Primary background */
-  --color-surface: var(--bnk-neutral-100);     /* Cards, sections */
-  --color-surface-2: var(--bnk-neutral-200);   /* Elevated surfaces */
+  --bnk-silver: 142 148 153;      /* #8E9499 - Metallic Silver/Logo Gray (muted) */
+  --bnk-silver-light: 170 176 181; /* Lighter silver */
   
-  --color-text: var(--bnk-neutral-900);        /* Primary text */
-  --color-text-muted: var(--bnk-navy-600);     /* Secondary text */
-  --color-text-subtle: var(--bnk-navy-500);    /* Tertiary text */
+  --bnk-ink: 26 26 26;            /* #1A1A1A - Charcoal/Near Black (text) */
+  --bnk-ink-light: 64 64 64;      /* Lighter ink for secondary text */
   
-  --color-accent: var(--bnk-gold-600);         /* Primary accent */
-  --color-accent-hover: var(--bnk-gold-700);   /* Accent hover */
-  --color-accent-soft: var(--bnk-gold-300);    /* Soft accent */
-  
-  --color-brand: var(--bnk-navy-900);          /* Brand primary */
-  --color-brand-hover: var(--bnk-navy-800);    /* Brand hover */
-  
-  --color-border: var(--bnk-neutral-300);      /* Default borders */
-  --color-ring: var(--bnk-gold-500);           /* Focus rings */
-  
-  /* Legacy - maintain for now */
+  --bnk-cream: 241 226 195;       /* #F1E2C3 - Off-White/Soft Highlight */
+  --bnk-cream-light: 248 238 215; /* Lighter cream for backgrounds */
+  --bnk-white: 255 255 255;       /* Pure white when needed */
+
+  /* === SEMANTIC TOKENS (Business Card System) === */
+  --color-bg: var(--bnk-cream-light);      /* Primary background */
+  --color-surface: var(--bnk-cream);       /* Cards, sections */
+  --color-surface-2: var(--bnk-silver-light); /* Elevated surfaces */
+
+  --color-text: var(--bnk-ink);            /* Primary text */
+  --color-text-muted: var(--bnk-silver);   /* Secondary text */
+  --color-text-subtle: var(--bnk-silver-light); /* Tertiary text */
+
+  --color-accent: var(--bnk-gold);         /* Primary accent */
+  --color-accent-hover: var(--bnk-bronze); /* Accent hover */
+  --color-accent-soft: var(--bnk-gold-light); /* Soft accent */
+
+  --color-brand: var(--bnk-navy);          /* Brand primary */
+  --color-brand-hover: var(--bnk-navy-dark); /* Brand hover */
+
+  --color-border: var(--bnk-bronze-light); /* Default borders */
+  --color-ring: var(--bnk-gold);           /* Focus rings */
+
+  /* Legacy - maintain for compatibility */
   --background: rgb(var(--color-bg));
   --foreground: rgb(var(--color-text));
   --font-inter: 'Inter', system-ui, sans-serif;
@@ -121,11 +120,11 @@ body {
   }
 
   .btn-primary {
-    @apply bg-brand text-bnk-neutral-50 hover:bg-brand-hover hover:shadow-lg hover:shadow-brand/20;
+    @apply bg-brand text-bnk-cream hover:bg-brand-hover hover:shadow-lg hover:shadow-brand/20;
   }
 
   .btn-outline {
-    @apply border-2 border-accent text-accent-hover bg-transparent hover:bg-accent hover:text-bnk-navy-950;
+    @apply border-2 border-accent text-accent-hover bg-transparent hover:bg-accent hover:text-bnk-navy;
   }
 
   .section-padding {

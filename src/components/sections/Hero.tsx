@@ -6,7 +6,8 @@ import Image from 'next/image'
 import { gsap } from 'gsap'
 import { animateText } from '@/lib/motion'
 import { siteConfig } from '@/content/site'
-import MagneticButton from '@/components/ui/MagneticButton'
+import BnkSection from '@/components/layout/BnkSection'
+import BnkButton from '@/components/ui/BnkButton'
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null)
@@ -66,53 +67,66 @@ export default function Hero() {
   }, [])
 
   return (
-    <section 
+    <BnkSection
       id="hero"
       ref={containerRef}
-      className="min-h-screen flex items-center justify-center bg-neutral-50 pt-20"
+      variant="navy"
+      diagonal="right"
+      depth="raised"
+      topAccent={true}
+      padding="none"
+      className="min-h-screen flex items-center justify-center pt-20"
     >
-      <div className="container text-center">
-        {/* Large Hero Logo - Bold & Dominant */}
-        <div ref={logoRef} className="mb-16 max-w-full">
+      <div className="container text-center relative z-10">
+        {/* Business Card Inspired Logo - Premium but not overwhelming */}
+        <div ref={logoRef} className="mb-12 max-w-full">
           <Image
             src={siteConfig.company.logo}
             alt="BNK Tech (PTY) LTD logo"
-            width={600}
-            height={600}
-            className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[36rem] 2xl:h-[36rem] mx-auto"
+            width={400}
+            height={400}
+            className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 mx-auto opacity-90"
             priority
-            sizes="(max-width: 640px) 256px, (max-width: 768px) 320px, (max-width: 1024px) 384px, (max-width: 1280px) 448px, (max-width: 1536px) 512px, 576px"
+            sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, (max-width: 1024px) 192px, (max-width: 1280px) 224px, 256px"
           />
         </div>
 
         <h1 
           ref={headingRef}
-          className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold mb-8 text-balance leading-tight text-primary-900"
+          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-8 text-balance leading-tight text-bnk-cream"
         >
           Premium <br />
-          <span className="bg-gradient-to-r from-accent-600 to-accent-700 bg-clip-text text-transparent">Technology</span> <br />
+          <span className="bg-gradient-to-r from-bnk-gold via-bnk-gold-light to-bnk-bronze bg-clip-text text-transparent">Technology</span> <br />
           Solutions
         </h1>
         
         <p 
           ref={subheadingRef}
-          className="text-xl md:text-2xl text-primary-600 mb-12 max-w-3xl mx-auto text-balance leading-relaxed"
+          className="text-lg md:text-xl lg:text-2xl text-bnk-silver-light mb-12 max-w-3xl mx-auto text-balance leading-relaxed"
         >
           We deliver high-performance websites, digital infrastructure, 
           and comprehensive IT services for businesses ready to scale.
         </p>
 
-        <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center">
-          <MagneticButton className="bg-primary-900 hover:bg-primary-800 text-neutral-50 text-lg px-12 py-6 rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-primary-900/20">
+        <div ref={ctaRef} className="flex flex-col sm:flex-row gap-6 justify-center">
+          <BnkButton 
+            variant="primary" 
+            size="xl" 
+            magnetic={true}
+          >
             <Link href="/work">View Our Work</Link>
-          </MagneticButton>
-          <MagneticButton className="border-2 border-accent-600 text-accent-700 hover:bg-accent-600 hover:text-primary-950 text-lg px-12 py-6 rounded-lg font-medium transition-all duration-200">
+          </BnkButton>
+          <BnkButton 
+            variant="outline" 
+            size="xl" 
+            magnetic={true}
+          >
             <Link href="/contact">Start Your Project</Link>
-          </MagneticButton>
+          </BnkButton>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-primary-400">
+        {/* Scroll Indicator - Business card inspired */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-bnk-gold">
           <div className="animate-bounce">
             <svg 
               width="24" 
@@ -130,9 +144,9 @@ export default function Hero() {
               />
             </svg>
           </div>
-          <p className="text-sm mt-2">Scroll to explore</p>
+          <p className="text-sm mt-2 text-bnk-silver-light">Scroll to explore</p>
         </div>
       </div>
-    </section>
+    </BnkSection>
   )
 }

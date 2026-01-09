@@ -42,20 +42,20 @@ export default function Mission() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white">
+    <section ref={sectionRef} className="py-24" style={{ backgroundColor: '#D6B071' }}>
       <div className="container">
         <div ref={contentRef} className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-navy">
               Our Mission
             </h2>
-            <p className="text-2xl text-grey-700 text-balance leading-relaxed">
+            <p className="text-2xl text-navy text-balance leading-relaxed">
               To become South Africa's leading technology powerhouse, delivering world-class solutions 
               that empower businesses to thrive in the digital age.
             </p>
           </div>
 
-          <div className="space-y-12 text-lg text-grey-700 leading-relaxed">
+          <div className="space-y-12 text-lg text-navy leading-relaxed">
             <p>
               Founded in {siteConfig.company.founded}, BNK Tech emerged from a simple belief: exceptional technology should drive exceptional results. 
               In a rapidly evolving digital landscape, we saw businesses struggling with outdated systems, slow websites, 
@@ -75,12 +75,12 @@ export default function Mission() {
             </p>
           </div>
 
-          <div className="mt-16 bg-black text-white p-8 rounded-lg">
+          <div className="mt-16 bg-navy text-gold p-8 rounded-lg border border-navy">
             <blockquote className="text-2xl font-medium text-center mb-4">
               "We don't just build technology—we craft experiences that inspire, 
               platforms that scale, and systems that endure."
             </blockquote>
-            <cite className="block text-center text-grey-300">
+            <cite className="block text-center text-gold">
               — BNK Tech Leadership Team
             </cite>
           </div>

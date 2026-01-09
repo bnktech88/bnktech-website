@@ -68,13 +68,13 @@ export default function Values() {
   }
 
   return (
-    <section ref={sectionRef} className="py-24 bg-surface">
+    <section ref={sectionRef} className="py-24" style={{ backgroundColor: '#B8965E' }}>
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-brand">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-navy">
             Our Values
           </h2>
-          <p className="text-xl text-muted max-w-3xl mx-auto">
+          <p className="text-xl text-navy max-w-3xl mx-auto">
             The principles that guide everything we do and shape how we approach every project.
           </p>
         </div>
@@ -84,13 +84,13 @@ export default function Values() {
             <div
               key={value.title}
               ref={addToRefs}
-              className="bg-bnk-neutral-50 p-8 rounded-lg text-center border hover:shadow-lg hover:shadow-brand/10 transition-all duration-300"
+              className="bg-cream p-8 rounded-lg text-center border border-navy hover:shadow-lg transition-all duration-300"
             >
               <div className="text-6xl mb-6">{value.icon}</div>
-              <h3 className="text-2xl font-display font-bold mb-4 text-brand">
+              <h3 className="text-2xl font-display font-bold mb-4 text-navy">
                 {value.title}
               </h3>
-              <p className="text-muted leading-relaxed">
+              <p className="text-navy leading-relaxed">
                 {value.description}
               </p>
             </div>

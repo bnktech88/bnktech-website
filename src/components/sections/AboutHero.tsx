@@ -37,34 +37,34 @@ export default function AboutHero() {
   }, [])
 
   return (
-    <section ref={containerRef} className="py-24 bg-neutral-100">
+    <section ref={containerRef} className="py-24" style={{ backgroundColor: '#B8965E' }}>
       <div className="container">
         <div ref={contentRef} className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 text-balance text-primary-900">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 text-balance text-navy">
             Building the Future of Technology
           </h1>
           
-          <p className="text-xl md:text-2xl text-primary-600 mb-12 text-balance leading-relaxed">
+          <p className="text-xl md:text-2xl text-navy mb-12 text-balance leading-relaxed">
             BNK Tech is more than a technology company—we're architects of digital transformation, 
             partnering with businesses to turn ambitious visions into reality.
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-display font-bold text-black mb-2">{siteConfig.company.founded}</div>
-              <div className="text-grey-600">Founded</div>
+              <div className="text-4xl font-display font-bold text-navy mb-2">{siteConfig.company.founded}</div>
+              <div className="text-navy">Founded</div>
             </div>
             <div>
-              <div className="text-4xl font-display font-bold text-black mb-2">50+</div>
-              <div className="text-grey-600">Projects</div>
+              <div className="text-4xl font-display font-bold text-navy mb-2">50+</div>
+              <div className="text-navy">Projects</div>
             </div>
             <div>
-              <div className="text-4xl font-display font-bold text-black mb-2">99.9%</div>
-              <div className="text-grey-600">Uptime</div>
+              <div className="text-4xl font-display font-bold text-navy mb-2">99.9%</div>
+              <div className="text-navy">Uptime</div>
             </div>
             <div>
-              <div className="text-4xl font-display font-bold text-black mb-2">24/7</div>
-              <div className="text-grey-600">Support</div>
+              <div className="text-4xl font-display font-bold text-navy mb-2">24/7</div>
+              <div className="text-navy">Support</div>
             </div>
           </div>
         </div>

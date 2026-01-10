@@ -54,13 +54,16 @@ export default function FeaturedWork() {
   const featuredProjects = projects.slice(0, 3)
 
   return (
-    <section ref={sectionRef} className="py-24 bg-grey-100">
+    <section
+      ref={sectionRef}
+      className="section-bronze py-24"
+    >
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-navy">
             Featured Work
           </h2>
-          <p className="text-xl text-grey-700 max-w-3xl mx-auto">
+          <p className="text-xl text-navy max-w-3xl mx-auto">
             Explore our recent website projects and see how we've helped businesses 
             transform their digital presence with high-performance web solutions.
           </p>
@@ -71,63 +74,58 @@ export default function FeaturedWork() {
             <div
               key={project.slug}
               ref={addToRefs}
-              className="group cursor-pointer"
-              data-cursor="view"
+              className="bg-cream p-6 rounded-lg border-2 border-brand-gold hover:shadow-lg transition-all duration-300 group cursor-pointer"
             >
               <Link href={`/work/${project.slug}`}>
-                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
-                  {/* Project Image Placeholder */}
-                  <div className="aspect-video bg-gradient-to-br from-grey-200 to-grey-300 flex items-center justify-center">
-                    <div className="text-grey-600 text-center">
-                      <div className="w-12 h-12 mx-auto mb-3 bg-grey-400 rounded-lg flex items-center justify-center">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
-                          <path d="M9 9h6v6H9z" fill="currentColor"/>
-                        </svg>
-                      </div>
-                      <p className="text-sm font-medium">{project.category}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-sm font-medium text-grey-600 bg-grey-100 px-3 py-1 rounded-full">
-                        {project.category}
-                      </span>
-                      <span className="text-sm text-grey-500">{project.year}</span>
-                    </div>
-                    
-                    <h3 className="text-xl font-display font-semibold mb-3 group-hover:text-grey-800 transition-colors">
-                      {project.title}
-                    </h3>
-                    
-                    <p className="text-grey-700 mb-4 line-clamp-3">
-                      {project.summary}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.slice(0, 3).map((tech) => (
-                        <span 
-                          key={tech}
-                          className="text-xs font-medium text-grey-600 bg-grey-100 px-2 py-1 rounded"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.technologies.length > 3 && (
-                        <span className="text-xs font-medium text-grey-600">
-                          +{project.technologies.length - 3} more
-                        </span>
-                      )}
-                    </div>
-                    
-                    <div className="flex items-center text-sm font-medium text-black group-hover:text-grey-700 transition-colors">
-                      View Project
-                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                {/* Project Image Placeholder */}
+                <div className="aspect-video bg-brand-cream flex items-center justify-center mb-6 rounded-lg overflow-hidden">
+                  <div className="text-navy text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-brand-gold rounded-lg flex items-center justify-center">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
+                        <path d="M9 9h6v6H9z" fill="currentColor"/>
                       </svg>
                     </div>
+                    <p className="text-sm font-medium">{project.category}</p>
                   </div>
+                </div>
+                
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-sm font-medium text-navy bg-brand-silver px-3 py-1 rounded-full border border-brand-gold">
+                    {project.category}
+                  </span>
+                  <span className="text-sm text-navy">{project.year}</span>
+                </div>
+                
+                <h3 className="text-xl font-display font-semibold mb-3 text-navy group-hover:text-brand-gold transition-colors">
+                  {project.title}
+                </h3>
+                
+                <p className="text-navy mb-4 line-clamp-3">
+                  {project.summary}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.slice(0, 3).map((tech) => (
+                    <span 
+                      key={tech}
+                      className="text-xs font-medium text-navy bg-brand-cream px-2 py-1 rounded border border-brand-bronze"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="text-xs font-medium text-navy">
+                      +{project.technologies.length - 3} more
+                    </span>
+                  )}
+                </div>
+                
+                <div className="flex items-center text-sm font-medium text-navy group-hover:text-brand-bronze transition-colors">
+                  View Project
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </div>
               </Link>
             </div>
@@ -135,7 +133,7 @@ export default function FeaturedWork() {
         </div>
 
         <div className="text-center mt-12">
-          <Link href="/work" className="btn btn-primary magnetic">
+          <Link href="/work" className="btn-primary px-8 py-4 rounded-lg font-medium transition-all duration-200">
             View All Projects
           </Link>
         </div>

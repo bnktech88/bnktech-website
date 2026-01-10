@@ -11,14 +11,14 @@ export const metadata = generateSEO({
 export default function ContactPage() {
   return (
     <div className="pt-20">
-      {/* Hero Section */}
-      <section className="py-24 bg-neutral-100">
+      {/* Hero Section - Section 1 = Bronze */}
+      <section className="section-bronze py-24">
         <div className="container">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-primary-900">
+            <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-navy">
               Let's Build Something Amazing
             </h1>
-            <p className="text-xl md:text-2xl text-primary-600 max-w-4xl mx-auto text-balance">
+            <p className="text-xl md:text-2xl text-navy max-w-4xl mx-auto text-balance">
               Ready to transform your business with cutting-edge technology? 
               Get in touch and let's discuss your project.
             </p>
@@ -26,8 +26,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form & Info */}
-      <section className="py-24 bg-neutral-50">
+      {/* Contact Form & Info - Section 2 = Gold */}
+      <section className="section-gold py-24">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <ContactForm />

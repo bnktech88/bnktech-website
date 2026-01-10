@@ -68,13 +68,13 @@ export default function Values() {
   }
 
   return (
-    <section ref={sectionRef} className="py-24 bg-grey-100">
+    <section ref={sectionRef} className="py-24 bg-surface">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-brand">
             Our Values
           </h2>
-          <p className="text-xl text-grey-700 max-w-3xl mx-auto">
+          <p className="text-xl text-muted max-w-3xl mx-auto">
             The principles that guide everything we do and shape how we approach every project.
           </p>
         </div>
@@ -84,13 +84,13 @@ export default function Values() {
             <div
               key={value.title}
               ref={addToRefs}
-              className="bg-white p-8 rounded-lg text-center hover:shadow-lg transition-shadow duration-300"
+              className="bg-bnk-neutral-50 p-8 rounded-lg text-center border hover:shadow-lg hover:shadow-brand/10 transition-all duration-300"
             >
               <div className="text-6xl mb-6">{value.icon}</div>
-              <h3 className="text-2xl font-display font-bold mb-4">
+              <h3 className="text-2xl font-display font-bold mb-4 text-brand">
                 {value.title}
               </h3>
-              <p className="text-grey-700 leading-relaxed">
+              <p className="text-muted leading-relaxed">
                 {value.description}
               </p>
             </div>
@@ -98,22 +98,22 @@ export default function Values() {
         </div>
 
         {/* Additional Stats */}
-        <div className="mt-16 pt-12 border-t border-grey-200">
+        <div className="mt-16 pt-12 border-t border">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-3xl font-display font-bold text-black mb-2">100%</div>
-              <div className="text-grey-600">Client Satisfaction Rate</div>
-              <p className="text-sm text-grey-500 mt-2">Every project delivered to specifications</p>
+              <div className="text-3xl font-display font-bold text-accent mb-2">100%</div>
+              <div className="text-muted">Client Satisfaction Rate</div>
+              <p className="text-sm text-subtle mt-2">Every project delivered to specifications</p>
             </div>
             <div>
-              <div className="text-3xl font-display font-bold text-black mb-2">&lt; 4h</div>
-              <div className="text-grey-600">Average Response Time</div>
-              <p className="text-sm text-grey-500 mt-2">Quick communication, always</p>
+              <div className="text-3xl font-display font-bold text-accent mb-2">&lt; 4h</div>
+              <div className="text-muted">Average Response Time</div>
+              <p className="text-sm text-subtle mt-2">Quick communication, always</p>
             </div>
             <div>
-              <div className="text-3xl font-display font-bold text-black mb-2">0</div>
-              <div className="text-grey-600">Security Breaches</div>
-              <p className="text-sm text-grey-500 mt-2">Rock-solid security practices</p>
+              <div className="text-3xl font-display font-bold text-accent mb-2">0</div>
+              <div className="text-muted">Security Breaches</div>
+              <p className="text-sm text-subtle mt-2">Rock-solid security practices</p>
             </div>
           </div>
         </div>

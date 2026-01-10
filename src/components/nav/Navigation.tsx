@@ -136,7 +136,7 @@ export default function Navigation() {
         <div 
           ref={menuRef}
           id="mobile-menu"
-          className="md:hidden bg-neutral-50 border-t border-neutral-200 shadow-lg"
+          className="md:hidden header-bg shadow-lg"
         >
           <div className="container py-6 space-y-4">
             {siteConfig.navigation.map((item) => (
@@ -144,20 +144,20 @@ export default function Navigation() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'block py-3 text-base font-medium transition-colors rounded-lg px-3',
+                  'block py-3 text-base font-medium transition-colors rounded-lg px-3 header-text',
                   pathname === item.href
-                    ? 'text-primary-900 bg-accent-50 border-l-4 border-accent-600'
-                    : 'text-primary-600 hover:text-primary-900 hover:bg-neutral-100'
+                    ? 'border-l-4 border-brand-bronze'
+                    : 'hover:text-brand-bronze'
                 )}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 border-t border-neutral-200">
+            <div className="pt-4">
               <Link
                 href="/contact"
-                className="bg-primary-900 hover:bg-primary-800 text-neutral-50 px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-primary-900/20 w-full flex justify-center"
+                className="btn-header px-6 py-3 rounded-lg font-medium transition-all duration-200 w-full flex justify-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Get Started

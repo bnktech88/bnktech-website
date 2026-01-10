@@ -79,16 +79,16 @@ export default function About() {
   }
 
   return (
-    <section ref={sectionRef} className="py-24 bg-grey-100">
+    <section ref={sectionRef} className="section-gold py-24">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div ref={contentRef}>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-navy">
               Building the Future of Technology
             </h2>
             
-            <div className="space-y-6 text-lg text-grey-700 leading-relaxed">
+            <div className="space-y-6 text-lg text-navy leading-relaxed">
               <p>
                 BNK Tech is more than a technology company—we're architects of digital transformation. 
                 Founded on the belief that exceptional technology should drive exceptional results, 
@@ -108,7 +108,7 @@ export default function About() {
             </div>
 
             <div className="mt-8">
-              <Link href="/about" className="btn btn-primary magnetic">
+              <Link href="/about" className="btn-primary px-8 py-4 rounded-lg font-medium transition-all duration-200">
                 Learn More About Us
               </Link>
             </div>
@@ -120,12 +120,12 @@ export default function About() {
               <div
                 key={value.title}
                 ref={addToRefs}
-                className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="bg-cream p-8 rounded-lg border-2 border-brand-bronze shadow-sm hover:shadow-md transition-all duration-300"
               >
-                <h3 className="text-2xl font-display font-semibold mb-4">
+                <h3 className="text-2xl font-display font-semibold mb-4 text-navy">
                   {value.title}
                 </h3>
-                <p className="text-grey-700 leading-relaxed">
+                <p className="text-navy leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -134,23 +134,23 @@ export default function About() {
         </div>
 
         {/* Stats */}
-        <div className="mt-24 pt-16 border-t border-grey-200">
+        <div className="mt-24 pt-16 border-t border-brand-bronze">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-display font-bold text-black mb-2">50+</div>
-              <div className="text-grey-600">Projects Delivered</div>
+              <div className="text-4xl font-display font-bold text-brand-bronze mb-2">50+</div>
+              <div className="text-navy">Projects Delivered</div>
             </div>
             <div>
-              <div className="text-4xl font-display font-bold text-black mb-2">99.9%</div>
-              <div className="text-grey-600">Uptime Guarantee</div>
+              <div className="text-4xl font-display font-bold text-brand-bronze mb-2">99.9%</div>
+              <div className="text-navy">Uptime Guarantee</div>
             </div>
             <div>
-              <div className="text-4xl font-display font-bold text-black mb-2">24/7</div>
-              <div className="text-grey-600">Expert Support</div>
+              <div className="text-4xl font-display font-bold text-brand-bronze mb-2">24/7</div>
+              <div className="text-navy">Expert Support</div>
             </div>
             <div>
-              <div className="text-4xl font-display font-bold text-black mb-2">100%</div>
-              <div className="text-grey-600">Client Satisfaction</div>
+              <div className="text-4xl font-display font-bold text-brand-bronze mb-2">100%</div>
+              <div className="text-navy">Client Satisfaction</div>
             </div>
           </div>
         </div>

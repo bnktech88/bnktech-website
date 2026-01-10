@@ -97,13 +97,16 @@ export default function Process() {
   }
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white">
+    <section
+      ref={sectionRef}
+      className="section-gold py-24"
+    >
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-navy">
             Our Process
           </h2>
-          <p className="text-xl text-grey-700 max-w-3xl mx-auto">
+          <p className="text-xl text-navy max-w-3xl mx-auto">
             A proven methodology that ensures every project delivers exceptional results 
             and drives meaningful business growth.
           </p>
@@ -121,23 +124,23 @@ export default function Process() {
               {/* Content */}
               <div className="flex-1">
                 <div className="flex items-center mb-6">
-                  <span className="text-5xl font-display font-bold text-grey-300 mr-4">
+                  <span className="text-5xl font-display font-bold text-brand-bronze mr-4">
                     {processStep.step}
                   </span>
-                  <h3 className="text-3xl font-display font-semibold">
+                  <h3 className="text-3xl font-display font-semibold text-navy">
                     {processStep.title}
                   </h3>
                 </div>
                 
-                <p className="text-lg text-grey-700 mb-8 leading-relaxed">
+                <p className="text-lg text-navy mb-8 leading-relaxed">
                   {processStep.description}
                 </p>
 
                 <div className="grid grid-cols-2 gap-4">
                   {processStep.details.map((detail, idx) => (
                     <div key={idx} className="flex items-center">
-                      <div className="w-2 h-2 bg-black rounded-full mr-3" />
-                      <span className="text-grey-700">{detail}</span>
+                      <div className="w-2 h-2 bg-brand-bronze rounded-full mr-3" />
+                      <span className="text-navy">{detail}</span>
                     </div>
                   ))}
                 </div>
@@ -145,9 +148,9 @@ export default function Process() {
 
               {/* Visual Element */}
               <div className="flex-1 max-w-md">
-                <div className="aspect-square bg-gradient-to-br from-grey-100 to-grey-200 rounded-2xl flex items-center justify-center">
-                  <div className="w-24 h-24 bg-black rounded-2xl flex items-center justify-center transform rotate-12">
-                    <span className="text-white font-display font-bold text-2xl transform -rotate-12">
+                <div className="aspect-square bg-brand-cream rounded-2xl flex items-center justify-center border border-brand-bronze shadow-lg">
+                  <div className="w-24 h-24 bg-brand-bronze rounded-2xl flex items-center justify-center transform rotate-12 shadow-lg">
+                    <span className="text-brand-cream font-display font-bold text-2xl transform -rotate-12">
                       {processStep.step}
                     </span>
                   </div>

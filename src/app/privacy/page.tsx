@@ -11,16 +11,16 @@ export default function PrivacyPage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-16 bg-grey-100">
+      <section className="py-16 bg-surface">
         <div className="container">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-display font-bold mb-6 text-brand">
               Privacy Policy
             </h1>
-            <p className="text-lg text-grey-700">
+            <p className="text-lg text-muted">
               Last updated: January 2025
             </p>
-            <p className="text-lg text-grey-700 mt-4">
+            <p className="text-lg text-muted mt-4">
               This Privacy Policy explains how {siteConfig.company.name} collects, uses, 
               and protects your personal information in compliance with the Protection of 
               Personal Information Act (POPIA) and international privacy standards.
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
       </section>
 
       {/* Content */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-bnk-neutral-50">
         <div className="container">
           <div className="max-w-4xl mx-auto prose prose-lg">
             
@@ -104,9 +104,9 @@ export default function PrivacyPage() {
 
             <h2 className="text-2xl font-display font-bold mb-4 mt-8">Contact Information</h2>
             <p>If you have questions about this Privacy Policy or want to exercise your rights, please contact us:</p>
-            <div className="bg-grey-50 p-6 rounded-lg not-prose">
-              <p><strong>Email:</strong> <a href={`mailto:${siteConfig.company.email}`} className="text-black hover:text-grey-700">{siteConfig.company.email}</a></p>
-              <p><strong>Phone:</strong> <a href={`tel:${siteConfig.company.phone}`} className="text-black hover:text-grey-700">{siteConfig.company.phone}</a></p>
+            <div className="bg-surface p-6 rounded-lg border not-prose">
+              <p><strong>Email:</strong> <a href={`mailto:${siteConfig.company.email}`} className="text-brand hover:text-accent-hover">{siteConfig.company.email}</a></p>
+              <p><strong>Phone:</strong> <a href={`tel:${siteConfig.company.phone}`} className="text-brand hover:text-accent-hover">{siteConfig.company.phone}</a></p>
               <p><strong>Response Time:</strong> We will respond to privacy requests within 30 days as required by POPIA.</p>
             </div>
 
@@ -125,10 +125,10 @@ export default function PrivacyPage() {
               <li>The Information Regulator of South Africa</li>
             </ul>
 
-            <div className="bg-black text-white p-6 rounded-lg mt-12 not-prose">
+            <div className="bg-brand text-bnk-neutral-50 p-6 rounded-lg mt-12 not-prose">
               <h3 className="text-lg font-semibold mb-2">Questions About Your Privacy?</h3>
               <p className="mb-4">We're committed to transparency and protecting your personal information. Contact us anytime with privacy-related questions.</p>
-              <a href="/contact" className="btn btn-primary bg-white text-black hover:bg-grey-100">
+              <a href="/contact" className="btn btn-primary bg-bnk-neutral-50 text-brand hover:bg-accent hover:text-bnk-navy-950">
                 Contact Us
               </a>
             </div>

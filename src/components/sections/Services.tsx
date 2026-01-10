@@ -52,13 +52,16 @@ export default function Services() {
   }
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white">
+    <section
+      ref={sectionRef}
+      className="section-gold py-24"
+    >
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-navy">
             Our Services
           </h2>
-          <p className="text-xl text-grey-700 max-w-3xl mx-auto">
+          <p className="text-xl text-navy max-w-3xl mx-auto">
             Comprehensive technology solutions designed to accelerate your business growth 
             and digital transformation.
           </p>
@@ -69,18 +72,18 @@ export default function Services() {
             <div
               key={service.id}
               ref={addToRefs}
-              className="bg-grey-50 p-8 rounded-lg hover:shadow-lg transition-shadow duration-300 group"
+              className="bg-cream p-8 rounded-lg border-2 border-brand-bronze hover:shadow-lg transition-all duration-300 group"
             >
-              <h3 className="text-2xl font-display font-semibold mb-4 group-hover:text-grey-800 transition-colors">
+              <h3 className="text-2xl font-display font-semibold mb-4 text-navy group-hover:text-brand-bronze transition-colors">
                 {service.title}
               </h3>
-              <p className="text-grey-700 mb-6">
+              <p className="text-navy mb-6">
                 {service.description}
               </p>
               <div className="space-y-2 mb-8">
                 {service.features.slice(0, 4).map((feature, idx) => (
-                  <div key={idx} className="flex items-center text-sm text-grey-600">
-                    <div className="w-2 h-2 bg-black rounded-full mr-3 flex-shrink-0" />
+                  <div key={idx} className="flex items-center text-sm text-navy">
+                    <div className="w-2 h-2 bg-brand-bronze rounded-full mr-3 flex-shrink-0" />
                     {feature}
                   </div>
                 ))}
@@ -88,26 +91,26 @@ export default function Services() {
               <div className="flex items-center justify-between">
                 {service.status === 'coming-soon' ? (
                   <div className="flex items-center">
-                    <div className="inline-flex items-center px-3 py-1 bg-grey-200 rounded-full">
-                      <span className="text-xs font-medium text-grey-700">Coming Soon</span>
+                    <div className="inline-flex items-center px-3 py-1 bg-brand-silver border border-brand-bronze rounded-full">
+                      <span className="text-xs font-medium text-navy">Coming Soon</span>
                     </div>
                   </div>
                 ) : (
                   <div>
-                    <p className="text-sm text-grey-600">Starting from</p>
-                    <p className="text-xl font-display font-bold">{service.pricing.starting}</p>
-                    <p className="text-xs text-grey-600">{service.pricing.model}</p>
+                    <p className="text-sm text-navy">Starting from</p>
+                    <p className="text-xl font-display font-bold text-brand-bronze">{service.pricing.starting}</p>
+                    <p className="text-xs text-navy">{service.pricing.model}</p>
                     {service.pricing.maintenance && (
                       <div className="mt-1">
-                        <p className="text-sm font-semibold text-grey-800">Monthly Maintenance from {service.pricing.maintenance}</p>
-                        <p className="text-xs text-grey-600">{service.pricing.maintenanceModel}</p>
+                        <p className="text-sm font-semibold text-navy">Monthly Maintenance from {service.pricing.maintenance}</p>
+                        <p className="text-xs text-navy">{service.pricing.maintenanceModel}</p>
                       </div>
                     )}
                   </div>
                 )}
                 <Link 
                   href={`/services#${service.id}`}
-                  className="text-sm font-medium text-black hover:text-grey-700 transition-colors"
+                  className="text-sm font-medium text-navy hover:text-brand-bronze transition-colors"
                 >
                   Learn More →
                 </Link>
@@ -117,7 +120,7 @@ export default function Services() {
         </div>
 
         <div className="text-center mt-12">
-          <Link href="/services" className="btn btn-primary magnetic">
+          <Link href="/services" className="btn-primary px-8 py-4 rounded-lg font-medium transition-all duration-200">
             View All Services
           </Link>
         </div>

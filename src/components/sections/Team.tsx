@@ -42,47 +42,47 @@ export default function Team() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white">
+    <section ref={sectionRef} className="py-24 bg-bnk-neutral-50">
       <div className="container">
         <div ref={contentRef} className="text-center max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-brand">
             Ready to Work Together?
           </h2>
           
-          <p className="text-xl text-grey-700 mb-12 leading-relaxed">
+          <p className="text-xl text-muted mb-12 leading-relaxed">
             Our team of experienced developers, designers, and technology strategists is ready to help 
             transform your business. Let's discuss how we can bring your vision to life.
           </p>
 
-          <div className="bg-grey-50 p-8 rounded-lg mb-12">
-            <h3 className="text-2xl font-display font-semibold mb-6">Why Choose BNK Tech?</h3>
+          <div className="bg-surface p-8 rounded-lg border mb-12">
+            <h3 className="text-2xl font-display font-semibold mb-6 text-brand">Why Choose BNK Tech?</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
               <div className="flex items-start">
-                <div className="w-2 h-2 bg-black rounded-full mt-3 mr-4 flex-shrink-0" />
+                <div className="w-2 h-2 bg-accent rounded-full mt-3 mr-4 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold mb-2">Expert Team</h4>
-                  <p className="text-grey-700">Skilled professionals with years of experience in cutting-edge technologies</p>
+                  <h4 className="font-semibold mb-2 text-brand">Expert Team</h4>
+                  <p className="text-muted">Skilled professionals with years of experience in cutting-edge technologies</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="w-2 h-2 bg-black rounded-full mt-3 mr-4 flex-shrink-0" />
+                <div className="w-2 h-2 bg-accent rounded-full mt-3 mr-4 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold mb-2">Proven Track Record</h4>
-                  <p className="text-grey-700">50+ successful projects delivered with 100% client satisfaction</p>
+                  <h4 className="font-semibold mb-2 text-brand">Proven Track Record</h4>
+                  <p className="text-muted">50+ successful projects delivered with 100% client satisfaction</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="w-2 h-2 bg-black rounded-full mt-3 mr-4 flex-shrink-0" />
+                <div className="w-2 h-2 bg-accent rounded-full mt-3 mr-4 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold mb-2">Full-Service Solutions</h4>
-                  <p className="text-grey-700">From strategy to implementation to ongoing support</p>
+                  <h4 className="font-semibold mb-2 text-brand">Full-Service Solutions</h4>
+                  <p className="text-muted">From strategy to implementation to ongoing support</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="w-2 h-2 bg-black rounded-full mt-3 mr-4 flex-shrink-0" />
+                <div className="w-2 h-2 bg-accent rounded-full mt-3 mr-4 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold mb-2">Local & Global</h4>
-                  <p className="text-grey-700">South African roots with international best practices</p>
+                  <h4 className="font-semibold mb-2 text-brand">Local & Global</h4>
+                  <p className="text-muted">South African roots with international best practices</p>
                 </div>
               </div>
             </div>
@@ -97,16 +97,16 @@ export default function Team() {
             </Link>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-grey-200">
-            <p className="text-grey-600 mb-4">Get in touch today</p>
+          <div className="mt-12 pt-8 border-t border">
+            <p className="text-muted mb-4">Get in touch today</p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center text-sm">
-              <a href="tel:+27630687409" className="hover:text-black transition-colors">
+              <a href="tel:+27630687409" className="text-muted hover:text-accent-hover transition-colors">
                 📞 +27 63 068 7409
               </a>
-              <a href="mailto:bnktech.net@gmail.com" className="hover:text-black transition-colors">
+              <a href="mailto:bnktech.net@gmail.com" className="text-muted hover:text-accent-hover transition-colors">
                 ✉️ bnktech.net@gmail.com
               </a>
-              <span className="text-grey-500">Response within 4 hours</span>
+              <span className="text-subtle">Response within 4 hours</span>
             </div>
           </div>
         </div>

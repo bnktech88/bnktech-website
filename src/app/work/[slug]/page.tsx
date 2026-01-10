@@ -48,40 +48,40 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <div className="pt-20">
       {/* Breadcrumb */}
-      <section className="py-8 bg-grey-50 border-b border-grey-200">
+      <section className="py-8 bg-surface border-b border">
         <div className="container">
-          <nav className="flex items-center space-x-2 text-sm text-grey-600">
-            <Link href="/" className="hover:text-black transition-colors">
+          <nav className="flex items-center space-x-2 text-sm text-muted">
+            <Link href="/" className="hover:text transition-colors">
               Home
             </Link>
             <span>/</span>
-            <Link href="/work" className="hover:text-black transition-colors">
+            <Link href="/work" className="hover:text transition-colors">
               Work
             </Link>
             <span>/</span>
-            <span className="text-black">{project.title}</span>
+            <span className="text">{project.title}</span>
           </nav>
         </div>
       </section>
 
       {/* Project Header */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-bnk-neutral-50">
         <div className="container">
           <div className="max-w-4xl">
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-sm font-medium text-grey-600 bg-grey-100 px-3 py-1 rounded-full">
+              <span className="text-sm font-medium text-muted bg-surface px-3 py-1 rounded-full border">
                 {project.category}
               </span>
-              <span className="text-sm text-grey-500">{project.year}</span>
-              <span className="text-sm text-grey-500">•</span>
-              <span className="text-sm text-grey-500">{project.client}</span>
+              <span className="text-sm text-subtle">{project.year}</span>
+              <span className="text-sm text-subtle">•</span>
+              <span className="text-sm text-subtle">{project.client}</span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 text-balance">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 text-balance text-brand">
               {project.title}
             </h1>
             
-            <p className="text-xl md:text-2xl text-grey-700 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-muted mb-8 leading-relaxed">
               {project.description}
             </p>
 
@@ -89,7 +89,7 @@ export default async function ProjectPage({ params }: Props) {
               {project.technologies.map((tech) => (
                 <span 
                   key={tech}
-                  className="text-sm font-medium text-grey-700 bg-grey-100 px-3 py-2 rounded-lg"
+                  className="text-sm font-medium text-muted bg-surface px-3 py-2 rounded-lg border"
                 >
                   {tech}
                 </span>
@@ -100,18 +100,18 @@ export default async function ProjectPage({ params }: Props) {
       </section>
 
       {/* Project Image Placeholder */}
-      <section className="py-12 bg-grey-100">
+      <section className="py-12 bg-surface">
         <div className="container">
-          <div className="aspect-video bg-gradient-to-br from-grey-200 to-grey-300 rounded-lg flex items-center justify-center">
-            <div className="text-grey-600 text-center">
-              <div className="w-24 h-24 mx-auto mb-4 bg-grey-400 rounded-lg flex items-center justify-center">
+          <div className="aspect-video bg-gradient-to-br from-surface to-surface-2 rounded-lg flex items-center justify-center">
+            <div className="text-muted text-center">
+              <div className="w-24 h-24 mx-auto mb-4 bg-border rounded-lg flex items-center justify-center">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
                   <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
                   <path d="M9 9h6v6H9z" fill="currentColor"/>
                 </svg>
               </div>
               <p className="text-lg font-medium">{project.title} Preview</p>
-              <p className="text-sm text-grey-500 mt-1">{project.category} Project</p>
+              <p className="text-sm text-subtle mt-1">{project.category} Project</p>
             </div>
           </div>
         </div>

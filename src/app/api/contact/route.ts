@@ -192,6 +192,25 @@ async function updateSubmissionStatus(id: string, status: string, emailSuccess: 
 
 export async function POST(request: NextRequest) {
   try {
+    // Runtime environment validation - fail fast if critical env vars missing
+    const requiredEnvVars = {
+      NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+      SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
+      RESEND_API_KEY: process.env.RESEND_API_KEY,
+      CONTACT_FROM_EMAIL: process.env.CONTACT_FROM_EMAIL,
+      CONTACT_TO_EMAIL: process.env.CONTACT_TO_EMAIL
+    }
+
+    for (const [key, value] of Object.entries(requiredEnvVars)) {
+      if (!value || value.trim() === '') {
+        console.error(`Missing required environment variable: ${key}`)
+        return NextResponse.json(
+          { error: 'Service temporarily unavailable. Please try again later.' },
+          { status: 500 }
+        )
+      }
+    }
+
     // Get client metadata
     const ip = getClientIP(request)
     const userAgent = request.headers.get('user-agent') || undefined

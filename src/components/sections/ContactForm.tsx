@@ -8,22 +8,26 @@ import { createScrollTrigger } from '@/lib/motion'
 gsap.registerPlugin(ScrollTrigger)
 
 interface FormData {
-  name: string
+  full_name: string
   email: string
   phone: string
   company: string
-  service: string
-  message: string
+  service_needed: string
+  project_details: string
+  page_url?: string
+  website: string // Honeypot field
 }
 
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
+    full_name: '',
     email: '',
     phone: '',
     company: '',
-    service: '',
-    message: ''
+    service_needed: '',
+    project_details: '',
+    page_url: '',
+    website: '' // Honeypot field - should remain empty
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -33,6 +37,12 @@ export default function ContactForm() {
   useEffect(() => {
     const form = formRef.current
     if (!form) return
+
+    // Set page URL when component mounts
+    setFormData(prev => ({
+      ...prev,
+      page_url: window.location.href
+    }))
 
     // Check for reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -76,23 +86,33 @@ export default function ContactForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          // Ensure honeypot is empty for legitimate submissions
+          website: ''
+        }),
       })
 
-      if (response.ok) {
+      const result = await response.json()
+
+      if (response.ok && result.success) {
         setSubmitStatus('success')
         setFormData({
-          name: '',
+          full_name: '',
           email: '',
           phone: '',
           company: '',
-          service: '',
-          message: ''
+          service_needed: '',
+          project_details: '',
+          page_url: window.location.href,
+          website: ''
         })
       } else {
+        console.error('Form submission error:', result)
         setSubmitStatus('error')
       }
     } catch (error) {
+      console.error('Network error:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -113,14 +133,14 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-primary-700 mb-2">
+              <label htmlFor="full_name" className="block text-sm font-medium text-primary-700 mb-2">
                 Full Name *
               </label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={formData.name}
+                id="full_name"
+                name="full_name"
+                value={formData.full_name}
                 onChange={handleInputChange}
                 required
                 className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
@@ -178,41 +198,55 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="service" className="block text-sm font-medium text-primary-700 mb-2">
+            <label htmlFor="service_needed" className="block text-sm font-medium text-primary-700 mb-2">
               Service Needed *
             </label>
             <select
-              id="service"
-              name="service"
-              value={formData.service}
+              id="service_needed"
+              name="service_needed"
+              value={formData.service_needed}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-grey-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors"
+              className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
             >
               <option value="">Select a service</option>
-              <option value="website-builds">Website Builds</option>
-              <option value="app-development">App Development & Maintenance</option>
-              <option value="digital-infrastructure">Digital Infrastructure</option>
-              <option value="it-services">IT Services</option>
-              <option value="security-maintenance">Security & Maintenance</option>
-              <option value="retainer-scaling">Retainer & Scaling Support</option>
-              <option value="consultation">General Consultation</option>
+              <option value="Website Builds">Website Builds</option>
+              <option value="App Development & Maintenance">App Development & Maintenance</option>
+              <option value="Digital Infrastructure">Digital Infrastructure</option>
+              <option value="IT Services">IT Services</option>
+              <option value="Security & Maintenance">Security & Maintenance</option>
+              <option value="Retainer & Scaling Support">Retainer & Scaling Support</option>
+              <option value="General Consultation">General Consultation</option>
             </select>
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-primary-700 mb-2">
+            <label htmlFor="project_details" className="block text-sm font-medium text-primary-700 mb-2">
               Project Details *
             </label>
             <textarea
-              id="message"
-              name="message"
-              value={formData.message}
+              id="project_details"
+              name="project_details"
+              value={formData.project_details}
               onChange={handleInputChange}
               required
               rows={5}
               className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors resize-vertical bg-neutral-50"
               placeholder="Tell us about your project, timeline, budget range, and any specific requirements..."
+            />
+          </div>
+
+          {/* Honeypot field - hidden from users, should remain empty */}
+          <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}>
+            <label htmlFor="website">Website (leave blank)</label>
+            <input
+              type="text"
+              id="website"
+              name="website"
+              value={formData.website}
+              onChange={handleInputChange}
+              tabIndex={-1}
+              autoComplete="off"
             />
           </div>
 

@@ -122,7 +122,7 @@ async function saveToDatabase(submission: ContactSubmission): Promise<{ success:
         page_url: submission.page_url,
         user_agent: submission.user_agent,
         ip: submission.ip,
-        status: 'received',
+        status: 'new',
         meta: submission.meta
       }])
       .select('id')
@@ -186,14 +186,33 @@ async function sendEmailNotification(submission: ContactSubmission): Promise<{ s
     })
 
     if (error) {
-      console.error('Email send error:', error)
+      console.log(JSON.stringify({
+        type: 'error',
+        event: 'email_send_failed',
+        error: error.message || 'Unknown email error',
+        submissionId: submission.id,
+        timestamp: new Date().toISOString()
+      }))
       return { success: false, error: 'Email delivery failed' }
     }
 
-    console.log('Email sent successfully:', data?.id)
+    console.log(JSON.stringify({
+      type: 'contact',
+      event: 'email_sent_success',
+      emailId: data?.id,
+      submissionId: submission.id,
+      timestamp: new Date().toISOString()
+    }))
     return { success: true }
   } catch (error) {
-    console.error('Email send exception:', error)
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    console.log(JSON.stringify({
+      type: 'error',
+      event: 'email_send_exception',
+      error: errorMessage,
+      submissionId: submission.id,
+      timestamp: new Date().toISOString()
+    }))
     return { success: false, error: 'Email delivery failed' }
   }
 }
@@ -232,9 +251,14 @@ export async function POST(request: NextRequest) {
 
     for (const [key, value] of Object.entries(requiredEnvVars)) {
       if (!value || value.trim() === '') {
-        console.error(`Missing required environment variable: ${key}`)
+        console.log(JSON.stringify({
+          type: 'error',
+          event: 'environment_validation_failed',
+          missing_variable: key,
+          timestamp: new Date().toISOString()
+        }))
         return NextResponse.json(
-          { error: 'Service temporarily unavailable. Please try again later.' },
+          { error: 'Service temporarily unavailable. Please try again later.', code: 'ENV_CONFIG_ERROR' },
           { status: 500 }
         )
       }
@@ -294,7 +318,7 @@ export async function POST(request: NextRequest) {
       ip,
       user_agent: userAgent,
       page_url: validatedData.page_url || referer,
-      status: 'received',
+      status: 'new',
       meta: {
         submitted_at: new Date().toISOString(),
         user_agent: userAgent,
@@ -306,9 +330,15 @@ export async function POST(request: NextRequest) {
     // Save to Supabase database
     const dbResult = await saveToDatabase(submission)
     if (!dbResult.success) {
-      console.error('Database save failed:', dbResult.error)
+      console.log(JSON.stringify({
+        type: 'error',
+        event: 'database_operation_failed',
+        error: dbResult.error || 'Unknown database error',
+        ip: ip,
+        timestamp: new Date().toISOString()
+      }))
       return NextResponse.json(
-        { error: 'Failed to save submission' },
+        { error: 'Failed to save submission', code: 'DB_INSERT_FAILED' },
         { status: 500 }
       )
     }
@@ -335,9 +365,15 @@ export async function POST(request: NextRequest) {
     })
 
   } catch (error) {
-    console.error('Contact API error:', error)
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    console.log(JSON.stringify({
+      type: 'error',
+      event: 'contact_api_exception',
+      error: errorMessage,
+      timestamp: new Date().toISOString()
+    }))
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error', code: 'API_EXCEPTION' },
       { status: 500 }
     )
   }

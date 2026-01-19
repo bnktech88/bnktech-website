@@ -1,12 +1,18 @@
 # Contact Form End-to-End Testing Guide
 
+## Status Values Used End-to-End
+- **Initial Insert**: `new` (matches Supabase constraint)
+- **After Email Success**: `emailed` 
+- **After Email Failure**: `failed`
+- **Constraint**: `CHECK (status IN ('new', 'emailed', 'failed'))`
+
 ## Testing Checklist
 
 ### Pre-Test Setup
 1. **Environment Variables Configured**
    - [ ] All required vars set in `.env.local` (dev) or Vercel (production)
-   - [ ] Supabase database accessible
-   - [ ] Resend domain verified
+   - [ ] Supabase database accessible with correct schema
+   - [ ] Resend domain verified and API key active
    - [ ] Email addresses configured correctly
 
 ### Local Testing (Development)
@@ -55,21 +61,46 @@
 ### Production Testing (Post-Deploy)
 
 #### Test 5: End-to-End Production Flow
-1. Submit form on live site
-2. **Verify:**
-   - [ ] Supabase row created with correct data
-   - [ ] Email received with all submission details
-   - [ ] Database status updated to `emailed`
-   - [ ] Vercel logs show structured JSON (no secrets)
+1. Submit form on https://www.bnktech.net/contact
+2. **Verify in Vercel Logs:** Look for these structured log events:
+   - `{"type":"contact","event":"database_save_success","submissionId":"uuid"}`
+   - `{"type":"contact","event":"email_sent_success","emailId":"resend-id"}`
+3. **Verify in Supabase:** Check `contact_submissions` table
+   - Row created with `status: 'new'` initially
+   - Status updated to `status: 'emailed'` after email success
+   - All form fields populated correctly
+4. **Verify Email Delivery:** Check inbox at `CONTACT_TO_EMAIL`
+   - Professional email template with all submission details
+   - Reply-to set to submitter's email address
 
-#### Test 6: Error Handling
-1. Temporarily set wrong `RESEND_API_KEY` in Vercel
-2. Submit form
-3. **Expected Results:**
-   - Database row created
-   - Database status set to `failed`
-   - Form still shows success (graceful degradation)
-4. Fix API key and test normal flow resumes
+#### Test 6: Production Error Scenarios
+1. **Database Connection Issues:**
+   - Look for: `{"type":"error","event":"database_operation_failed"}`
+   - Response: `{"error":"Failed to save submission","code":"DB_INSERT_FAILED"}`
+2. **Email Service Issues:**
+   - Look for: `{"type":"error","event":"email_send_failed"}`
+   - Database row exists with `status: 'failed'`
+3. **Environment Variables Missing:**
+   - Look for: `{"type":"error","event":"environment_validation_failed"}`
+   - Response: `{"error":"Service temporarily unavailable","code":"ENV_CONFIG_ERROR"}`
+
+### Manual Testing Commands
+
+#### Production Verification Steps
+```bash
+# Step 1: Submit form on https://www.bnktech.net/contact
+# Step 2: Check Vercel logs for these events:
+# - database_save_success
+# - email_sent_success
+# Step 3: Verify Supabase row exists with status progression: new -> emailed
+# Step 4: Check inbox received Resend email
+
+# Check Vercel logs (replace with actual function name)
+vercel logs --app=bnktech-website --since=1m
+
+# Or check via Vercel dashboard:
+# https://vercel.com/dashboard -> bnktech-website -> Functions -> View Logs
+```
 
 ### Manual Testing Commands
 

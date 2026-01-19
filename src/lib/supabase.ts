@@ -51,6 +51,6 @@ export interface ContactSubmission {
   page_url?: string | null
   user_agent?: string | null
   ip?: string | null
-  status?: 'new' | 'received' | 'emailed' | 'failed'
+  status?: 'new' | 'emailed' | 'failed'
   meta?: Record<string, any> | null
 }

@@ -103,6 +103,13 @@ async function saveToDatabase(submission: ContactSubmission): Promise<{ success:
   try {
     const supabase = createServerClient()
     
+    console.log(JSON.stringify({
+      type: 'contact',
+      event: 'database_save_start',
+      ip: submission.ip,
+      timestamp: new Date().toISOString()
+    }))
+    
     const { data, error } = await supabase
       .from('contact_submissions')
       .insert([{
@@ -122,12 +129,34 @@ async function saveToDatabase(submission: ContactSubmission): Promise<{ success:
       .single()
 
     if (error) {
-      console.error('Database error:', error.message)
+      console.log(JSON.stringify({
+        type: 'error',
+        event: 'database_save_failed',
+        error: error.message,
+        ip: submission.ip,
+        timestamp: new Date().toISOString()
+      }))
       return { success: false, error: 'Database operation failed' }
     }
 
+    console.log(JSON.stringify({
+      type: 'contact',
+      event: 'database_save_success',
+      submissionId: data.id,
+      ip: submission.ip,
+      timestamp: new Date().toISOString()
+    }))
+
     return { success: true, id: data.id }
   } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    console.log(JSON.stringify({
+      type: 'error',
+      event: 'database_save_exception',
+      error: errorMessage,
+      ip: submission.ip,
+      timestamp: new Date().toISOString()
+    }))
     console.error('Database save error:', error)
     return { success: false, error: 'Database operation failed' }
   }
@@ -230,7 +259,13 @@ export async function POST(request: NextRequest) {
 
     // Honeypot validation (silent fail for bots)
     if (body.website && body.website.trim() !== '') {
-      console.log('Bot detected via honeypot field from IP:', ip)
+      console.log(JSON.stringify({
+        type: 'security',
+        event: 'honeypot_triggered',
+        ip: ip,
+        userAgent: userAgent?.substring(0, 100),
+        timestamp: new Date().toISOString()
+      }))
       // Return success to avoid revealing honeypot existence
       return NextResponse.json({ 
         success: true, 

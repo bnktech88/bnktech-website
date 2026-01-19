@@ -9,8 +9,9 @@ import HomeIntro from '@/components/intro/HomeIntro'
 import ScrollContainer from '@/components/ui/ScrollContainer'
 
 export const metadata = generateSEO({
-  title: 'Premium Technology Solutions',
-  description: 'BNK Tech delivers high-performance websites, digital infrastructure, IT services, and security solutions for businesses ready to scale.',
+  title: 'BNK Tech - Premium Web Development & Software Solutions South Africa',
+  description: 'BNK Tech (Pty) Ltd delivers premium web development, mobile apps, digital infrastructure, and IT services in South Africa. Transform your business with our expert software solutions.',
+  keywords: 'web development South Africa, software development, mobile app development, UI/UX design, business systems, BNK Tech, Johannesburg web developers, digital transformation',
 })
 
 export default function HomePage() {

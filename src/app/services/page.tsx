@@ -1,10 +1,12 @@
 import { generateSEO } from '@/lib/seo'
 import { services } from '@/content/services'
 import ServiceDetail from '@/components/sections/ServiceDetail'
+import FAQ from '@/components/sections/FAQ'
 
 export const metadata = generateSEO({
-  title: 'Our Services',
-  description: 'Comprehensive technology services including website builds, digital infrastructure, IT services, security, and scaling support for growing businesses.',
+  title: 'Web Development & IT Services - BNK Tech South Africa',
+  description: 'Professional web development, mobile apps, digital infrastructure, and IT services in South Africa. From startup MVPs to enterprise solutions. Get expert consultation today.',
+  keywords: 'web development services, mobile app development, IT services South Africa, digital infrastructure, business systems, e-commerce development, progressive web apps, software consulting',
   url: '/services'
 })
 
@@ -40,6 +42,9 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* CTA Section - Section 3 = Bronze */}
       <section className="bg-bnk-bronze py-24">

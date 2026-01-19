@@ -3,8 +3,9 @@ import ContactForm from '@/components/sections/ContactForm'
 import ContactInfo from '@/components/sections/ContactInfo'
 
 export const metadata = generateSEO({
-  title: 'Contact Us',
-  description: 'Get in touch with BNK Tech for premium technology solutions. Call +27 63 068 7409 or email bnktech.net@gmail.com. Free consultation available.',
+  title: 'Contact BNK Tech - Free Consultation for Web Development Projects',
+  description: 'Ready to start your project? Contact BNK Tech for expert web development, mobile apps, and IT services in South Africa. Call +27 63 068 7409 or get free consultation online.',
+  keywords: 'contact BNK Tech, web development consultation, software development quote, mobile app consultation, IT services inquiry, South Africa developers contact, free consultation',
   url: '/contact'
 })
 

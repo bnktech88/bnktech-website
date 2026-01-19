@@ -5,8 +5,9 @@ import Team from '@/components/sections/Team'
 import Values from '@/components/sections/Values'
 
 export const metadata = generateSEO({
-  title: 'About Us',
-  description: 'Learn about BNK Tech\'s mission to become South Africa\'s leading technology powerhouse, our values of innovation, precision, and excellence.',
+  title: 'About BNK Tech - Leading Software Development Company South Africa',
+  description: 'Founded in 2020, BNK Tech (Pty) Ltd is South Africa\'s premier software development company. Learn about our mission, values, and expert team delivering innovative technology solutions.',
+  keywords: 'BNK Tech about, software development company South Africa, technology solutions, web development team, innovation, precision, excellence, Gauteng software developers',
   url: '/about'
 })
 

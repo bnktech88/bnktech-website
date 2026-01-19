@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Archivo } from 'next/font/google'
 import './globals.css'
-import { generateSEO, generateOrganizationSchema } from '@/lib/seo'
+import { generateSEO, generateOrganizationSchema, generateWebsiteSchema } from '@/lib/seo'
 import { siteConfig } from '@/content/site'
 import Navigation from '@/components/nav/Navigation'
 import Footer from '@/components/footer/Footer'
@@ -33,10 +33,25 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const organizationSchema = generateOrganizationSchema()
+  const websiteSchema = generateWebsiteSchema()
+
   return (
     <html lang="en" className={`${inter.variable} ${archivo.variable}`}>
       <head>
         <link rel="icon" type="image/png" href={siteConfig.company.logo} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
       </head>
       <body className="cursor-hide">
         <SmoothScroll>

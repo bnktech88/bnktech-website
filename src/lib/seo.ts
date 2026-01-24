@@ -139,16 +139,6 @@ export function generateWebsiteSchema() {
     publisher: {
       '@id': `https://${siteConfig.company.domain}/#organization`,
     },
-    potentialAction: [
-      {
-        '@type': 'SearchAction',
-        target: {
-          '@type': 'EntryPoint',
-          urlTemplate: `https://${siteConfig.company.domain}/search?q={search_term_string}`,
-        },
-        'query-input': 'required name=search_term_string',
-      },
-    ],
   }
 }
 
@@ -162,5 +152,101 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
       name: item.name,
       item: `https://${siteConfig.company.domain}${item.url}`,
     })),
+  }
+}
+
+export function generateServiceSchema(service: {
+  name: string
+  description: string
+  url: string
+  price?: string
+  features: string[]
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.name,
+    description: service.description,
+    url: `https://${siteConfig.company.domain}${service.url}`,
+    provider: {
+      '@id': `https://${siteConfig.company.domain}/#organization`,
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'South Africa',
+    },
+    ...(service.price && {
+      offers: {
+        '@type': 'Offer',
+        price: service.price,
+        priceCurrency: 'ZAR',
+        availability: 'https://schema.org/InStock',
+      }
+    }),
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: service.name,
+      itemListElement: service.features.map((feature, index) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: feature,
+        },
+      })),
+    },
+  }
+}
+
+export function generateFAQSchema(faqs: Array<{ question: string; answer: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+}
+
+export function generateArticleSchema(article: {
+  title: string
+  description: string
+  url: string
+  datePublished: string
+  dateModified?: string
+  author?: string
+  image?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    url: `https://${siteConfig.company.domain}${article.url}`,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified || article.datePublished,
+    author: {
+      '@type': 'Organization',
+      name: article.author || siteConfig.company.name,
+    },
+    publisher: {
+      '@id': `https://${siteConfig.company.domain}/#organization`,
+    },
+    ...(article.image && {
+      image: {
+        '@type': 'ImageObject',
+        url: article.image,
+        width: 1200,
+        height: 630,
+      }
+    }),
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://${siteConfig.company.domain}${article.url}`,
+    },
   }
 }

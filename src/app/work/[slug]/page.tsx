@@ -82,7 +82,7 @@ export default async function ProjectPage({ params }: Props) {
             </h1>
             
             <p className="text-xl md:text-2xl text-muted mb-8 leading-relaxed">
-              {project.description}
+              {project.summary}
             </p>
 
             <div className="flex flex-wrap gap-3">

@@ -81,7 +81,7 @@ export default function FAQ() {
   }
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-bnk-navy">
       {/* JSON-LD Schema for FAQ */}
       <script
         type="application/ld+json"
@@ -92,10 +92,10 @@ export default function FAQ() {
       
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-navy">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-bnk-gold">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-grey-600 max-w-3xl mx-auto">
+          <p className="text-xl text-bnk-gold/80 max-w-3xl mx-auto">
             Get answers to common questions about our web development services, 
             project process, and how we can help transform your business.
           </p>
@@ -109,11 +109,11 @@ export default function FAQ() {
               return (
                 <div
                   key={item.id}
-                  className="border border-grey-200 rounded-lg overflow-hidden"
+                  className="bg-white border border-bnk-gold/20 rounded-lg overflow-hidden shadow-lg"
                 >
                   <button
                     onClick={() => toggleItem(item.id)}
-                    className="w-full px-6 py-5 text-left bg-grey-50 hover:bg-grey-100 transition-colors duration-200 flex items-center justify-between"
+                    className="w-full px-6 py-5 text-left bg-bnk-gold/10 hover:bg-bnk-gold/20 transition-colors duration-200 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-bnk-bronze/30"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${item.id}`}
                   >
@@ -121,7 +121,7 @@ export default function FAQ() {
                       {item.question}
                     </h3>
                     <ChevronDown 
-                      className={`h-5 w-5 text-grey-500 transition-transform duration-200 flex-shrink-0 ${
+                      className={`h-5 w-5 text-bnk-navy transition-transform duration-200 flex-shrink-0 ${
                         isOpen ? 'transform rotate-180' : ''
                       }`}
                     />
@@ -133,8 +133,8 @@ export default function FAQ() {
                       isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                     }`}
                   >
-                    <div className="px-6 py-4 bg-white border-t border-grey-200">
-                      <p className="text-grey-700 leading-relaxed">
+                    <div className="px-6 py-4 bg-white border-t border-bnk-gold/20">
+                      <p className="text-gray-700 leading-relaxed">
                         {item.answer}
                       </p>
                     </div>
@@ -145,19 +145,19 @@ export default function FAQ() {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-grey-600 mb-4">
+            <p className="text-bnk-gold/80 mb-4">
               Still have questions? We'd love to help!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="/contact" 
-                className="btn-primary px-6 py-3 rounded-lg font-medium transition-all duration-200"
+                className="bg-bnk-bronze text-white px-6 py-3 rounded-lg font-medium hover:bg-bnk-bronze/90 transition-all duration-200"
               >
                 Get Free Consultation
               </a>
               <a 
                 href="tel:+27630687409" 
-                className="btn-outline px-6 py-3 rounded-lg font-medium transition-all duration-200"
+                className="border border-bnk-gold text-bnk-gold hover:bg-bnk-gold hover:text-bnk-navy px-6 py-3 rounded-lg font-medium transition-all duration-200"
               >
                 Call: +27 63 068 7409
               </a>

@@ -62,7 +62,7 @@ export default function ProjectPreview({
         ease: 'power2.in'
       })
     }
-  }, [isVisible, isDesktop])
+  }, [isVisible, isDesktop, mousePosition.x, mousePosition.y])
 
   useEffect(() => {
     const preview = previewRef.current

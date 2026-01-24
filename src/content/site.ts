@@ -1,7 +1,7 @@
 export const siteConfig = {
   company: {
     name: 'BNK Tech (PTY) LTD',
-    domain: 'bnktech.net',
+    domain: 'www.bnktech.net',
     email: 'bnktech.net@gmail.com',
     phone: '+27 63 068 7409',
     whatsapp: '+27630687409',
@@ -11,7 +11,17 @@ export const siteConfig = {
   navigation: [
     { name: 'Home', href: '/' },
     { name: 'Work', href: '/work' },
-    { name: 'Services', href: '/services' },
+    { 
+      name: 'Services', 
+      href: '/services',
+      submenu: [
+        { name: 'Website Builds & Maintenance', href: '/services/website-builds' },
+        { name: 'Performance & SEO', href: '/services/performance-seo' },
+        { name: 'Maintenance & Security', href: '/services/maintenance-security' },
+        { name: 'Retainers', href: '/services/retainers' }
+      ]
+    },
+    { name: 'Insights', href: '/insights' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ],

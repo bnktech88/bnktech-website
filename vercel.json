@@ -1,0 +1,38 @@
+{
+  "redirects": [
+    {
+      "source": "https://bnktech.net/:path*",
+      "destination": "https://www.bnktech.net/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "http://bnktech.net/:path*", 
+      "destination": "https://www.bnktech.net/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "http://www.bnktech.net/:path*",
+      "destination": "https://www.bnktech.net/:path*", 
+      "statusCode": 301
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options", 
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}

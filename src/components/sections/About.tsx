@@ -97,13 +97,14 @@ export default function About() {
               
               <p>
                 Our mission is to become South Africa's leading technology powerhouse, delivering 
-                world-class solutions that empower businesses to thrive in the digital age. 
+                world-class <Link href="/services" className="text-bnk-bronze hover:underline font-semibold">web development and IT services</Link> that empower businesses to thrive in the digital age. 
                 Every project we undertake is an opportunity to push boundaries and set new standards.
               </p>
               
               <p>
-                From high-performance websites to enterprise infrastructure, we don't just build 
+                From high-performance <Link href="/services" className="text-bnk-bronze hover:underline font-semibold">website development</Link> to enterprise infrastructure, we don't just build 
                 technology—we craft experiences that inspire, platforms that scale, and systems that endure.
+                Explore our <Link href="/work" className="text-bnk-bronze hover:underline font-semibold">portfolio of successful projects</Link> to see how we deliver results.
               </p>
             </div>
 

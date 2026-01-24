@@ -1,5 +1,6 @@
 import { generateSEO } from '@/lib/seo'
 import Hero from '@/components/sections/Hero'
+import WhyBNK from '@/components/sections/WhyBNK'
 import Services from '@/components/sections/Services'
 import FeaturedWork from '@/components/sections/FeaturedWork'
 import Process from '@/components/sections/Process'
@@ -9,9 +10,9 @@ import HomeIntro from '@/components/intro/HomeIntro'
 import ScrollContainer from '@/components/ui/ScrollContainer'
 
 export const metadata = generateSEO({
-  title: 'BNK Tech - Premium Web Development & Software Solutions South Africa',
-  description: 'BNK Tech (Pty) Ltd delivers premium web development, mobile apps, digital infrastructure, and IT services in South Africa. Transform your business with our expert software solutions.',
-  keywords: 'web development South Africa, software development, mobile app development, UI/UX design, business systems, BNK Tech, Johannesburg web developers, digital transformation',
+  title: 'High-Performance Websites + Engineering Support | BNK Tech South Africa',
+  description: 'High-performance websites and ongoing engineering support for growing businesses. Sub-2 second load times, TypeScript + Next.js engineering, productized retainers with clear SLAs.',
+  keywords: 'high performance websites, web development, Next.js development, TypeScript, Core Web Vitals, engineering support, retainers, SLA, South Africa',
 })
 
 export default function HomePage() {
@@ -20,6 +21,7 @@ export default function HomePage() {
       <HomeIntro />
       <ScrollContainer>
         <Hero />
+        <WhyBNK />
         <Services />
         <FeaturedWork />
         <Process />

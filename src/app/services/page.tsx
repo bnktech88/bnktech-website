@@ -1,7 +1,10 @@
 import { generateSEO } from '@/lib/seo'
 import { services } from '@/content/services'
+import { articles } from '@/content/articles'
 import ServiceDetail from '@/components/sections/ServiceDetail'
 import FAQ from '@/components/sections/FAQ'
+import Link from 'next/link'
+import { ArrowRight, Clock } from 'lucide-react'
 
 export const metadata = generateSEO({
   title: 'Web Development & IT Services - BNK Tech South Africa',

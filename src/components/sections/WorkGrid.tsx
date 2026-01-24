@@ -82,16 +82,32 @@ export default function WorkGrid() {
                       <span className="text-sm font-medium text-navy bg-cream px-3 py-1 rounded-full border border-navy">
                         {project.category}
                       </span>
-                      <span className="text-sm text-navy">{project.year}</span>
+                      <span className="text-sm text-navy">{project.industry}</span>
                     </div>
                     
                     <h3 className="text-xl font-display font-semibold mb-3 text-navy transition-colors">
                       {project.title}
                     </h3>
                     
-                    <p className="text-navy mb-6 line-clamp-3">
+                    {/* Key Result Highlight */}
+                    <div className="bg-bnk-bronze/10 border border-bnk-bronze/20 rounded-lg p-3 mb-4">
+                      <div className="text-sm font-medium text-bnk-bronze mb-1">Key Results</div>
+                      <div className="text-navy font-semibold">{project.heroResult}</div>
+                    </div>
+                    
+                    <p className="text-navy mb-6 line-clamp-2 text-sm">
                       {project.summary}
                     </p>
+                    
+                    {/* Top Metrics */}
+                    <div className="grid grid-cols-2 gap-2 mb-6">
+                      {project.results.metrics.slice(0, 2).map((metric, index) => (
+                        <div key={index} className="bg-green-50 rounded-lg p-2 border border-green-200">
+                          <div className="text-xs text-gray-600">{metric.label}</div>
+                          <div className="text-sm font-semibold text-green-700">{metric.improvement}</div>
+                        </div>
+                      ))}
+                    </div>
                     
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.technologies.slice(0, 3).map((tech) => (
@@ -110,9 +126,11 @@ export default function WorkGrid() {
                     </div>
                     
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-navy">{project.client}</span>
+                      <span className="text-sm text-navy">
+                        {project.isAnonymized ? project.client : project.client} ({project.year})
+                      </span>
                       <div className="flex items-center text-sm font-medium text-navy transition-colors">
-                        View Project
+                        View Case Study
                         <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>

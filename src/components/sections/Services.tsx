@@ -6,8 +6,43 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { services } from '@/content/services'
 import { createScrollTrigger } from '@/lib/motion'
+import { 
+  WebsiteIcon, 
+  MarketingIcon, 
+  AppDevIcon, 
+  PerformanceIcon, 
+  SecurityIcon, 
+  RetainerIcon, 
+  InfrastructureIcon, 
+  ITServicesIcon 
+} from '@/components/icons/ServiceIcons'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const getServiceIcon = (serviceId: string) => {
+  const iconProps = { className: "w-12 h-12 text-bnk-navy group-hover:text-bnk-bronze transition-colors" }
+  
+  switch (serviceId) {
+    case 'website-builds':
+      return <WebsiteIcon {...iconProps} />
+    case 'digital-marketing':
+      return <MarketingIcon {...iconProps} />
+    case 'app-development':
+      return <AppDevIcon {...iconProps} />
+    case 'performance-seo':
+      return <PerformanceIcon {...iconProps} />
+    case 'maintenance-security':
+      return <SecurityIcon {...iconProps} />
+    case 'retainers':
+      return <RetainerIcon {...iconProps} />
+    case 'digital-infrastructure':
+      return <InfrastructureIcon {...iconProps} />
+    case 'it-services':
+      return <ITServicesIcon {...iconProps} />
+    default:
+      return <WebsiteIcon {...iconProps} />
+  }
+}
 
 export default function Services() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -62,8 +97,8 @@ export default function Services() {
             Our Services
           </h2>
           <p className="text-xl text-navy max-w-3xl mx-auto">
-            Comprehensive technology solutions designed to accelerate your business growth 
-            and digital transformation.
+            Comprehensive <Link href="/services" className="text-bnk-bronze hover:underline font-semibold">web development and IT services</Link> designed to accelerate your business growth 
+            and digital transformation. <Link href="/contact" className="text-bnk-bronze hover:underline font-semibold">Get a free consultation</Link> to discuss your project needs.
           </p>
         </div>
 
@@ -74,6 +109,9 @@ export default function Services() {
               ref={addToRefs}
               className="bg-cream p-8 rounded-lg border-2 border-bnk-bronze hover:shadow-lg transition-all duration-300 group"
             >
+              <div className="mb-6">
+                {getServiceIcon(service.id)}
+              </div>
               <h3 className="text-2xl font-display font-semibold mb-4 text-navy group-hover:text-bnk-bronze transition-colors">
                 {service.title}
               </h3>

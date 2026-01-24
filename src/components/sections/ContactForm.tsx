@@ -13,6 +13,11 @@ interface FormData {
   phone: string
   company: string
   service_needed: string
+  budget_range: string
+  timeline: string
+  current_website: string
+  current_stack: string
+  preferred_contact: string
   project_details: string
   page_url?: string
   website: string // Honeypot field
@@ -25,6 +30,11 @@ export default function ContactForm() {
     phone: '',
     company: '',
     service_needed: '',
+    budget_range: '',
+    timeline: '',
+    current_website: '',
+    current_stack: '',
+    preferred_contact: 'email',
     project_details: '',
     page_url: '',
     website: '' // Honeypot field - should remain empty
@@ -103,6 +113,11 @@ export default function ContactForm() {
           phone: '',
           company: '',
           service_needed: '',
+          budget_range: '',
+          timeline: '',
+          current_website: '',
+          current_stack: '',
+          preferred_contact: 'email',
           project_details: '',
           page_url: window.location.href,
           website: ''
@@ -143,6 +158,7 @@ export default function ContactForm() {
                 value={formData.full_name}
                 onChange={handleInputChange}
                 required
+                autoComplete="name"
                 className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
                 placeholder="Bezwe Nkosi"
               />
@@ -159,8 +175,9 @@ export default function ContactForm() {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
+                autoComplete="email"
                 className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
-                placeholder="bezwe@company.com"
+                placeholder="bezwe@example.com"
               />
             </div>
           </div>
@@ -176,6 +193,7 @@ export default function ContactForm() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
+                autoComplete="tel"
                 className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
                 placeholder="+27 63 068 7409"
               />
@@ -191,8 +209,9 @@ export default function ContactForm() {
                 name="company"
                 value={formData.company}
                 onChange={handleInputChange}
+                autoComplete="organization"
                 className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
-                placeholder="Your Company Ltd"
+                placeholder="BNK Tech"
               />
             </div>
           </div>
@@ -211,12 +230,109 @@ export default function ContactForm() {
             >
               <option value="">Select a service</option>
               <option value="Website Builds">Website Builds</option>
-              <option value="App Development & Maintenance">App Development & Maintenance</option>
-              <option value="Digital Infrastructure">Digital Infrastructure</option>
-              <option value="IT Services">IT Services</option>
-              <option value="Security & Maintenance">Security & Maintenance</option>
-              <option value="Retainer & Scaling Support">Retainer & Scaling Support</option>
+              <option value="Performance & SEO">Performance & SEO</option>
+              <option value="Maintenance & Security">Maintenance & Security</option>
+              <option value="Retainers">Retainers</option>
               <option value="General Consultation">General Consultation</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="budget_range" className="block text-sm font-medium text-primary-700 mb-2">
+                Budget Range *
+              </label>
+              <select
+                id="budget_range"
+                name="budget_range"
+                value={formData.budget_range}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
+              >
+                <option value="">Select budget range</option>
+                <option value="Under R25,000">Under R25,000</option>
+                <option value="R25,000 - R50,000">R25,000 - R50,000</option>
+                <option value="R50,000 - R100,000">R50,000 - R100,000</option>
+                <option value="R100,000 - R250,000">R100,000 - R250,000</option>
+                <option value="Over R250,000">Over R250,000</option>
+                <option value="Monthly retainer">Monthly retainer</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="timeline" className="block text-sm font-medium text-primary-700 mb-2">
+                Timeline *
+              </label>
+              <select
+                id="timeline"
+                name="timeline"
+                value={formData.timeline}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
+              >
+                <option value="">Select timeline</option>
+                <option value="ASAP (Rush job)">ASAP (Rush job)</option>
+                <option value="Within 1 month">Within 1 month</option>
+                <option value="2-3 months">2-3 months</option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6+ months">6+ months</option>
+                <option value="Just exploring">Just exploring</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="current_website" className="block text-sm font-medium text-primary-700 mb-2">
+                Current Website URL (if applicable)
+              </label>
+              <input
+                type="url"
+                id="current_website"
+                name="current_website"
+                value={formData.current_website}
+                onChange={handleInputChange}
+                autoComplete="url"
+                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
+                placeholder="https://example.com"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="current_stack" className="block text-sm font-medium text-primary-700 mb-2">
+                Current Tech Stack (if known)
+              </label>
+              <input
+                type="text"
+                id="current_stack"
+                name="current_stack"
+                value={formData.current_stack}
+                onChange={handleInputChange}
+                autoComplete="off"
+                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
+                placeholder="WordPress, React, Custom, etc."
+              />
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="preferred_contact" className="block text-sm font-medium text-primary-700 mb-2">
+              Preferred Contact Method *
+            </label>
+            <select
+              id="preferred_contact"
+              name="preferred_contact"
+              value={formData.preferred_contact}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-600 focus:border-accent-600 transition-colors bg-neutral-50"
+            >
+              <option value="email">Email</option>
+              <option value="call">Phone Call</option>
+              <option value="whatsapp">WhatsApp</option>
             </select>
           </div>
 

@@ -2,9 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
-
 :root {
   /* === STRICT BNK BRAND PALETTE - ONLY THESE 6 COLORS ALLOWED === */
   
@@ -104,23 +101,27 @@ body {
   
   /* STRICT BODY BUTTON SYSTEM - Navy background #0B2A3D + Gold text #D6B071 */
   .btn {
-    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium transition-all duration-200 rounded-lg focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
-    focus-ring-color: var(--focus-ring);
+    /* stylelint-disable-next-line at-rule-no-unknown */
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-bnk-bronze focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
   }
 
   .btn-primary {
+    /* stylelint-disable-next-line at-rule-no-unknown */
     @apply bg-bnk-navy text-bnk-gold border-2 border-bnk-navy;
   }
   
   .btn-primary:hover {
+    /* stylelint-disable-next-line at-rule-no-unknown */
     @apply bg-bnk-navy text-bnk-gold opacity-90;
   }
 
   .btn-outline {
+    /* stylelint-disable-next-line at-rule-no-unknown */
     @apply border-2 border-bnk-navy text-bnk-navy bg-transparent;
   }
   
   .btn-outline:hover {
+    /* stylelint-disable-next-line at-rule-no-unknown */
     @apply bg-bnk-navy text-bnk-gold;
   }
   
@@ -148,10 +149,12 @@ body {
 
   /* Layout System */
   .section-padding {
+    /* stylelint-disable-next-line at-rule-no-unknown */
     @apply px-4 sm:px-6 lg:px-8;
   }
 
   .container {
+    /* stylelint-disable-next-line at-rule-no-unknown */
     @apply mx-auto max-w-7xl section-padding;
   }
 

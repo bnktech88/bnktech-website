@@ -52,23 +52,25 @@ export interface Service {
 export const services: Service[] = [
   {
     id: 'website-builds',
-    title: 'Website Builds',
-    description: 'High-performance, modern websites built with cutting-edge technology for maximum speed, security, and scalability.',
+    title: 'Website Builds & Maintenance',
+    description: 'Professional web development and maintenance services delivering high-performance, SEO-optimized websites that drive business growth. From small business websites to enterprise e-commerce platforms, we build modern, scalable solutions using the latest technologies.',
     features: [
-      'Custom responsive design',
-      'Sub-2 second load times',
-      'SEO optimization',
-      'Mobile-first approach',
-      'CMS integration',
-      'E-commerce capabilities',
-      'Progressive Web App features',
-      'Advanced analytics setup'
+      'Custom responsive design optimized for all devices',
+      'Sub-2 second load times with performance optimization',
+      'Technical SEO and search engine optimization',
+      'Mobile-first responsive development approach',
+      'Content Management System (CMS) integration',
+      'E-commerce and online store development',
+      'Progressive Web App (PWA) capabilities',
+      'Google Analytics and conversion tracking setup',
+      'SSL security and GDPR compliance',
+      'Ongoing maintenance and support packages'
     ],
     process: [
-      'Discovery & Strategy',
-      'Design & Prototyping', 
-      'Development & Testing',
-      'Launch & Optimization'
+      'Discovery & Strategy: Requirements gathering, competitor analysis, and technical planning',
+      'Design & Prototyping: UI/UX design, wireframes, and interactive prototypes', 
+      'Development & Testing: Frontend/backend coding, quality assurance, and performance testing',
+      'Launch & Optimization: Deployment, SEO setup, analytics configuration, and ongoing optimization'
     ],
     pricing: {
       starting: 'R5,000',
@@ -97,6 +99,32 @@ export const services: Service[] = [
         end: 'bottom 20%'
       }
     }
+  },
+  {
+    id: 'digital-marketing',
+    title: 'Digital Marketing',
+    description: 'Comprehensive digital marketing strategies to grow your online presence and drive qualified leads to your business — launching soon.',
+    features: [
+      'SEO & Content Strategy',
+      'Pay-Per-Click Advertising (PPC)',
+      'Social Media Management',
+      'Email Marketing Automation',
+      'Analytics & Conversion Tracking',
+      'Brand Positioning & Messaging',
+      'Lead Generation Campaigns',
+      'Performance Reporting'
+    ],
+    process: [
+      'Marketing Strategy & Audit',
+      'Campaign Development',
+      'Implementation & Launch',
+      'Optimization & Reporting'
+    ],
+    pricing: {
+      starting: 'Coming Soon',
+      model: 'Available in future'
+    },
+    status: 'coming-soon'
   },
   {
     id: 'app-development',

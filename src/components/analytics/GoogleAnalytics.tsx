@@ -30,17 +30,27 @@ export default function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
 
 // Event tracking functions for client-side usage
 export const trackEvent = (eventName: string, parameters?: Record<string, any>) => {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', eventName, parameters)
+  try {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', eventName, parameters)
+    }
+  } catch (error) {
+    // Silently handle analytics blocking (adblockers, etc.)
+    console.debug('Analytics tracking blocked or failed:', eventName)
   }
 }
 
 export const trackPageView = (url: string, title?: string) => {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('config', process.env.NEXT_PUBLIC_GA_ID, {
-      page_path: url,
-      page_title: title,
-    })
+  try {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('config', process.env.NEXT_PUBLIC_GA_ID, {
+        page_path: url,
+        page_title: title,
+      })
+    }
+  } catch (error) {
+    // Silently handle analytics blocking (adblockers, etc.)
+    console.debug('Page view tracking blocked or failed:', url)
   }
 }
 

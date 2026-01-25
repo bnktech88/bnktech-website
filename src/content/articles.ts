@@ -139,7 +139,7 @@ Your website is your digital storefront. Like a physical store, it requires regu
 
 Don't let poor maintenance hurt your online success. Our comprehensive maintenance packages start from R1,500/month and include everything your South African business needs to thrive online.
 
-[Book a 15-minute consultation](/contact#book-call) to discuss your website maintenance needs, or [request a detailed proposal](/contact#proposal) for your specific requirements.
+[Book a 30-minute consultation](/contact#book-call) to discuss your website maintenance needs, or [request a detailed proposal](/contact#proposal) for your specific requirements.
 
 ---
 
@@ -526,7 +526,7 @@ Choosing a web development partner is a critical business decision. At BNK Tech,
 - Comprehensive post-launch support
 - Modern, performance-focused development
 
-Ready to discuss your project? [Book a 15-minute consultation](/contact#book-call) to explore how we can help your business succeed online, or [request a detailed proposal](/contact#proposal) for your specific requirements.
+Ready to discuss your project? [Book a 30-minute consultation](/contact#book-call) to explore how we can help your business succeed online, or [request a detailed proposal](/contact#proposal) for your specific requirements.
 
 ---
 

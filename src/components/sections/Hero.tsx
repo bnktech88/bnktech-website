@@ -117,7 +117,7 @@ export default function Hero() {
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row gap-6 justify-center">
           <Link href="/contact#book-call" className="btn-primary px-12 py-6 rounded-lg text-lg font-medium transition-all duration-200">
-            Book a 15-min Call
+            Book a 30-min Call
           </Link>
           <Link href="/work" className="btn-outline px-12 py-6 rounded-lg text-lg font-medium transition-all duration-200">
             View Proof

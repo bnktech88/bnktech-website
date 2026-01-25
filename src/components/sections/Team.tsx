@@ -136,7 +136,7 @@ export default function Team() {
                 href="/contact#book-call" 
                 className="bg-bnk-navy text-bnk-gold px-8 py-4 rounded-lg font-medium hover:bg-bnk-navy/90 transition-all duration-200"
               >
-                Book a 15-min Call
+                Book a 30-min Call
               </Link>
               <Link 
                 href="/work" 

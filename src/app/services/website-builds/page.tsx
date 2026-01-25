@@ -388,7 +388,7 @@ export default function WebsiteBuildsPage() {
               href="/contact#book-call"
               className="bg-bnk-navy text-bnk-gold px-8 py-4 rounded-lg font-medium hover:bg-bnk-navy/90 transition-all duration-200 inline-flex items-center justify-center"
             >
-              Book a 15-min Call <ArrowRight className="ml-2 w-4 h-4" />
+              Book a 30-min Call <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
             <Link 
               href="/contact#proposal"

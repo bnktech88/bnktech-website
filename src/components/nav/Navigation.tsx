@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import { ChevronDown } from 'lucide-react'
 import { siteConfig } from '@/content/site'
 import { cn } from '@/lib/utils'
+import CalendlyButton from '@/components/CalendlyButton'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -208,12 +209,11 @@ export default function Navigation() {
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <Link 
-            href="/contact#book-call" 
+          <CalendlyButton
+            url="https://calendly.com/bnktech-net/30min"
+            label="Book a 30-min Call"
             className="bg-bnk-bronze hover:bg-bnk-gold text-bnk-navy px-6 py-2.5 rounded-lg font-medium transition-all duration-200"
-          >
-            Book a 15-min Call
-          </Link>
+          />
           <Link 
             href="/contact#proposal" 
             className="border border-bnk-bronze text-bnk-bronze hover:bg-bnk-bronze hover:text-bnk-navy px-6 py-2.5 rounded-lg font-medium transition-all duration-200"
@@ -332,13 +332,13 @@ export default function Navigation() {
               )
             })}
             <div className="pt-4 space-y-3">
-              <Link
-                href="/contact#book-call"
-                className="bg-bnk-bronze hover:bg-bnk-gold text-bnk-navy px-6 py-3 rounded-lg font-medium transition-all duration-200 w-full flex justify-center"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Book a 15-min Call
-              </Link>
+              <div onClick={() => setIsMenuOpen(false)}>
+                <CalendlyButton
+                  url="https://calendly.com/bnktech-net/30min"
+                  label="Book a 30-min Call"
+                  className="bg-bnk-bronze hover:bg-bnk-gold text-bnk-navy px-6 py-3 rounded-lg font-medium transition-all duration-200 w-full flex justify-center"
+                />
+              </div>
               <Link
                 href="/contact#proposal"
                 className="border border-bnk-bronze text-bnk-bronze hover:bg-bnk-bronze hover:text-bnk-navy px-6 py-3 rounded-lg font-medium transition-all duration-200 w-full flex justify-center"

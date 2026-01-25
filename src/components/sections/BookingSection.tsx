@@ -2,34 +2,30 @@
 
 import { Calendar, MessageCircle, Mail, Clock } from 'lucide-react'
 import { siteConfig } from '@/content/site'
+import CalendlyButton from '@/components/CalendlyButton'
 
-// Client-side event tracking function
+// Client-side event tracking function with adblocker safety
 const trackEvent = (eventName: string, properties?: Record<string, any>) => {
-  // GA4 tracking (when implemented)
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', eventName, properties)
+  try {
+    // GA4 tracking (when implemented)
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', eventName, properties)
+    }
+    
+    // Console log for development
+    console.log('Event tracked:', eventName, properties)
+  } catch (error) {
+    // Silently handle analytics blocking (adblockers, etc.)
+    console.debug('Analytics tracking blocked or failed:', eventName)
   }
-  
-  // Console log for development
-  console.log('Event tracked:', eventName, properties)
 }
 
 export default function BookingSection() {
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || '#'
-  
   const handleBookCallClick = () => {
     trackEvent('book_call_click', {
       source: 'contact_page',
       button_location: 'booking_section'
     })
-    
-    if (calendlyUrl === '#') {
-      alert('Calendly integration coming soon. Please use the contact form or call directly.')
-      return
-    }
-    
-    // Open Calendly in a new window
-    window.open(calendlyUrl, '_blank', 'width=800,height=700')
   }
   
   const handleWhatsAppClick = () => {
@@ -50,7 +46,7 @@ export default function BookingSection() {
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-bnk-gold">
-            Book Your Free 15-Minute Consultation
+            Book Your Free 30-Minute Consultation
           </h2>
           <p className="text-xl text-bnk-gold/80 max-w-3xl mx-auto text-balance">
             Let's discuss your project and see if we're a good fit. No sales pitch, 
@@ -70,12 +66,13 @@ export default function BookingSection() {
               Pick a time that works for you. We'll discuss your project requirements 
               and technical approach.
             </p>
-            <button
-              onClick={handleBookCallClick}
-              className="w-full bg-bnk-bronze text-white py-3 px-6 rounded-lg font-medium hover:bg-bnk-bronze/90 transition-all duration-200"
-            >
-              Book 15-Min Call
-            </button>
+            <div onClick={handleBookCallClick}>
+              <CalendlyButton
+                url="https://calendly.com/bnktech-net/30min"
+                label="Book 30-min Call"
+                className="w-full bg-bnk-bronze text-white py-3 px-6 rounded-lg font-medium hover:bg-bnk-bronze/90 transition-all duration-200"
+              />
+            </div>
           </div>
           
           <div className="bg-bnk-gold/10 rounded-xl p-8 text-center border border-bnk-gold/20">

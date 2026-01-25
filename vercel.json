@@ -1,21 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "https://bnktech.net/:path*",
-      "destination": "https://www.bnktech.net/:path*",
-      "statusCode": 301
-    },
-    {
-      "source": "http://bnktech.net/:path*", 
-      "destination": "https://www.bnktech.net/:path*",
-      "statusCode": 301
-    },
-    {
-      "source": "http://www.bnktech.net/:path*",
-      "destination": "https://www.bnktech.net/:path*", 
-      "statusCode": 301
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
